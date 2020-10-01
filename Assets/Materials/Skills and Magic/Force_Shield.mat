@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Force_Shield
+  m_Shader: {fileID: -6465566751694194690, guid: 60c6172c5afce144a9f25b224df87725, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_12446FFE:
+        m_Texture: {fileID: 2800000, guid: 2a0813c3299342f49ab6c17ae79278ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_FEA8EE50:
+        m_Texture: {fileID: 2800000, guid: 8a9e51113f01a9549bfeb27b7cf1769a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 2a0813c3299342f49ab6c17ae79278ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _scanTexture:
+        m_Texture: {fileID: 2800000, guid: 8a9e51113f01a9549bfeb27b7cf1769a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texturePattern:
+        m_Texture: {fileID: 2800000, guid: 2a0813c3299342f49ab6c17ae79278ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_2772038D: 0.75
+    - Vector1_2D19D113: 50
+    - Vector1_34930DB: 0.1
+    - Vector1_39C49E03: 4.41
+    - Vector1_45D5174A: 1
+    - Vector1_4D0B7B3C: 0
+    - Vector1_57A330AF: 10
+    - Vector1_668290F2: -0.9
+    - Vector1_68706F08: 0.08
+    - Vector1_6EA7405E: 0
+    - Vector1_95551E42: 0.28
+    - Vector1_AF7C0EE4: 0.25
+    - Vector1_B23946BB: 0.87
+    - Vector1_BC851999: 4
+    - Vector1_D4C2FB80: 0
+    - Vector1_D58A3951: 0
+    - Vector1_F650511C: 1
+    - _edgeOffset: 0.25
+    - _enableFillTexture: 1
+    - _enableIntersection: 1
+    - _enableRimGlow: 1
+    - _enableRipple: 1
+    - _enableScanLine: 1
+    - _fill: 0.1
+    - _impactRippleAmplitude: 0
+    - _impactRippleMaxRadius: 0.1
+    - _impactRippleSpeed: 0
+    - _intersectionMultiplier: 1
+    - _rimNoiseDensity: 15
+    - _rimNoiseSpeed: 2
+    - _rimSpeed: 5
+    - _scanSize: 0.75
+    - _scanSpeed: 0.75
+    m_Colors:
+    - Color_1CF6A93D: {r: 0.56470585, g: 0, b: 1, a: 0}
+    - Color_DCBEC75C: {r: 3.0431373, g: 1.9764706, b: 4.2352943, a: 0}
+    - Vector2_55A6E3F9: {r: 2, g: 2, b: 0, a: 0}
+    - Vector2_D1690EC8: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - Vector2_DA7F95EC: {r: 10, g: 4, b: 0, a: 0}
+    - Vector3_BCD0CCB0: {r: 0, g: 0, b: 1, a: 0}
+    - Vector3_D63BE403: {r: 0, g: 0, b: 0, a: 0}
+    - _baseColor: {r: 0, g: 0.11812544, b: 1, a: 0}
+    - _glowColor: {r: 1.6941177, g: 0, b: 5.992157, a: 0}
+    - _impactPoint: {r: 0, g: 0, b: 0, a: 0}
+    - _impactRippleDirection: {r: 0, g: 0, b: 1, a: 0}
+    - _rimPower: {r: 10, g: 3, b: 0, a: 0}
+    - _textureTiling: {r: 4, g: 4, b: 0, a: 0}
+    - _textureVelocity: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

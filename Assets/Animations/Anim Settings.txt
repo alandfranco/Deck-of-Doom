@@ -1,0 +1,90 @@
+
+------------------SETTINGS----------------------
+
+Para settear el modelo del personaje hay que tener en cuenta varias cosas!
+
+Por modelo nos referimos a la parte visual del personaje, la que guarda las animaciones, mesh, materiales, texturas, etc.
+
+El gameObject que contenga el modelo va a necesitar los siguientes Scripts:
+-Animator Handler (Que recibe ordenes del Brain para manejar animaciones y valores del Animator)
+-Weapon Slot Manager (Que se encarga de ubicar las armas en las manos del personaje)
+-Vfx Handler (De ser necesario! Contiene un array con todos los efectos que el personaje puede usar)
+-IKFooTPlacement (Maneja la ubicacion de los pies)
+
+------------------ANIMATOR HANDLER----------------------
+No necesita ningún seteo previo, pero por las dudas se puede agregar el Animator a mano en el Inspector.
+
+------------------WEAPON SLOT MANAGER----------------------
+Para que esto funciones es necesario Modificar los huesos de ambas manos.
+En la mano derecha hay que agregar el Script "Weapon Holder Slot" y setear en este el bool "isRightHandSlot"
+En la mano derecha hay que agregar el Script "Weapon Holder Slot" y setear en este el bool "isRightHandSlot"
+
+ParentOverride es la ubicacion que se pasa al arma, en el caso de la mano derecha se usa la misma posicion del hueso.
+Para la mano izquierda hay que agregar un objeto vacío centrado en el hueso y pasar este en ParentOverride.
+
+CurrentWeaponModel = None (esto se setea por codigo)
+
+------------------VFX HANDLER----------------------
+Animator se setea solo, pero por las dudas se puede hacer a mano.
+
+El array AllVfx hay que agregarlo a mano.
+Hay que agregar un gameObject vacio (el cual es hijo del Player, no del modelo. es "hermano" del modelo)
+Este objeto va a contener todos los effectos ("apagados") con sus posiciones respectivas.
+
+VfxContainer:
+--Slash_00
+--Slash_01
+--ETC
+
+VfxNumber queda 0 por default y se modifica en RunTime.
+
+------------------IK FOOT PLACEMENT----------------------
+LayerMask va a excluir las layers con las que no se quiere que los pies interactuen.
+Esto ayuda a los Raycast a no chocar con todo, en especial con el personaje.
+
+Distance to Ground dependera del modelo, hay que setearlo a ojo.
+
+El script se encarga de modificar el weight de cada pie para saber cuando debe alterar el IK y cuando no.
+El peso lo obtiene de parametros en el Animator, los cuales a su vez reciben su valor de la animacion actual.
+
+Es necesario en cada clip de animacion setear 2 curvas, una para el pie izquierdo y otra para el derecho.
+Dentro de la curva:
+-1 Representa peso maximo, es decir cuando el pie toca el piso.
+-0 Representa peso nulo, es decir cuando el pie está en el aire.
+
+Las curvas deben llamarse igual que los parametros dentro del animator
+
+
+------------------ANIMATION EVENTS----------------------
+Hay que setear dentro de AnimationWindow todos los eventos que deseen llamarse durante una animacion.
+
+El manejo del combo y efectos se hace desde las animaciones de ataque en frames especificos.
+
+Tener en cuenta que solo se pueden llamar Funciones publicas y que no requieran parametros.
+
+------------------IK OVERRIDES----------------------
+OPCIONALES:
+Si se necesita hacer un override de partes individuales del Rig, se puede hacer lo siguiente.
+//SE NECESITA EL PACKAGE "Animation Rigging" instalado en el proyecto
+
+Seleccionando el objeto donde se encuentra el Animator, que es padre de todos los huesos del rig.
+1- AnimationRigging/BoneRenderer
+2- AnimationRigging/RigSetup
+
+Esto va a crear 2 componentes en el objeto.. RigBuilder y BoneRenderer.
+
+Además al usar RigSetup se va a agregar un nuevo objeto en escena llamado "Rig".
+
+Lo siguiente es crear un nido de objetos en el siguiente orden segun funcionalidad.
+
+Rig/ParteDelCuerpo/Objetivo
+HeadOverride/HeadAim/Target
+
+donde HeadOverride es el Rig. por lo tanto va a poseer el componente Rig dentro de si mismo.
+A continuación dentro de HeadOverride se puede agregar algun componente que modifique el IK de los huesos.
+Estos se encuentran en AddComponent/AnimationRigging/...
+
+Por ej: Multi-Aim Constraint (el cual hace que el hueso afectado apunte a Target).
+
+
+

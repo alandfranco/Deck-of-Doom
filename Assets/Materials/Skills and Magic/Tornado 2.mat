@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tornado 2
+  m_Shader: {fileID: -6465566751694194690, guid: 4021b53780e446f42a31cd069e58afc7, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _dissolve: -0.11
+    - _intensity: 1.2
+    - _noisePower: 0.68
+    - _noiseScale: 15.2
+    - _twirlAmount: 62.93
+    - _twirlScale: 0.02
+    - _wobbleAmount: 0.18
+    - _wobbleFrequency: 1.35
+    - _wobbleIntensity: 1.75
+    - _wobbleSpeed: 5
+    m_Colors:
+    - Vector4_483B6335: {r: 0, g: 1, b: 0.25, a: 1}
+    - _color: {r: 0.11960784, g: 0.11960784, b: 0.11960784, a: 0}
+    - _noiseSpeed: {r: 0, g: 1, b: 0, a: 0}
+    - _twirlCenter: {r: 240, g: 20, b: 0, a: 0}
+    - _twirlSpeed: {r: 2, g: 0.2, b: 0, a: 0}
+  m_BuildTextureStacks: []

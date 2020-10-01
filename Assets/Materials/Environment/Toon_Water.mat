@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3276518799490292817
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Toon_Water
+  m_Shader: {fileID: -6465566751694194690, guid: c6472dda93f32144eae8491991cc20fa, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_2D167717:
+        m_Texture: {fileID: 2800000, guid: 7cc1ae2487aab584db5cf18dfa0f3ff0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_EFEA822B:
+        m_Texture: {fileID: 2800000, guid: 8f02f505176e41a4fa5d3949018acca2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _displacementTexture:
+        m_Texture: {fileID: 2800000, guid: 7cc1ae2487aab584db5cf18dfa0f3ff0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normalMap:
+        m_Texture: {fileID: 2800000, guid: 8f02f505176e41a4fa5d3949018acca2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_624D55BD: 3.6
+    - Vector1_74E7803E: 0.05
+    - Vector1_85AD1487: 1.53
+    - Vector1_86127C7: 0
+    - Vector1_8A0822C1: 0.03
+    - Vector1_8DD4F0CE: 0.34
+    - Vector1_9B647D4F: 1
+    - Vector1_BD1C52C5: 0.64
+    - Vector1_E2B3BA7B: 1.04
+    - Vector1_EF6D5A74: 1.01
+    - Vector1_FE9BD69A: 0.38
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _BumpScale: 1
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _EnvironmentReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _Metallic: 0
+    - _OcclusionStrength: 1
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    - _depthDistance: -1
+    - _depthStrength: -0.1
+    - _displaceStrength: 3
+    - _foamDIstance: 0.34
+    - _fresnelPower: 1
+    - _normalStrength: 1
+    - _normalTilingA: 0.2
+    - _normalTilingB: 0.5
+    - _panSpeedA: 0.01
+    - _panSpeedB: 0.02
+    - _refractStrength: 0.1
+    m_Colors:
+    - Color_3AB42863: {r: 0, g: 0.7038722, b: 1, a: 0}
+    - Color_757677E4: {r: 0, g: 0.065446734, b: 0.8018868, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _bottomColor: {r: 0.01027944, g: 0.101633854, b: 0.7264151, a: 0}
+    - _topColor: {r: 0, g: 0.7342432, b: 1, a: 0}
+  m_BuildTextureStacks: []
