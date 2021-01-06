@@ -15,6 +15,10 @@ public class InputHandler : MonoBehaviour
     public bool heavyAttack_Input;
     public bool block_Input;
     public bool jump_Input;
+    public bool skill_input1;
+    public bool skill_input2;
+    public bool skill_input3;
+    public bool skill_input4;
 
     public bool rollFlag;
     public bool sprintFlag;
@@ -26,6 +30,7 @@ public class InputHandler : MonoBehaviour
     PlayerAttacker playerAttacker;
     PlayerInventory playerInventory;
     PlayerManager playerManager;
+    SkillManager skillManager;
 
     Vector2 _movementInput;
     Vector2 _cameraInput;
@@ -36,6 +41,7 @@ public class InputHandler : MonoBehaviour
         playerAttacker = GetComponent<PlayerAttacker>();
         playerInventory = GetComponent<PlayerInventory>();
         playerManager = GetComponent<PlayerManager>();
+        skillManager = GetComponent<SkillManager>();
 
         if (inputActions == null)
         {
@@ -70,6 +76,8 @@ public class InputHandler : MonoBehaviour
         HandleRollInput(delta);
         HandleAttackInput(delta);
         HandleJumpInput();
+        HandleSkillOne();
+        HandleSkillTwo();
     }
 
     private void MoveInput(float delta)
@@ -150,6 +158,26 @@ public class InputHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    void HandleSkillOne()
+    {
+        skill_input1 = inputActions.Player.Skill1.triggered;
+
+        if (skill_input1)
+        {
+            skillManager.PerformSkilOne();
+        }
+    }
+
+    void HandleSkillTwo()
+    {
+        skill_input2 = inputActions.Player.Skill2.triggered;
+
+        if (skill_input2)
+        {
+            skillManager.PerfomSkillTwo();
+        }
+    }
+
     /*
     void Sprint() { Debug.Log("Sprint"); }
 
@@ -165,9 +193,9 @@ public class InputHandler : MonoBehaviour
 
     void Block() { Debug.Log("Block"); }
 
-    void SkillOne() { Debug.Log("Skill1"); }
+    
 
-    void SkillTwo() { Debug.Log("Skill2"); }
+    
 
     void SkillThree() { Debug.Log("Skill3"); }
 
