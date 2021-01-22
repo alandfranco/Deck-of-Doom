@@ -3,89 +3,96 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class HideAction : GOAPAction
+public class GotScaredAction : GOAPAction
 {
-    private bool moved = false;
-    private float dashSpeed;
+    private bool isScared;
+    private bool endScared;
+    public float count;
     private Transform dashTarget;
-    private bool isDashing = false;
 
-    public HideAction()
+    public GotScaredAction()
     {
         addEffect("stayAlive", true);
-        cost = 50;
-        dashSpeed = 2;
         requiesVision = false;
+        cost = 1;
+        endScared = false;
     }
 
     private void Update()
     {
         Enemy curr = GetComponent<Enemy>();
-        
-        if(target != null && Vector3.Distance(target.transform.position, this.transform.position) <= curr.agent.stoppingDistance)
+
+        isScared = curr.isScared;
+        if(isScared)
         {
-            isDashing = false;
-            target = null;
+            count -= Time.deltaTime;
+            if (count <= 0)
+            {
+                isScared = false;
+                curr.isScared = false;
+            }
         }
+
+        Debug.Log(isScared + " isScaqred");
     }
 
     public override void Reset()
-    {
-        moved = false;
+    {        
+        //isScared = false;
         target = null;
     }
 
     public override bool IsDone()
     {
-        return moved;
+        //GetComponent<Enemy>().isScared = false;
+        //isScared = false;
+        return endScared;
     }
 
     public override bool RequiresInRange()
     {
-        return true;
+        return false;
     }
 
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
         Enemy currE = agent.GetComponent<Enemy>();
-        var player = FindObjectOfType<PlayerMovement>();
 
         dashTarget = FindObjectOfType<HideSpots>().hideSpots
             .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position))
             .Last();
 
-        if (Vector3.Distance(this.transform.position, player.transform.position) <= 5 && currE.stamina >= cost)
+        if (isScared)
         {
             target = dashTarget.gameObject;
             currE.agent.isStopped = false;
+            Debug.Log("Te doy true");
             return true;
         }
         else
+        {
+            Debug.Log("Te doy false " + isScared);
             return false;
+        }
     }
 
     public override bool Perform(GameObject agent)
     {
+        Debug.LogWarning("ENTRE AL PERFOM ");
         Enemy currEnemy = agent.GetComponent<Enemy>();
-        if (currEnemy.stamina >= (cost) && !isDashing)
+        if (isScared)
         {
-            currEnemy.agent.speed *= dashSpeed;
-            //target.GetComponent<TakeDamage>().TakeDamage();
-            
-            currEnemy.stamina -= cost;
-
-            isDashing = true;
-
             dashTarget = FindObjectOfType<HideSpots>().hideSpots
             .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position))
             .Last();
             currEnemy.agent.destination = dashTarget.position;
             target = dashTarget.gameObject;
-
-            moved = true;            
+            endScared = true;
             return true;
         }
         else
+        {
             return false;
+        }
     }
 }

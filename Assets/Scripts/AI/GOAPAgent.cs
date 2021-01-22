@@ -9,7 +9,7 @@ public sealed class GOAPAgent : MonoBehaviour {
 	private FSM.FSMState idleState;
 	private FSM.FSMState moveToState;
 	private FSM.FSMState performActionState;
-
+    
 	private HashSet<GOAPAction> availableActions;
 	private Queue<GOAPAction> currentActions;
 	private IGOAP dataProvider;
@@ -31,12 +31,12 @@ public sealed class GOAPAgent : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {        
 		stateMachine.Update (this.gameObject);
-        /*foreach (var item in currentActions)
+        foreach (var item in availableActions)
         {
-            Debug.Log(item);
-        }*/
+           // Debug.Log(item);
+        }
 	}
 
 	public void addAction(GOAPAction action){

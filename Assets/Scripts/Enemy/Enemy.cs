@@ -18,6 +18,8 @@ public abstract class Enemy : MonoBehaviour, IGOAP
     [HideInInspector]
     public Animator anim;
 
+    public bool isScared;
+
     private void Start()
     {
         SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/HealerEnemy"));
@@ -42,9 +44,22 @@ public abstract class Enemy : MonoBehaviour, IGOAP
             Invoke("PassiveRegen", 1.0f);
         else
             stamina = config.maxStamina;
+
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            GetScared(3f);
+        }
+
+        //Debug.LogWarning(isScared);
     }
 
     public abstract void PassiveRegen();
+
+    public virtual void GetScared(float duration)
+    {
+        isScared = true;
+        GetComponent<GotScaredAction>().count = duration;        
+    }
 
     #region GOAP
     public HashSet<KeyValuePair<string, object>> getWorldState()

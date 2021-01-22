@@ -30,13 +30,19 @@ public class BasicMeleeAction : GOAPAction
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
         target = FindObjectOfType<PlayerMovement>().gameObject;
-        return target != null;
+        if (this.GetComponent<Enemy>().isScared)
+        {
+            target = null;
+            return false;
+        }
+        else
+            return target != null;
     }
 
     public override bool Perform(GameObject agent)
     {
         Enemy currEnemy = agent.GetComponent<Enemy>();
-        if (currEnemy.stamina >= (cost))
+        if (currEnemy.stamina >= (cost) && !currEnemy.isScared)
         {
             currEnemy.agent.isStopped = true;
             currEnemy.anim.Play("Attack");

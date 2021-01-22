@@ -18,6 +18,11 @@ public class BasicMeleeEnemy : Enemy
         stamina += config.staminaRegen * Time.deltaTime;
     }
 
+    public override void GetScared(float duration)
+    {
+        base.GetScared(duration);
+    }
+
     public override HashSet<KeyValuePair<string, object>> createGoalState()
     {
         HashSet<KeyValuePair<string, object>> goal = new HashSet<KeyValuePair<string, object>>();

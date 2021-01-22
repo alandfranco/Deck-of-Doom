@@ -49,7 +49,7 @@ public class InputHandler : MonoBehaviour
             inputActions = new Controls();
 
             inputActions.Player.Movement.performed += ctx => _movementInput = ctx.ReadValue<Vector2>();
-            inputActions.Player.XYAxis.performed += ctx => _cameraInput = ctx.ReadValue<Vector2>();
+            //inputActions.Player.XYAxis.performed += ctx => _cameraInput = ctx.ReadValue<Vector2>();
         }
 
         SetCursorState(false, true);
@@ -85,8 +85,8 @@ public class InputHandler : MonoBehaviour
         horizontal = _movementInput.x;
         vertical = _movementInput.y;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));
-        mouseX = _cameraInput.x;
-        mouseY = _cameraInput.y;
+        //mouseX = _cameraInput.x;
+        //mouseY = _cameraInput.y;
     }
 
     private void HandleRollInput(float delta)
