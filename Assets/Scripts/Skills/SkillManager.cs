@@ -34,6 +34,13 @@ public class SkillManager : MonoBehaviour
         skills[1].TriggerAbility();
     }
 
+    public void PerfomSkillThree()
+    {
+        skills[2].transform.position = this.transform.position;
+        skills[2].gameObject.SetActive(true);
+        skills[2].TriggerAbility();
+    }
+
     public void AimingPoint()
     {
         int layerMask2 = 1 << 10;

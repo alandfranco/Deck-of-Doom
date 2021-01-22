@@ -44,12 +44,7 @@ public abstract class Enemy : MonoBehaviour, IGOAP
             Invoke("PassiveRegen", 1.0f);
         else
             stamina = config.maxStamina;
-
-        if(Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            GetScared(3f);
-        }
-
+        
         //Debug.LogWarning(isScared);
     }
 

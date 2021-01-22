@@ -78,6 +78,7 @@ public class InputHandler : MonoBehaviour
         HandleJumpInput();
         HandleSkillOne();
         HandleSkillTwo();
+        HandleSKillThree();
     }
 
     private void MoveInput(float delta)
@@ -178,6 +179,16 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    void HandleSKillThree()
+    {
+        skill_input3 = inputActions.Player.Skill3.triggered;
+
+        if(skill_input3)
+        {
+            skillManager.PerfomSkillThree();
+        }
+    }
+
     /*
     void Sprint() { Debug.Log("Sprint"); }
 
@@ -197,7 +208,7 @@ public class InputHandler : MonoBehaviour
 
     
 
-    void SkillThree() { Debug.Log("Skill3"); }
+    
 
     void SkillFour() { Debug.Log("Skill4"); }
 

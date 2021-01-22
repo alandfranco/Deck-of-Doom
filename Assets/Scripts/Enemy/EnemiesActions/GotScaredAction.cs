@@ -31,9 +31,7 @@ public class GotScaredAction : GOAPAction
                 isScared = false;
                 curr.isScared = false;
             }
-        }
-
-        Debug.Log(isScared + " isScaqred");
+        }        
     }
 
     public override void Reset()
@@ -66,19 +64,16 @@ public class GotScaredAction : GOAPAction
         {
             target = dashTarget.gameObject;
             currE.agent.isStopped = false;
-            Debug.Log("Te doy true");
             return true;
         }
         else
         {
-            Debug.Log("Te doy false " + isScared);
             return false;
         }
     }
 
     public override bool Perform(GameObject agent)
     {
-        Debug.LogWarning("ENTRE AL PERFOM ");
         Enemy currEnemy = agent.GetComponent<Enemy>();
         if (isScared)
         {
