@@ -51,4 +51,18 @@ public class ObjectPooler : MonoBehaviour
 
         return objectsToReturn;
     }
+
+    public GameObject GetPooledObject(GameObject _obj)
+    {
+        var _objetcToPool = pooledObjects.Where(x => x.name == _obj.name && !x.activeInHierarchy).FirstOrDefault();
+        
+        if (_objetcToPool == null)
+        {
+            GameObject obj = Instantiate(_obj);
+            obj.name = _obj.name;
+            _objetcToPool = obj;
+        }
+
+        return _objetcToPool;
+    }
 }

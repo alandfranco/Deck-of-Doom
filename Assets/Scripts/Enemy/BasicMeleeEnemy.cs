@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class BasicMeleeEnemy : Enemy
 {
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override void Update()
     {
         base.Update();
 
-        health -= 1 * Time.deltaTime;
+        health -= 0.5f * Time.deltaTime;
         if (health <= 0)
             this.gameObject.SetActive(false);
     }
@@ -21,6 +26,21 @@ public class BasicMeleeEnemy : Enemy
     public override void GetScared(float duration)
     {
         base.GetScared(duration);
+    }
+
+    public override void AddBuff(string effect, float bonus, float duration)
+    {
+        base.AddBuff(effect, bonus, duration);
+    }
+
+    public override IEnumerator RemoveBuff(string effect, float duration)
+    {
+        return base.RemoveBuff(effect, duration);
+    }
+
+    public override void VisualBuff()
+    {
+        base.VisualBuff();
     }
 
     public override HashSet<KeyValuePair<string, object>> createGoalState()

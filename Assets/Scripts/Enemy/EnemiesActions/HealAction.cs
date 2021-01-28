@@ -9,7 +9,7 @@ public class HealAction : GOAPAction
 
     public HealAction()
     {
-        addEffect("healEnemy", true);
+        addEffect("buffEnemy", true);
         cost = 100f;
     }
     public override void Reset()

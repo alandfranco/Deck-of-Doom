@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
             obj[currentSpawned].SetActive(true);
             currentSpawned++;            
             yield return new WaitForSeconds(0f);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
         }
         if (currentSpawned == amountToSpawn)
             StopAllCoroutines();

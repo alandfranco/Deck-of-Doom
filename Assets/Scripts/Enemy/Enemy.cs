@@ -9,7 +9,6 @@ public abstract class Enemy : MonoBehaviour, IGOAP
     public EnemySO config;
     [HideInInspector]
     public float health;
-    //[HideInInspector]
     public float stamina;
 
     [HideInInspector]
@@ -20,9 +19,16 @@ public abstract class Enemy : MonoBehaviour, IGOAP
 
     public bool isScared;
 
-    private void Start()
+    public GameObject weapon;
+
+    public Dictionary<string, float> buffs = new Dictionary<string, float>();
+
+    [Header("BuffsFXs")]
+    public GameObject venomFX;
+
+    protected virtual void Awake()
     {
-        SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/HealerEnemy"));
+        SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/BasicEnemy"));
     }
 
     public virtual void SetStartingValues(ScriptableObject SO)
@@ -43,9 +49,7 @@ public abstract class Enemy : MonoBehaviour, IGOAP
         if (stamina < config.maxStamina)
             Invoke("PassiveRegen", 1.0f);
         else
-            stamina = config.maxStamina;
-        
-        //Debug.LogWarning(isScared);
+            stamina = config.maxStamina;        
     }
 
     public abstract void PassiveRegen();
@@ -54,6 +58,46 @@ public abstract class Enemy : MonoBehaviour, IGOAP
     {
         isScared = true;
         GetComponent<GotScaredAction>().count = duration;        
+    }
+
+    public virtual void AddBuff(string effect, float bonus, float duration)
+    {
+        buffs.Add(effect, bonus);
+        Debug.Log("Agregue buff");
+        if(this.gameObject.activeInHierarchy)
+            StartCoroutine(RemoveBuff(effect, duration));
+    }
+
+    public virtual IEnumerator RemoveBuff(string effect, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        buffs.Remove(effect);
+        yield break;
+    }
+
+    public virtual float BonusBuff()
+    {
+        float bonus = 0f;
+        foreach (var item in buffs.Values)
+        {
+            bonus += item;
+        }
+        return bonus;
+    }
+
+    public virtual void VisualBuff()
+    {
+        if(buffs.ContainsKey("Venom"))
+        {
+            venomFX.SetActive(true);
+        }
+        else
+            venomFX.SetActive(false);
+    }
+
+    protected virtual void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     #region GOAP

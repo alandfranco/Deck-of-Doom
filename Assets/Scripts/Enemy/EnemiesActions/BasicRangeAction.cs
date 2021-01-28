@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class BasicMeleeAction : GOAPAction
+public class BasicRangeAction : GOAPAction
 {
     private bool attacked = false;
 
+    public float bulletSpeed;
+
     public GameObject bulletPrefab;
 
-    public BasicMeleeAction()
+    public BasicRangeAction()
     {
         addEffect("damagePlayer", true);
         cost = 100f;
@@ -37,6 +40,10 @@ public class BasicMeleeAction : GOAPAction
             target = null;
             return false;
         }
+        else if(this.GetComponent<Enemy>().config.attackDistance < Vector3.Distance(this.transform.position, target.transform.position))
+        {
+            return false;
+        }
         else
             return target != null;
     }
@@ -46,11 +53,21 @@ public class BasicMeleeAction : GOAPAction
         Enemy currEnemy = agent.GetComponent<Enemy>();
         if (currEnemy.stamina >= (cost) && !currEnemy.isScared)
         {
+            Vector3 targetDirection = target.transform.position - this.transform.position;
+            Vector3 newDirection = Vector3.RotateTowards(this.transform.forward, targetDirection, 120 * Time.deltaTime, 0.0f);
+            this.transform.rotation = Quaternion.LookRotation(newDirection);   
+            
             currEnemy.agent.isStopped = true;
             currEnemy.anim.Play("Attack");
-            
-            float damage = currEnemy.config.dmg;
-            //target.GetComponent<TakeDamage>().TakeDamage();
+
+            float damage = currEnemy.config.dmg + currEnemy.BonusBuff();
+            var bullet = ObjectPooler.instance.GetPooledObject(bulletPrefab);
+            bullet.SetActive(true);
+            bullet.transform.position = currEnemy.weapon.transform.position;
+            bullet.transform.forward = this.transform.forward;
+
+            bullet.GetComponent<EnemyBullet>().speed = bulletSpeed;
+            bullet.GetComponent<EnemyBullet>().damage = damage;
 
             currEnemy.stamina -= cost;
 
