@@ -13,8 +13,14 @@ public class NecroHand : Skills
 
     public Vector3 target;
 
+    GameObject pl;
+
+    public float dmg;
+    public float dmgInExplotion;
+
     private void OnEnable()
     {
+        pl = FindObjectOfType<PlayerMovement>().gameObject;
         target = GameObject.Find("AimingSpot").transform.position;
     }
 
@@ -32,17 +38,16 @@ public class NecroHand : Skills
         {            
             if(item.GetComponent<Enemy>())
             {
-                Debug.Log("Te pegue ñery " + item.name, item);
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion, pl);
             }            
         }
-        Debug.Log("Explote");
         this.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider c)
     {
-        if(c.GetComponent<Enemy>())
-            Debug.Log("Te pegue ñeri en movimiento");
+        if (c.GetComponent<Enemy>())
+            c.GetComponent<TakeDamage>().TakeDamageToHealth(dmg, pl);
     }
 
     private void OnDrawGizmos()

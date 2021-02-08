@@ -50,7 +50,7 @@ public class BasicMeleeAction : GOAPAction
             currEnemy.anim.Play("Attack");
             
             float damage = currEnemy.config.dmg;
-            //target.GetComponent<TakeDamage>().TakeDamage();
+            target.GetComponent<TakeDamage>().TakeDamageToHealth(currEnemy.config.dmg + currEnemy.BonusBuff(), this.gameObject);
 
             currEnemy.stamina -= cost;
 

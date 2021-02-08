@@ -8,7 +8,7 @@ using UnityEngine;
     Connnects all other functionality to player (other scripts)
 */
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : Entity
 {
     PlayerMovement playerMovement;
     InputHandler inputHandler;

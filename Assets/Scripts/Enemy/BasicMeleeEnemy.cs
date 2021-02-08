@@ -12,10 +12,6 @@ public class BasicMeleeEnemy : Enemy
     protected override void Update()
     {
         base.Update();
-
-        health -= 0.5f * Time.deltaTime;
-        if (health <= 0)
-            this.gameObject.SetActive(false);
     }
 
     public override void PassiveRegen()

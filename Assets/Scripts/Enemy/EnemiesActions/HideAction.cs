@@ -22,7 +22,7 @@ public class HideAction : GOAPAction
     {
         Enemy curr = GetComponent<Enemy>();
         
-        if(target != null && Vector3.Distance(target.transform.position, this.transform.position) <= curr.agent.stoppingDistance)
+        if(target != null && Vector3.Distance(target.transform.position, this.transform.position) <= curr.agent.stoppingDistance + 1)
         {
             isDashing = false;
             target = null;

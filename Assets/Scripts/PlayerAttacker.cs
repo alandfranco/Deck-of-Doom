@@ -11,6 +11,8 @@ public class PlayerAttacker : MonoBehaviour
 
     public bool DrawGizmos;
 
+    public float damage;
+
     private void Awake()
     {
         animatorHandler = GetComponentInChildren<AnimatorHandler>();
@@ -38,34 +40,33 @@ public class PlayerAttacker : MonoBehaviour
     {
         animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_1, true);
         lastAttack = weapon.OH_Light_Attack_1;
-        EnemiesInFront(2.2f);
+        EnemiesInFront(3f, 1);
     }
 
     public void HandleLightAttackCombo(WeaponItem weapon)
     {
         animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_2, true);
         lastAttack = weapon.OH_Light_Attack_2;
-        EnemiesInFront(2.2f);
+        EnemiesInFront(3f, 1.2f);
     }
 
     public void HandleHeavyAttack(WeaponItem weapon)
     {
         animatorHandler.PlayTargetAnimation(weapon.OH_Heavy_Attack_1, true);
         lastAttack = weapon.OH_Heavy_Attack_1;
-        EnemiesInFront(2.2f);
+        EnemiesInFront(3f, 2);
     }
 
-    void EnemiesInFront(float radious)
+    void EnemiesInFront(float radious, float dmgMultiplier)
     {
         var enemiesInFront = Physics.OverlapSphere(this.transform.position, radious);
 
-        var _enemiesInFront = enemiesInFront.Where(x => Mathf.Abs(Vector3.Angle(this.transform.forward, this.transform.position - x.transform.position))
-        <= 60).Select(x => x.GetComponent<Enemy>());
+        var _enemiesInFront = enemiesInFront.Where(x => Mathf.Abs(Vector3.Angle(this.transform.forward, x.transform.position - this.transform.position))
+        <= 90 && !x.GetComponent<PlayerMovement>() && x.GetComponent<Enemy>()).Select(x => x.GetComponent<Enemy>());
 
         foreach (var item in _enemiesInFront)
         {
-            //item.TakeDamage();
-            Debug.Log("TE PEGUE GATO");
+            item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, this.gameObject);
         }
     }
 

@@ -20,9 +20,9 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider c)
     {
-        if(c.TryGetComponent<PlayerMovement>(out var enemy))
+        if(c.TryGetComponent<PlayerMovement>(out var pl))
         {
-            //enemy.TakeDamage();
+            pl.GetComponent<TakeDamage>().TakeDamageToHealth(damage, this.gameObject);
         }
         if(!c.GetComponent<Enemy>())
         {

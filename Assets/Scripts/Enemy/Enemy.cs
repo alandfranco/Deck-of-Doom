@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : MonoBehaviour, IGOAP
+public abstract class Enemy : Entity, IGOAP
 {
     [HideInInspector]
     public EnemySO config;

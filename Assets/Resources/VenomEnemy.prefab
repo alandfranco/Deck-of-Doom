@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 7027347210223090872}
   - component: {fileID: 5297390828000762692}
   - component: {fileID: 7027347210223090850}
+  - component: {fileID: 1310710541174384176}
   - component: {fileID: 7027347210223090854}
   m_Layer: 10
   m_Name: VenomEnemy
@@ -268,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951fda3216cb333429d64f3b6fb41b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 50
+  cost: 150
   target: {fileID: 0}
   requiesVision: 1
   buffEnemies: []
@@ -308,6 +309,20 @@ MonoBehaviour:
   target: {fileID: 0}
   requiesVision: 0
   count: 0
+--- !u!114 &1310710541174384176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027347210223090874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ec0e5d28aebf5418934829c86df8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 15
+  maxHealth: 15
 --- !u!136 &7027347210223090854
 CapsuleCollider:
   m_ObjectHideFlags: 0

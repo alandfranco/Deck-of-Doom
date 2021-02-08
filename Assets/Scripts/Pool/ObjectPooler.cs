@@ -61,6 +61,7 @@ public class ObjectPooler : MonoBehaviour
             GameObject obj = Instantiate(_obj);
             obj.name = _obj.name;
             _objetcToPool = obj;
+            pooledObjects.Add(obj);
         }
 
         return _objetcToPool;
