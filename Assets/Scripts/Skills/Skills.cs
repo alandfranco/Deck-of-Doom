@@ -10,8 +10,9 @@ public abstract class Skills : MonoBehaviour
     [Header("Skill Info")]
     public string title;
     public Sprite icon;
-    public float cooldownTime = 1;
+    public float cooldownTime;
     private bool canUse = true;
+    public GameObject visual;
 
 
     public void TriggerAbility()
@@ -34,5 +35,15 @@ public abstract class Skills : MonoBehaviour
             yield return new WaitForSeconds(cooldownTime);
             canUse = true;
         }
+    }
+
+    protected virtual void Deactivate()
+    {
+        visual.SetActive(false);
+    }
+
+    protected virtual void Activate()
+    {
+        visual.SetActive(true);
     }
 }

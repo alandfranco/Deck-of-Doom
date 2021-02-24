@@ -9,6 +9,8 @@ public class PlayerAttacker : MonoBehaviour
     InputHandler inputHandler;
     public string lastAttack;
 
+    CardsContainer cards;
+
     public bool DrawGizmos;
 
     public float damage;
@@ -17,6 +19,7 @@ public class PlayerAttacker : MonoBehaviour
     {
         animatorHandler = GetComponentInChildren<AnimatorHandler>();
         inputHandler = GetComponent<InputHandler>();
+        cards = this.GetComponent<CardsContainer>();
     }
 
     public void HandleWeaponCombo(WeaponItem weapon)
@@ -67,6 +70,7 @@ public class PlayerAttacker : MonoBehaviour
         foreach (var item in _enemiesInFront)
         {
             item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, this.gameObject);
+            cards.weaponSlot.TriggerCard(item);
         }
     }
 

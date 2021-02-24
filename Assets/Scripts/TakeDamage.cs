@@ -8,10 +8,23 @@ public class TakeDamage : MonoBehaviour
 
     public float health;
     public float maxHealth;
+    
+    bool imPlayer;
+
+    public bool isBlocking;
+
+    float stamina;
+
+    CardsContainer card;
 
     public void Awake()
     {
         health = maxHealth;
+        if (this.GetComponent<PlayerMovement>())
+        {
+            imPlayer = true;
+            card = this.GetComponent<CardsContainer>();
+        }
     }
 
     public void Heal(float amount)
@@ -28,6 +41,17 @@ public class TakeDamage : MonoBehaviour
             return false;
         }
 
+        if(imPlayer)
+        {
+            card.armorSlot.TriggerCard(dmgDealer.GetComponent<Enemy>());
+        }
+
+        if (isBlocking)
+        {
+            damage -= me.stamina;
+            damage = Mathf.Clamp(damage, 0, maxHealth);
+        }
+
         health -= damage;
 
         if (health <= 0)
@@ -41,6 +65,24 @@ public class TakeDamage : MonoBehaviour
         }
         else
             return false;
+    }
+
+    public void TakeDamageOvertime(float duration, float damage, GameObject dmgDealer)
+    {
+        StartCoroutine(TakeDamageCoroutine(duration, damage, dmgDealer));
+    }
+
+    IEnumerator TakeDamageCoroutine(float duration, float damage, GameObject dmgDealer)
+    {
+
+        while (duration > 0)
+        {
+            yield return new WaitForSeconds(0.2f);
+            duration -= 0.2f;
+            TakeDamageToHealth(damage / 5, dmgDealer);
+        }
+        if(duration <= 0)
+            yield break;
     }
 
     void Die()

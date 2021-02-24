@@ -75,10 +75,12 @@ public class InputHandler : MonoBehaviour
         MoveInput(delta);
         HandleRollInput(delta);
         HandleAttackInput(delta);
+        HandleBlockInput();
         HandleJumpInput();
         HandleSkillOne();
         HandleSkillTwo();
-        HandleSKillThree();
+        HandleSkillThree();
+        HandleSkillFour();
     }
 
     private void MoveInput(float delta)
@@ -142,6 +144,16 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    private void HandleBlockInput()
+    {
+        inputActions.Player.Block.performed += i => block_Input = true;
+
+        if(block_Input)
+        {
+            this.GetComponent<TakeDamage>().isBlocking = true;
+        }
+    }
+
     //HandleQuickSlotsInput
     //HandleInteractingButtonInput
 
@@ -179,13 +191,23 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    void HandleSKillThree()
+    void HandleSkillThree()
     {
         skill_input3 = inputActions.Player.Skill3.triggered;
 
         if(skill_input3)
         {
             skillManager.PerfomSkillThree();
+        }
+    }
+
+    void HandleSkillFour()
+    {
+        skill_input4 = inputActions.Player.Skill4.triggered;
+
+        if(skill_input4)
+        {
+            skillManager.PerfomSkillFour();
         }
     }
 

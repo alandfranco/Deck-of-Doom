@@ -1,41 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
-public class GotScaredAction : GOAPAction
+public class GotStunedAction : GOAPAction
 {
-    private bool isScared;
-    private bool endScared;
+    private bool isStuned;
+    private bool endStun;
     public float count;
     private Transform dashTarget;
 
-    public GotScaredAction()
+    public GotStunedAction()
     {
         addEffect("stayAlive", true);
         requiesVision = false;
         cost = 1;
-        endScared = false;
+        endStun = false;
     }
 
     private void Update()
     {
         Enemy curr = GetComponent<Enemy>();
 
-        isScared = curr.isScared;
-        if(isScared)
+        isStuned = curr.isStuned;
+        if (isStuned)
         {
             count -= Time.deltaTime;
             if (count <= 0)
             {
-                isScared = false;
-                curr.isScared = false;
+                isStuned = false;
+                curr.isStuned = false;
             }
-        }        
+        }
     }
 
     public override void Reset()
-    {        
+    {
         //isScared = false;
         target = null;
     }
@@ -44,7 +43,7 @@ public class GotScaredAction : GOAPAction
     {
         //GetComponent<Enemy>().isScared = false;
         //isScared = false;
-        return endScared;
+        return endStun;
     }
 
     public override bool RequiresInRange()
@@ -56,14 +55,10 @@ public class GotScaredAction : GOAPAction
     {
         Enemy currE = agent.GetComponent<Enemy>();
 
-        dashTarget = FindObjectOfType<HideSpots>().hideSpots
-            .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position))
-            .Last();
-
-        if (isScared && !currE.isStuned)
+        if (isStuned)
         {
-            target = dashTarget.gameObject;
-            currE.agent.isStopped = false;
+            target = this.gameObject;
+            currE.agent.isStopped = true;
             return true;
         }
         else
@@ -75,18 +70,15 @@ public class GotScaredAction : GOAPAction
     public override bool Perform(GameObject agent)
     {
         Enemy currEnemy = agent.GetComponent<Enemy>();
-        if (isScared && !currEnemy.isStuned)
+        if (isStuned)
         {
-            dashTarget = FindObjectOfType<HideSpots>().hideSpots
-            .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position))
-            .Last();
-            currEnemy.agent.destination = dashTarget.position;
-            target = dashTarget.gameObject;
-            endScared = true;
+            currEnemy.agent.isStopped = true;            
+            endStun = true;
             return true;
         }
         else
         {
+            currEnemy.agent.isStopped = false;
             return false;
         }
     }

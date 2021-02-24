@@ -12,22 +12,36 @@ public class NecroHand : Skills
     [SerializeField] private ParticleSystem particle = default;
 
     public Vector3 target;
+    public GameObject targetPoint;
 
     GameObject pl;
 
     public float dmg;
     public float dmgInExplotion;
 
-    private void OnEnable()
+    public float speed;
+
+    float duration;
+
+    private void Awake()
     {
-        pl = FindObjectOfType<PlayerMovement>().gameObject;
-        target = GameObject.Find("AimingSpot").transform.position;
+        pl = FindObjectOfType<PlayerMovement>().gameObject;        
+    }
+
+    private void Initialize()
+    {   
+        Activate();
+        target = targetPoint.transform.position;
     }
 
     public override void Skill()
-    {        
+    {
+        Initialize();
+        duration = Vector3.Distance(target, pl.transform.position) / speed;
+        if (duration >= cooldownTime)
+            duration = cooldownTime - 0.5f;
         Sequence sq = DOTween.Sequence()
-            .Insert(0, transform.DOMove(target, 3f))
+            .Insert(0, transform.DOMove(target, duration))
             .AppendCallback(() => Explode());
     }
 
@@ -41,7 +55,7 @@ public class NecroHand : Skills
                 item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion, pl);
             }            
         }
-        this.gameObject.SetActive(false);
+        Deactivate();
     }
 
     private void OnTriggerEnter(Collider c)

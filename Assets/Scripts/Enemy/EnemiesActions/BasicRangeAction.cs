@@ -35,7 +35,7 @@ public class BasicRangeAction : GOAPAction
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
         target = FindObjectOfType<PlayerMovement>().gameObject;
-        if (this.GetComponent<Enemy>().isScared)
+        if (this.GetComponent<Enemy>().isDisable)
         {
             target = null;
             return false;
@@ -51,7 +51,7 @@ public class BasicRangeAction : GOAPAction
     public override bool Perform(GameObject agent)
     {
         Enemy currEnemy = agent.GetComponent<Enemy>();
-        if (currEnemy.stamina >= (cost) && !currEnemy.isScared)
+        if (currEnemy.stamina >= (cost) && !currEnemy.isDisable)
         {
             Vector3 targetDirection = target.transform.position - this.transform.position;
             Vector3 newDirection = Vector3.RotateTowards(this.transform.forward, targetDirection, 120 * Time.deltaTime, 0.0f);

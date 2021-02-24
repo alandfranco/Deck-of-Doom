@@ -13,8 +13,14 @@ public class NecroFear : Skills
     public float duration;
     public float range;
 
+    private void Initialize()
+    {
+        Activate();
+    }
+
     public override void Skill()
     {
+        Initialize();
         Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range);
         foreach (var item in hitColliders)
         {
@@ -29,7 +35,7 @@ public class NecroFear : Skills
     IEnumerator Disable()
     {
         yield return new WaitForSeconds(duration);
-        this.gameObject.SetActive(false);
+        Deactivate();
         yield break;
     }
 }

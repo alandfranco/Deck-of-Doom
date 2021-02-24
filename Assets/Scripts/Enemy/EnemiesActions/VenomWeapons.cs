@@ -49,7 +49,7 @@ public class VenomWeapons : GOAPAction
 
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
-        if(buffEnemies.Count > 0)
+        if(buffEnemies.Count > 0 && !this.GetComponent<Enemy>().isDisable)
         {
             target = buffEnemies[0].gameObject;
             return true;
@@ -84,7 +84,7 @@ public class VenomWeapons : GOAPAction
     public override bool Perform(GameObject agent)
     {
         Enemy currEnemy = agent.GetComponent<Enemy>();
-        if (currEnemy.stamina >= (cost) && buffEnemies.Count > 0)
+        if (currEnemy.stamina >= (cost) && buffEnemies.Count > 0 && !currEnemy.isDisable)
         {
             Vector3 targetDirection = target.transform.position - this.transform.position;
             Vector3 newDirection = Vector3.RotateTowards(this.transform.forward, targetDirection, 20 * Time.deltaTime, 0.0f);

@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 7027347210223090872}
   - component: {fileID: 5297390828000762692}
   - component: {fileID: 7027347210223090850}
+  - component: {fileID: 8933661743863184778}
   - component: {fileID: 1310710541174384176}
   - component: {fileID: 7027347210223090854}
   m_Layer: 10
@@ -229,7 +230,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -255,6 +256,8 @@ MonoBehaviour:
   agent: {fileID: 0}
   anim: {fileID: 0}
   isScared: 0
+  isStuned: 0
+  isDisable: 0
   weapon: {fileID: 7452470642576571490}
   venomFX: {fileID: 7943689559856330541}
 --- !u!114 &7027347210223090872
@@ -303,6 +306,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5fd9a73e69c2034fb9c25d2b6532c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 1
+  target: {fileID: 0}
+  requiesVision: 0
+  count: 0
+--- !u!114 &8933661743863184778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027347210223090874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59259c59fb140a94abaca25b93593853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 1

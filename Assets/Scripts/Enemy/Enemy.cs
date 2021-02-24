@@ -9,7 +9,6 @@ public abstract class Enemy : Entity, IGOAP
     public EnemySO config;
     [HideInInspector]
     public float health;
-    public float stamina;
 
     [HideInInspector]
     public NavMeshAgent agent;
@@ -18,6 +17,9 @@ public abstract class Enemy : Entity, IGOAP
     public Animator anim;
 
     public bool isScared;
+    public bool isStuned;
+    public bool isDisable;
+    float disableCD;
 
     public GameObject weapon;
 
@@ -49,7 +51,22 @@ public abstract class Enemy : Entity, IGOAP
         if (stamina < config.maxStamina)
             Invoke("PassiveRegen", 1.0f);
         else
-            stamina = config.maxStamina;        
+            stamina = config.maxStamina;
+        CheckDisabled();
+    }
+
+    protected virtual void CheckDisabled()
+    {
+        if (disableCD > 0)
+        {            
+            disableCD -= Time.deltaTime;            
+        }
+        else
+        {
+            isDisable = false;
+            isStuned = false;
+            isScared = false;            
+        }
     }
 
     public abstract void PassiveRegen();
@@ -57,13 +74,28 @@ public abstract class Enemy : Entity, IGOAP
     public virtual void GetScared(float duration)
     {
         isScared = true;
-        GetComponent<GotScaredAction>().count = duration;        
+        GetComponent<GotScaredAction>().count = duration;
+        GetDisabled(duration);
+    }
+
+    public virtual void GetStuned(float duration)
+    {
+        isStuned = true;
+        GetComponent<GotStunedAction>().count = duration;
+        Debug.Log("GOT SUTNEd");
+        GetDisabled(duration);
+    }
+
+    public virtual void GetDisabled(float duration)
+    {
+        if (disableCD < duration)
+            disableCD = duration;
+        isDisable = true;        
     }
 
     public virtual void AddBuff(string effect, float bonus, float duration)
     {
         buffs.Add(effect, bonus);
-        Debug.Log("Agregue buff");
         if(this.gameObject.activeInHierarchy)
             StartCoroutine(RemoveBuff(effect, duration));
     }
@@ -93,6 +125,28 @@ public abstract class Enemy : Entity, IGOAP
         }
         else
             venomFX.SetActive(false);
+    }
+
+    public virtual void AddDebuff(float debuff, float duration)
+    {
+        if (this.gameObject.activeInHierarchy)
+            StartCoroutine(Debuffer(debuff, duration));
+    }
+
+    IEnumerator Debuffer(float debuff, float duration)
+    {
+        agent.speed /= debuff;
+        agent.angularSpeed /= debuff;
+        config.dmg /= debuff;
+
+        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(duration);
+
+        agent.speed *= debuff;
+        agent.angularSpeed *= debuff;
+        config.dmg *= debuff;
+
+        yield break;
     }
 
     protected virtual void OnDisable()

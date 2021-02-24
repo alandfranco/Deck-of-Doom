@@ -32,7 +32,7 @@ public class HealAction : GOAPAction
     {
         var posibleTarget = FindObjectsOfType<Enemy>().Where(x => x.GetComponent<TakeDamage>().health <= x.config.maxHealth / 2)
             .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position)).ToList();
-        if (posibleTarget.Count > 0)
+        if (posibleTarget.Count > 0 && !this.GetComponent<Enemy>().isDisable)
         {
             target = posibleTarget[0].gameObject;
             return true;
@@ -43,7 +43,7 @@ public class HealAction : GOAPAction
     public override bool Perform(GameObject agent)
     {
         Enemy currEnemy = agent.GetComponent<Enemy>();
-        if (currEnemy.stamina >= (cost))
+        if (currEnemy.stamina >= (cost) && !currEnemy.isDisable)
         {
             currEnemy.agent.isStopped = true;
             currEnemy.anim.Play("Attack");

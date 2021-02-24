@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class LifeSteal : Skills
+public class NecroUltimate : Skills
 {
     [Header("Connections")]
     [SerializeField] private Animator animator = default;
@@ -11,7 +10,18 @@ public class LifeSteal : Skills
     [SerializeField] private Renderer skinnedMesh = default;
     [SerializeField] private ParticleSystem particle = default;
 
+    GameObject pl;
+
     public Transform target;
+
+    public float damage;
+
+    public float duration;
+
+    private void Awake()
+    {
+        pl = FindObjectOfType<PlayerMovement>().gameObject;
+    }
 
     private void Initialize()
     {
@@ -22,32 +32,20 @@ public class LifeSteal : Skills
     public override void Skill()
     {
         Initialize();
-        StartCoroutine(Sequence());
+        this.transform.position = target.transform.position;
+        Explode();
     }
 
-    IEnumerator Sequence()
-    {   
-        yield return new WaitForSeconds(1f);        
-        Explode();
-        yield return new WaitForSeconds(0f);        
-        yield return new WaitForSeconds(1f);
-        Explode();
-        yield return new WaitForSeconds(0f);        
-        yield return new WaitForSeconds(1f);
-        Explode();
-        yield return new WaitForSeconds(0f);
-        Deactivate();
-        yield break;
-    }
-     
     void Explode()
     {
         Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 5f);
         foreach (var item in hitColliders)
         {
-            if (item.GetComponent<Enemy>())
+            if (item.TryGetComponent<Enemy>(out var enemy))
             {
-                //Debug.Log("Te pegue ñery " + item.name, item);
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, pl);
+                //HACER APARECER LOS HUESOS
+                enemy.GetStuned(duration);
             }
         }
         Debug.Log("Explote");
@@ -55,15 +53,7 @@ public class LifeSteal : Skills
     }
 
     private void Update()
-    {
-        if(visual.activeInHierarchy)
-            this.transform.position = target.transform.position;
-    }
-
-    private void OnTriggerEnter(Collider c)
-    {
-        if (c.GetComponent<Enemy>())
-            Debug.Log("Te pegue ñeri en movimiento");
+    {       
     }
 
     private void OnDrawGizmos()

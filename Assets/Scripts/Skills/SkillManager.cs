@@ -10,35 +10,48 @@ public class SkillManager : MonoBehaviour
 
     public Transform aimingSpot;
 
+    public GameObject visualPoint;
+
+    public bool viewVisual;
+
     void Start()
     {
         cam = Camera.main;
+        viewVisual = true;
     }
 
     void Update()
     {
         AimingPoint();
+
+        if (viewVisual)
+            visualPoint.SetActive(true);
+        else
+            visualPoint.SetActive(false);
     }
 
     public void PerformSkilOne()
     {
-        skills[0].transform.position = this.transform.position;
-        skills[0].gameObject.SetActive(true);
+        skills[0].transform.position = this.transform.position;        
         skills[0].TriggerAbility();
     }
 
     public void PerfomSkillTwo()
     {
-        skills[1].transform.position = this.transform.position;
-        skills[1].gameObject.SetActive(true);
+        skills[1].transform.position = this.transform.position;        
         skills[1].TriggerAbility();
     }
 
     public void PerfomSkillThree()
     {
-        skills[2].transform.position = this.transform.position;
-        skills[2].gameObject.SetActive(true);
+        skills[2].transform.position = this.transform.position;        
         skills[2].TriggerAbility();
+    }
+
+    public void PerfomSkillFour()
+    {
+        skills[3].transform.position = this.transform.position;        
+        skills[3].TriggerAbility();
     }
 
     public void AimingPoint()
@@ -51,6 +64,10 @@ public class SkillManager : MonoBehaviour
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 20, layerMask))
+        {
             aimingSpot.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            visualPoint.transform.position = aimingSpot.position;
+        }
+        
     }
 }

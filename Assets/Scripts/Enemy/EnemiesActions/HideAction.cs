@@ -54,7 +54,7 @@ public class HideAction : GOAPAction
             .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position))
             .Last();
 
-        if (Vector3.Distance(this.transform.position, player.transform.position) <= 5 && currE.stamina >= cost)
+        if (Vector3.Distance(this.transform.position, player.transform.position) <= 5 && currE.stamina >= cost && !currE.isDisable)
         {
             target = dashTarget.gameObject;
             currE.agent.isStopped = false;
@@ -67,7 +67,7 @@ public class HideAction : GOAPAction
     public override bool Perform(GameObject agent)
     {
         Enemy currEnemy = agent.GetComponent<Enemy>();
-        if (currEnemy.stamina >= (cost) && !isDashing)
+        if (currEnemy.stamina >= (cost) && !isDashing && !currEnemy.isDisable)
         {
             currEnemy.agent.speed *= dashSpeed;
             //target.GetComponent<TakeDamage>().TakeDamage();
