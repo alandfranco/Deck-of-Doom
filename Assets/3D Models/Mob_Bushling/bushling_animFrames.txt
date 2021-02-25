@@ -1,0 +1,13 @@
+Idle
+normal		70-100
+excentrico	0-70
+
+Attacks
+1st	0-30
+2nd	30-67
+3rd	67-97
+
+Se pueden usar por separado o en combos.
+el 1st y 2nd pueden linkear con 3rd sin problema.
+
+El 3rd mueve al personaje por ser Kinematic asi que ese siempre se usa como unico golpe o golpe final. :(
