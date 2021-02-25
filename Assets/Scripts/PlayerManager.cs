@@ -12,7 +12,7 @@ public class PlayerManager : Entity
 {
     PlayerMovement playerMovement;
     InputHandler inputHandler;
-    Animator anim;
+    //Animator anim;
 
     [Header("Player Flags")]
     public bool isInteracting;

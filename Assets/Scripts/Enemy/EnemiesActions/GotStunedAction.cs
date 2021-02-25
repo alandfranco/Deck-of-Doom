@@ -72,6 +72,7 @@ public class GotStunedAction : GOAPAction
         Enemy currEnemy = agent.GetComponent<Enemy>();
         if (isStuned)
         {
+            currEnemy.anim.Play("Idle");
             currEnemy.agent.isStopped = true;            
             endStun = true;
             return true;

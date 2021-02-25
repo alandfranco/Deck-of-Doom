@@ -6,4 +6,6 @@ public class Entity : MonoBehaviour
 {
     public float stamina;
 
+    [HideInInspector]
+    public Animator anim;
 }

@@ -47,8 +47,15 @@ public class BasicMeleeAction : GOAPAction
         if (currEnemy.stamina >= (cost) && !currEnemy.isDisable)
         {
             currEnemy.agent.isStopped = true;
-            currEnemy.anim.Play("Attack");
-            
+            if(currEnemy.anim.GetBool("isRolling"))
+            {
+                currEnemy.anim.SetBool("rollAttack", true);
+                //currEnemy.anim.Play("RollAttack");
+                currEnemy.anim.SetBool("isRolling", false);
+            }
+            else
+                currEnemy.anim.Play("Attack");
+
             float damage = currEnemy.config.dmg;
             target.GetComponent<TakeDamage>().TakeDamageToHealth(currEnemy.config.dmg + currEnemy.BonusBuff(), this.gameObject);
 

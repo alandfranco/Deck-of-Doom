@@ -12,10 +12,7 @@ public abstract class Enemy : Entity, IGOAP
 
     [HideInInspector]
     public NavMeshAgent agent;
-
-    [HideInInspector]
-    public Animator anim;
-
+      
     public bool isScared;
     public bool isStuned;
     public bool isDisable;
@@ -30,7 +27,7 @@ public abstract class Enemy : Entity, IGOAP
 
     protected virtual void Awake()
     {
-        SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/BasicEnemy"));
+        SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/BasicEnemy"));        
     }
 
     public virtual void SetStartingValues(ScriptableObject SO)
@@ -44,6 +41,7 @@ public abstract class Enemy : Entity, IGOAP
         agent.speed = config.speed;
 
         anim = GetComponentInChildren<Animator>();
+        anim.Play("Idle");
     }
 
     protected virtual void Update()
@@ -188,6 +186,7 @@ public abstract class Enemy : Entity, IGOAP
         {
             if (dist < config.aggroDist)
             {
+                anim.Play("Move");
                 agent.destination = nextAction.target.transform.position;
                 agent.isStopped = false;
             }
@@ -204,16 +203,15 @@ public abstract class Enemy : Entity, IGOAP
         }
         else if(!nextAction.requiesVision)
         {
-
             agent.destination = nextAction.target.transform.position;
             agent.isStopped = false;
             return true;
         }
         else
         {
+            anim.Play("Idle");
             return false;
         }
-        
     }
     #endregion
 }

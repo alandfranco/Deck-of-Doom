@@ -41,7 +41,7 @@ public class TakeDamage : MonoBehaviour
             return false;
         }
 
-        if(imPlayer)
+        if(imPlayer && card.armorSlot)
         {
             card.armorSlot.TriggerCard(dmgDealer.GetComponent<Enemy>());
         }
@@ -51,6 +51,8 @@ public class TakeDamage : MonoBehaviour
             damage -= me.stamina;
             damage = Mathf.Clamp(damage, 0, maxHealth);
         }
+        //else
+         //   me.anim.Play("TakeDamage");
 
         health -= damage;
 

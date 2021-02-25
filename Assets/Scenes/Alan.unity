@@ -4245,7 +4245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: {fileID: 2091249786}
-  armorSlot: {fileID: 302140622}
+  armorSlot: {fileID: 0}
   specialSlot: {fileID: 0}
   variousSlot: {fileID: 0}
 --- !u!4 &412503998
@@ -4377,6 +4377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stamina: 0
+  anim: {fileID: 0}
   isInteracting: 0
   isSprinting: 0
   isInAir: 0
@@ -4568,7 +4569,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489876279}
-  m_LocalRotation: {x: 0.14866702, y: 0.000000024788902, z: -0.000000007978012, w: 0.98888737}
+  m_LocalRotation: {x: 0.14866702, y: -0.00000005545153, z: 0.000000017846412, w: 0.98888737}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8513,7 +8514,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173679671}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 036e486914ce8af48ab7dc9851597634, type: 3}
   m_Name: 
@@ -20381,6 +20382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealerEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 498309247759929497, guid: 5208613dd0b7a994baab630b5538266c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5208613dd0b7a994baab630b5538266c, type: 3}
 --- !u!114 &516820289157100405
@@ -20458,9 +20463,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1647875990098644595, guid: aa14e93bcfaf62248ac5111e1090f132, type: 3}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647875990098644595, guid: aa14e93bcfaf62248ac5111e1090f132, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1647875990098644596, guid: aa14e93bcfaf62248ac5111e1090f132, type: 3}
       propertyPath: m_Name
       value: BasicMeleeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666990344688050877, guid: aa14e93bcfaf62248ac5111e1090f132, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109098507231749717, guid: aa14e93bcfaf62248ac5111e1090f132, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168890376281081062, guid: aa14e93bcfaf62248ac5111e1090f132, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa14e93bcfaf62248ac5111e1090f132, type: 3}
@@ -21185,6 +21210,10 @@ PrefabInstance:
     - target: {fileID: 7027347210223090874, guid: 6c1b1f05558df394cb277cdb61b74508, type: 3}
       propertyPath: m_Name
       value: VenomEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027347210223090874, guid: 6c1b1f05558df394cb277cdb61b74508, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7027347211146837138, guid: 6c1b1f05558df394cb277cdb61b74508, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform

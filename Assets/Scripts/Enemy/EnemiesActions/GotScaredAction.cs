@@ -30,6 +30,7 @@ public class GotScaredAction : GOAPAction
             {
                 isScared = false;
                 curr.isScared = false;
+                curr.anim.SetBool("isMoving", false);
             }
         }        
     }
@@ -77,6 +78,8 @@ public class GotScaredAction : GOAPAction
         Enemy currEnemy = agent.GetComponent<Enemy>();
         if (isScared && !currEnemy.isStuned)
         {
+            currEnemy.anim.Play("Move");
+            currEnemy.anim.SetBool("isWalking", true);
             dashTarget = FindObjectOfType<HideSpots>().hideSpots
             .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position))
             .Last();
@@ -87,6 +90,7 @@ public class GotScaredAction : GOAPAction
         }
         else
         {
+            currEnemy.anim.SetBool("isMoving", false);
             return false;
         }
     }
