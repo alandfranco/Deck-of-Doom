@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Liquid
-  m_Shader: {fileID: -6465566751694194690, guid: 66c3078ca286630449f1d6a46c643f36, type: 3}
+  m_Name: grass_default
+  m_Shader: {fileID: 4800000, guid: 530e6cc36e272964a8444643d61a527c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,13 +20,20 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _aux: 0.75
-    - _fillAmount: 0.41
-    - _offset: -0.2
-    - _wobbleX: -0.0011169133
-    - _wobbleZ: -0.0011169133
+    - _AmbientStrength: 0.5
+    - _BladeCurve: 2
+    - _BladeForward: 0.38
+    - _GrassHeight: 1
+    - _GrassWidth: 0.06
+    - _MaxDist: 60
+    - _MinDist: 40
+    - _Rad: 0.6
+    - _Radius: 0.3
+    - _RandomHeight: 0.25
+    - _Strength: 5
+    - _WindSpeed: 100
+    - _WindStrength: 0.05
     m_Colors:
-    - _bottomColor: {r: 2, g: 0.07058824, b: 0.015686275, a: 0}
-    - _foamColor: {r: 1, g: 0.90270567, b: 0, a: 0}
-    - _topColor: {r: 16, g: 1.1179266, b: 0, a: 0}
+    - _BottomColor: {r: 0, g: 1, b: 0, a: 1}
+    - _TopColor: {r: 1, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []

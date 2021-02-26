@@ -1,0 +1,44 @@
+------------------------------
+Setting the tool:
+
+Crear un objeto vacio en escena "GrassPainter" 
+y pasarle el script "Geometry Grass Painter"
+
+El script le genera un mesh renderer y va 
+a pedir un material
+El material se hace a partir del shader 
+del pasto y se aplica por inspector
+
+------------------------------
+Using the Tool:
+
+Para usar la herramienta hay que seleccionar 
+el gameobject "GrassPainter"
+El brush tiene 3 modos: Add, Remove, Edit. 
+Cada uno con sus configuraciones.
+
+Para pintar solo hay que seleccionar 
+el gameobject, elegir un modo y hacer 
+click derecho en escena donde queramos pasto.
+
+------------------------------
+Tool Adjustments:
+
+-Normal Limit: Determina la precision del
+raycast y las zonas donde pinta el brush.
+Tirando a 0 solo pinta donde choque el raycast,
+enmascarando el resto de las areas.
+
+-Hit Mask: Podemos seleccionar Layers para que
+el raycast ignore. por ej: agua, enemigos, etc.
+
+-Painting Mask: Selecciona Layers para pintar.
+
+-Grass Render Distance: El shader tiene opciones
+para cambiar las distancias min y max de renderizado
+
+------------------------------
+Interacive Grass:
+
+Para hacer que el pasto interactúe con otras entidades
+hay que pasarle a esas entidades el script "ShaderInteractor"
