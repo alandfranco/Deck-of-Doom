@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public int maxAmountEnemies;
 
+    public int enemiesAttacking;
+    public int maxAmountAttacking;
+
     private void Awake()
     {
         instance = this;
@@ -22,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        Debug.Log(enemiesAttacking);
     }
 
     public void RestartScene()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FireTongueCard : Card
 {
-
     protected override void Awake()
     {
         base.Awake();

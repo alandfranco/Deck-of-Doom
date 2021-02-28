@@ -9,7 +9,7 @@ public abstract class Card : MonoBehaviour
     protected GameObject pl;
 
     protected bool canUse;
-
+    
     protected virtual void Awake()
     {
         pl = FindObjectOfType<PlayerMovement>().gameObject;
@@ -27,7 +27,7 @@ public abstract class Card : MonoBehaviour
     }
 
     public virtual void TriggerCard(Enemy enemy)
-    {
+    {       
         float random = Random.Range(0.0f, 1.0f);
         if (random <= cardSO.chance / 100 && canUse)
             CardEffect(enemy);

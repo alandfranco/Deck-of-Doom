@@ -20,7 +20,7 @@ public class BasicMeleeAction : GOAPAction
     }
 
     public override bool IsDone()
-    {
+    {        
         return attacked;
     }
 
@@ -32,7 +32,7 @@ public class BasicMeleeAction : GOAPAction
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
         target = FindObjectOfType<PlayerMovement>().gameObject;
-        if (this.GetComponent<Enemy>().isDisable)
+        if (this.GetComponent<Enemy>().isDisable || GameManager.instance.enemiesAttacking > GameManager.instance.maxAmountAttacking)
         {
             target = null;
             return false;
@@ -46,6 +46,7 @@ public class BasicMeleeAction : GOAPAction
         Enemy currEnemy = agent.GetComponent<Enemy>();
         if (currEnemy.stamina >= (cost) && !currEnemy.isDisable)
         {
+            GameManager.instance.enemiesAttacking++;
             currEnemy.agent.isStopped = true;
             if(currEnemy.anim.GetBool("isRolling"))
             {
@@ -62,9 +63,12 @@ public class BasicMeleeAction : GOAPAction
             currEnemy.stamina -= cost;
 
             attacked = true;
+            GameManager.instance.enemiesAttacking--;
             return true;
         }
         else
+        {
             return false;
+        }
     }
 }

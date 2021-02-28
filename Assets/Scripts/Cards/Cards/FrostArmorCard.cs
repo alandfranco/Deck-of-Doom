@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FrostArmorCard : Card
 {
+
     protected override void Awake()
     {
         base.Awake();
