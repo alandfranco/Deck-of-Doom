@@ -12,8 +12,6 @@ public class BasicMeleeEnemy : Enemy
     protected override void Update()
     {
         base.Update();
-        Debug.LogWarning("IsRolling " + anim.GetBool("isRolling"));
-        Debug.LogWarning("IsWalking " + anim.GetBool("isWalking"));
     }
 
     public override void PassiveRegen()

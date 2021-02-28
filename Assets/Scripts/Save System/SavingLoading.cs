@@ -66,5 +66,13 @@ namespace PixelDragonDevs.SavingLoading
                 }
             }
         }
-    }    
+
+        #region Carga en Start por si ya habia algo guardado de antes, despues guarda cuando reciba nuevas cartas. Esto no deberia ser asi
+        private void Awake()
+        {
+            Load();
+        }
+        #endregion
+
+    }
 }

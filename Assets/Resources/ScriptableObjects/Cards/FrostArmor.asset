@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Frost Armor
   description: Ice surrounds you damaging your attacker
+  image: {fileID: 21300000, guid: 9bc9a82d66df0b6429318061f0e32197, type: 3}
   chance: 25
   duration: 5
   dmg: 5
   dmgOvertime: 0
   cooldown: 0
+  isOwned: 1
   cardType: 1
+  myCard: {fileID: 5548982796287200823, guid: a996b24fc1f1ae04e8b69bc54d0bc886, type: 3}
+  id: 844d166e-6c86-4007-8e69-bfabb7df9889

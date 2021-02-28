@@ -7,17 +7,32 @@ public class CardsContainer : MonoBehaviour
     public Card weaponSlot;
     public Card armorSlot;
     public Card specialSlot;
-    public Card variousSlot;
-    
+
+    GameObject weaponCard;
+    GameObject armorCard;
+    GameObject specialCard;
+
     void Start()
     {
-        if(CardsManager.instance.weaponSlot)
-            weaponSlot = CardsManager.instance.weaponSlot;
-        if(CardsManager.instance.armorSlot)
-            armorSlot = CardsManager.instance.armorSlot;
-        if(CardsManager.instance.specialSlot)
-            specialSlot = CardsManager.instance.specialSlot;
-        if(CardsManager.instance.variousSlot)
-            variousSlot = CardsManager.instance.variousSlot;
+        if (CardsManager.instance.weaponSlot != null)
+        {
+            weaponCard = GameObject.Instantiate(CardsManager.instance.weaponSlot.myCard);
+            weaponCard.name = "WeaponSlot";
+            weaponSlot = weaponCard.GetComponent<Card>();
+        }
+        
+        if (CardsManager.instance.armorSlot != null)
+        {
+            armorCard = GameObject.Instantiate(CardsManager.instance.armorSlot.myCard);
+            armorCard.name = "ArmorSlot";
+            armorSlot = armorCard.GetComponent<Card>();
+        }
+        
+        if (CardsManager.instance.specialSlot != null)
+        {
+            specialCard = GameObject.Instantiate(CardsManager.instance.specialSlot.myCard);
+            specialCard.name = "SpecialSlot";
+            specialSlot = specialCard.GetComponent<Card>();
+        }
     }
 }

@@ -8,7 +8,7 @@ public class LightingWeaponCard : Card
     float count;
 
     Transform cam;
-
+        
     protected override void Awake()
     {
         base.Awake();
