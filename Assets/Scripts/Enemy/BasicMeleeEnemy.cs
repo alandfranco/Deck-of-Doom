@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BasicMeleeEnemy : Enemy
 {
@@ -48,17 +49,14 @@ public class BasicMeleeEnemy : Enemy
     }
 
     public override bool moveAgent(GOAPAction nextAction)
-    {
-        Debug.Log("ESNTRR");
+    {        
         float dist = Vector3.Distance(this.transform.position, nextAction.target.transform.position);
         if (nextAction.requiesVision)
         {
-            Debug.Log("ESNTRR a vbision");
             return MovementCheck(dist, nextAction);
         }
         else if (!nextAction.requiesVision)
         {
-            Debug.Log("ESNTRR a no vbision");
             return MovementCheck(dist, nextAction);
         }
         
@@ -67,15 +65,21 @@ public class BasicMeleeEnemy : Enemy
 
     bool MovementCheck(float dist, GOAPAction nextAction)
     {
+        NavMeshPath navMeshPath = new NavMeshPath();
+        bool canReach = agent.CalculatePath(nextAction.target.transform.position, navMeshPath);
+        if (navMeshPath.status == NavMeshPathStatus.PathInvalid)
+            return false;
         if (dist < config.aggroDist && dist > config.attackDistance && !anim.GetBool("isWalking"))
         {
             anim.SetBool("isRolling", true);
+            anim.speed = Random.Range(0.8f, 1.2f);
             agent.destination = nextAction.target.transform.position;
             agent.isStopped = false;
         }
         else if (dist < config.attackDistance * 2.5 && dist > config.attackDistance && !anim.GetBool("isRolling"))
         {
             anim.SetBool("isWalking", true);
+            anim.speed = Random.Range(0.8f, 1.2f);
             agent.destination = nextAction.target.transform.position;
             agent.isStopped = false;
         }
@@ -83,6 +87,7 @@ public class BasicMeleeEnemy : Enemy
         {
             //anim.SetBool("isRolling", false);
             anim.SetBool("isWalking", false);
+            anim.speed = 1;
             agent.isStopped = true;
             nextAction.setInRange(true);
             return true;
@@ -91,5 +96,15 @@ public class BasicMeleeEnemy : Enemy
         {
             return false;
         }
+    }
+
+    public bool IsReachable(Vector3 pos)
+    {
+        NavMeshPath navMeshPath = new NavMeshPath();
+        bool canReach = agent.CalculatePath(pos, navMeshPath);
+        if (navMeshPath.status == NavMeshPathStatus.PathInvalid)
+            return false;
+        else
+            return true;
     }
 }

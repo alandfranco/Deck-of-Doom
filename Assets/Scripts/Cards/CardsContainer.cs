@@ -14,25 +14,28 @@ public class CardsContainer : MonoBehaviour
 
     void Start()
     {
-        if (CardsManager.instance.weaponSlot != null)
+        if(FindObjectOfType<CardsManager>())
         {
-            weaponCard = GameObject.Instantiate(CardsManager.instance.weaponSlot.myCard);
-            weaponCard.name = "WeaponSlot";
-            weaponSlot = weaponCard.GetComponent<Card>();
-        }
-        
-        if (CardsManager.instance.armorSlot != null)
-        {
-            armorCard = GameObject.Instantiate(CardsManager.instance.armorSlot.myCard);
-            armorCard.name = "ArmorSlot";
-            armorSlot = armorCard.GetComponent<Card>();
-        }
-        
-        if (CardsManager.instance.specialSlot != null)
-        {
-            specialCard = GameObject.Instantiate(CardsManager.instance.specialSlot.myCard);
-            specialCard.name = "SpecialSlot";
-            specialSlot = specialCard.GetComponent<Card>();
+            if (CardsManager.instance.weaponSlot != null)
+            {
+                weaponCard = GameObject.Instantiate(CardsManager.instance.weaponSlot.myCard);
+                weaponCard.name = "WeaponSlot";
+                weaponSlot = weaponCard.GetComponent<Card>();
+            }
+
+            if (CardsManager.instance.armorSlot != null)
+            {
+                armorCard = GameObject.Instantiate(CardsManager.instance.armorSlot.myCard);
+                armorCard.name = "ArmorSlot";
+                armorSlot = armorCard.GetComponent<Card>();
+            }
+
+            if (CardsManager.instance.specialSlot != null)
+            {
+                specialCard = GameObject.Instantiate(CardsManager.instance.specialSlot.myCard);
+                specialCard.name = "SpecialSlot";
+                specialSlot = specialCard.GetComponent<Card>();
+            }
         }
     }
 }

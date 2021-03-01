@@ -8,11 +8,19 @@ public class BasicMeleeAction : GOAPAction
 
     public GameObject bulletPrefab;
 
+    Enemy currEnemy;
+
     public BasicMeleeAction()
     {
         addEffect("damagePlayer", true);
         cost = 100f;
     }
+
+    private void Start()
+    {
+        currEnemy = this.GetComponent<Enemy>();
+    }
+
     public override void Reset()
     {
         attacked = false;
@@ -20,7 +28,7 @@ public class BasicMeleeAction : GOAPAction
     }
 
     public override bool IsDone()
-    {        
+    {
         return attacked;
     }
 
@@ -42,33 +50,42 @@ public class BasicMeleeAction : GOAPAction
     }
 
     public override bool Perform(GameObject agent)
-    {
-        Enemy currEnemy = agent.GetComponent<Enemy>();
+    {        
         if (currEnemy.stamina >= (cost) && !currEnemy.isDisable)
         {
-            GameManager.instance.enemiesAttacking++;
             currEnemy.agent.isStopped = true;
-            if(currEnemy.anim.GetBool("isRolling"))
+            if (currEnemy.anim.GetBool("isRolling") && GameManager.instance.enemiesAttacking < GameManager.instance.maxAmountAttacking)
             {
                 currEnemy.anim.SetBool("rollAttack", true);
                 //currEnemy.anim.Play("RollAttack");
                 currEnemy.anim.SetBool("isRolling", false);
             }
+            else if(currEnemy.anim.GetBool("isRolling") && GameManager.instance.enemiesAttacking >= GameManager.instance.maxAmountAttacking)
+            {
+                currEnemy.anim.SetBool("isRolling", false);
+                currEnemy.anim.SetBool("rollAttack", false);
+                return false;
+            }
             else
                 currEnemy.anim.Play("Attack");
 
-            float damage = currEnemy.config.dmg;
-            target.GetComponent<TakeDamage>().TakeDamageToHealth(currEnemy.config.dmg + currEnemy.BonusBuff(), this.gameObject);
+
+            GameManager.instance.enemiesAttacking++;
 
             currEnemy.stamina -= cost;
 
-            attacked = true;
-            GameManager.instance.enemiesAttacking--;
+            attacked = true;            
             return true;
         }
         else
         {
             return false;
         }
+    }
+
+    public void DealDamage(GameObject victim)
+    {
+        float damage = currEnemy.config.dmg;
+        victim.GetComponent<TakeDamage>().TakeDamageToHealth(currEnemy.config.dmg + currEnemy.BonusBuff(), this.gameObject);
     }
 }

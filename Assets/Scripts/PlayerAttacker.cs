@@ -70,7 +70,8 @@ public class PlayerAttacker : MonoBehaviour
         foreach (var item in _enemiesInFront)
         {
             item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, this.gameObject);
-            cards.weaponSlot.TriggerCard(item);
+            if(cards.weaponSlot != null)
+                cards.weaponSlot.TriggerCard(item);
         }
     }
 

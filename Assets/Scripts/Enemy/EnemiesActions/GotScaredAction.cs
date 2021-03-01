@@ -30,7 +30,7 @@ public class GotScaredAction : GOAPAction
             {
                 isScared = false;
                 curr.isScared = false;
-                curr.anim.SetBool("isMoving", false);
+                curr.anim.SetBool("isWalking", false);
             }
         }        
     }
@@ -90,7 +90,7 @@ public class GotScaredAction : GOAPAction
         }
         else
         {
-            currEnemy.anim.SetBool("isMoving", false);
+            currEnemy.anim.SetBool("isWalking", false);
             return false;
         }
     }
