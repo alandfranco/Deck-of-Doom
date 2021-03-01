@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
     Handles Update Methods
@@ -12,7 +13,7 @@ public class PlayerManager : Entity
 {
     PlayerMovement playerMovement;
     InputHandler inputHandler;
-    //Animator anim;
+    Transform cam;
 
     [Header("Player Flags")]
     public bool isInteracting;
@@ -23,17 +24,50 @@ public class PlayerManager : Entity
 
     private float _delta;
 
+    [Header("UI")]
+    public Transform OnWorldCanvas;
+    public Image staminaBardelay;
+    public Image staminaBar;
+    bool startRechargeStamina;
+    bool startReducingStamina;
+    float speedToReduce;
+
     void Start()
     {
         inputHandler = GetComponent<InputHandler>();
         anim = GetComponentInChildren<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+
+        cam = Camera.main.transform;
+
+        staminaBar.fillAmount = 1;
+        staminaBardelay.fillAmount = 1;
+        OnWorldCanvas.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        if(OnWorldCanvas.gameObject.activeInHierarchy)
+            OnWorldCanvas.LookAt(cam);
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            ReduceStamina(5);
+        }
 
-
+        if(startRechargeStamina)
+        {
+            stamina += staminaRecoverPS * Time.deltaTime;
+            staminaBar.fillAmount = stamina / maxStamina;
+            if (stamina >= maxStamina)
+            {
+                startRechargeStamina = false;
+                stamina = maxStamina;
+                staminaBar.fillAmount = stamina / maxStamina;
+                OnWorldCanvas.gameObject.SetActive(false);
+            }
+        }
+        if (startReducingStamina)
+            StartReducingStamina();
     }
 
     private void FixedUpdate()
@@ -68,5 +102,35 @@ public class PlayerManager : Entity
         {
             playerMovement.inAirTimer = playerMovement.inAirTimer + Time.deltaTime;
         }
+    }
+
+    public override void ReduceStamina(float amount)
+    {
+        OnWorldCanvas.gameObject.SetActive(true);
+
+        if (!startReducingStamina)
+            staminaBardelay.fillAmount = stamina / maxStamina;
+
+        base.ReduceStamina(amount);
+
+        startRechargeStamina = false;
+        StartCoroutine(UpdateStaminaBar());
+    }
+
+    IEnumerator UpdateStaminaBar()
+    {
+        staminaBar.fillAmount = stamina / maxStamina;
+        yield return new WaitForSeconds(0.2f);
+        startReducingStamina = true;
+        speedToReduce = (staminaBardelay.fillAmount - (stamina / maxStamina)) / 0.7f;        
+        yield return new WaitForSeconds(1f);
+        startReducingStamina = false;
+        startRechargeStamina = true;
+        yield break;
+    }
+
+    void StartReducingStamina()
+    {
+        staminaBardelay.fillAmount -= speedToReduce * Time.deltaTime;        
     }
 }
