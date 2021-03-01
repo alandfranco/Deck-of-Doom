@@ -99,6 +99,7 @@ public class InputHandler : MonoBehaviour
         if (roll_Input)
         {
             rollInputTimer += delta;
+            playerManager.anim.Play("Roll");
             sprintFlag = true;
         }
         else
@@ -124,24 +125,27 @@ public class InputHandler : MonoBehaviour
             if (playerManager.canDoCombo)
             {
                 comboFlag = true;
-                playerAttacker.HandleAttack(playerInventory.rightWeapon);
+                playerAttacker.HandleAttack(playerInventory.rightWeapon, true);
                 comboFlag = false;
             }
             else
             {
                 if (playerManager.isInteracting)
+                {
+                    playerManager.anim.SetBool("canDoCombo", false);
                     return;
+                }
                 if (playerManager.canDoCombo)
                     return;
-                playerAttacker.HandleAttack(playerInventory.rightWeapon);
+                playerAttacker.HandleAttack(playerInventory.rightWeapon, false);
             }
         }
-        if (heavyAttack_Input)
-        {
-            if (playerManager.isInteracting)
-                return;
-            playerAttacker.HandleAttack(playerInventory.rightWeapon);
-        }
+        //if (heavyAttack_Input)
+        //{
+        //    if (playerManager.isInteracting)
+        //        return;
+        //    playerAttacker.HandleAttack(playerInventory.rightWeapon);
+        //}
     }
 
     private void HandleBlockInput()
@@ -181,7 +185,8 @@ public class InputHandler : MonoBehaviour
 
         if (skill_input1)
         {
-            skillManager.PerformSkilOne();
+            skillManager.SelectSkill(0);
+            //skillManager.PerformSkilOne();
         }
     }
 
@@ -191,7 +196,8 @@ public class InputHandler : MonoBehaviour
 
         if (skill_input2)
         {
-            skillManager.PerfomSkillTwo();
+            skillManager.SelectSkill(1);
+            //skillManager.PerfomSkillTwo();
         }
     }
 
@@ -201,7 +207,8 @@ public class InputHandler : MonoBehaviour
 
         if(skill_input3)
         {
-            skillManager.PerfomSkillThree();
+            skillManager.SelectSkill(2);
+            //skillManager.PerfomSkillThree();
         }
     }
 
@@ -211,7 +218,8 @@ public class InputHandler : MonoBehaviour
 
         if(skill_input4)
         {
-            skillManager.PerfomSkillFour();
+            skillManager.SelectSkill(3);
+            //skillManager.PerfomSkillFour();
         }
     }
 

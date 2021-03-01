@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class AnimatorHandler : MonoBehaviour
 {
@@ -12,9 +13,12 @@ public class AnimatorHandler : MonoBehaviour
     int horizontal;
     public bool canRotate;
 
+    PlayerAttacker pl;
+
     public void Initialize()
     {
         playerManager = GetComponentInParent<PlayerManager>();
+        pl = GetComponentInParent<PlayerAttacker>();
         anim = GetComponent<Animator>();
         inputHandler = GetComponentInParent<InputHandler>();
         playerMovement = GetComponentInParent<PlayerMovement>();
@@ -86,11 +90,12 @@ public class AnimatorHandler : MonoBehaviour
         anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
     }
 
-    public void PlayTargetAnimation(string targetAnim, bool isInteracting)
+    public void PlayTargetAnimation(string targetAnim, bool isInteracting, float fade)
     {
         anim.applyRootMotion = isInteracting;
         anim.SetBool("isInteracting", isInteracting);
-        anim.CrossFade(targetAnim, 0.2f);
+        anim.CrossFade(targetAnim, fade);
+        playerManager.anim.SetBool("canDoCombo", false);
     }
 
     public void CanRotate()
@@ -105,11 +110,13 @@ public class AnimatorHandler : MonoBehaviour
 
     public void EnableCombo()
     {
+        //anim.SetBool("isInteracting", false);
         anim.SetBool("canDoCombo", true);
     }
 
     public void DisableCombo()
     {
+        //anim.SetBool("isInteracting", false);
         anim.SetBool("canDoCombo", false);
     }
 
@@ -124,5 +131,25 @@ public class AnimatorHandler : MonoBehaviour
         deltaPosition.y = 0;
         Vector3 velocity = deltaPosition / delta;
         playerMovement.rigidbody.velocity = velocity;
+    }
+
+    public void DealDamage(float multiplier)
+    {
+        EnemiesInFront(pl.damageRadius, multiplier);
+    }
+
+    void EnemiesInFront(float radious, float dmgMultiplier)
+    {
+        var enemiesInFront = Physics.OverlapSphere(this.transform.position, radious);
+
+        var _enemiesInFront = enemiesInFront.Where(x => Mathf.Abs(Vector3.Angle(pl.transform.forward, x.transform.position - pl.transform.position))
+        <= 90 && !x.GetComponent<PlayerMovement>() && x.GetComponent<Enemy>()).Select(x => x.GetComponent<Enemy>());
+
+        foreach (var item in _enemiesInFront)
+        {
+            item.GetComponent<TakeDamage>().TakeDamageToHealth(pl.damage * dmgMultiplier, pl.gameObject);
+            if (pl.cards.weaponSlot != null && item != null)
+                pl.cards.weaponSlot.TriggerCard(item);
+        }
     }
 }

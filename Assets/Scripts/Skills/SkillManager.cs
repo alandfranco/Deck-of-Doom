@@ -15,20 +15,95 @@ public class SkillManager : MonoBehaviour
 
     public bool viewVisual;
 
+    public Skills currentSkill;
+
+    public GameObject skillWheelPanel;
+
+    public Color hoverColor;
+    public Color baseColor;
+
+    public Vector2 normalisedMousePosition;
+    public float currentAngle;
+
+    public int selection;
+    int previousSelection;
+
+    [SerializeField] Image[] skillsImg = new Image[4];
+    
     void Start()
     {
         cam = Camera.main;
         viewVisual = true;
+        skillWheelPanel.SetActive(false);
+        currentSkill = skills[0];
+        baseColor = skillsImg[0].color;
+    }
+
+    public void Select(Image img)
+    {
+        img.color = hoverColor;
+    }
+
+    public void Deselect(Image img)
+    {
+        img.color = baseColor;
     }
 
     void Update()
     {
         AimingPoint();
+        
+        if(Input.GetKey(KeyCode.Tab))
+        {
+            ActivateWheel();
+            this.GetComponent<InputHandler>().enabled = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+
+            normalisedMousePosition = new Vector2(Input.mousePosition.x - Screen.width / 2, Input.mousePosition.y - Screen.height / 2);
+            currentAngle = Mathf.Atan2(normalisedMousePosition.y, normalisedMousePosition.x) * Mathf.Rad2Deg;
+
+            currentAngle = (currentAngle + 360) % 360;
+
+            selection = (int)currentAngle / 90;
+
+            Select(skillsImg[selection]);
+            if(selection != previousSelection)
+            {
+                Deselect(skillsImg[previousSelection]);
+                currentSkill = skills[selection];
+                previousSelection = selection;
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.Tab))
+        {
+            DeactivateWheel();
+            this.GetComponent<InputHandler>().enabled = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        Debug.Log(selection);
 
         if (viewVisual)
             visualPoint.SetActive(true);
         else
             visualPoint.SetActive(false);
+    }
+
+    public void ActivateWheel()
+    {
+        skillWheelPanel.SetActive(true);
+    }
+
+    public void DeactivateWheel()
+    {
+        skillWheelPanel.SetActive(false);
+    }
+
+    public void SelectSkill(int index)
+    {
+        currentSkill = skills[index];
     }
 
     public void PerformSkilOne()

@@ -10,11 +10,14 @@ public class PlayerAttacker : MonoBehaviour
     public string lastAttack;
     int comboCounter = 0;
 
-    CardsContainer cards;
+    public CardsContainer cards;
 
     public bool DrawGizmos;
 
     public float damage;
+    public float damageRadius;
+
+    public float fadeAnim;
 
     private void Awake()
     {
@@ -23,25 +26,27 @@ public class PlayerAttacker : MonoBehaviour
         cards = this.GetComponent<CardsContainer>();
     }
 
-    public void HandleAttack(WeaponItem weapon)
+    public void HandleAttack(WeaponItem weapon, bool combo)
     {
-        if (inputHandler.comboFlag)
+        if(combo)
         {
-            animatorHandler.anim.SetBool("canDoCombo", false);
-
-            for (comboCounter=0; comboCounter < weapon.attacks.Count; comboCounter++)
-            {
-                animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true);
-                lastAttack = weapon.attacks[comboCounter];
-            }
-            if (comboCounter >= weapon.attacks.Count - 1)
+            comboCounter++;
+            if (comboCounter > weapon.attacks.Count - 1)
             {
                 comboCounter = 0;
             }
+            animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true, fadeAnim);
+            lastAttack = weapon.attacks[comboCounter];
+        }
+        else
+        {
+            comboCounter = 0;
+            animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true, 0);
+            lastAttack = weapon.attacks[comboCounter];
         }
     }
 
-    void EnemiesInFront(float radious, float dmgMultiplier)
+    public void EnemiesInFront(float radious, float dmgMultiplier)
     {
         var enemiesInFront = Physics.OverlapSphere(this.transform.position, radious);
 

@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (inputHandler.moveAmount > 0)
             {
-                animatorHandler.PlayTargetAnimation("Roll", true);
+                animatorHandler.PlayTargetAnimation("Roll", true, 0.2f);
                 moveDirection.y = 0;
                 Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
                 myTransform.rotation = rollRotation;
@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 Debug.Log("Backstep");
-                animatorHandler.PlayTargetAnimation("Backstep", true);
+                animatorHandler.PlayTargetAnimation("Backstep", true, 0.2f);
             }
         }
     }
@@ -192,12 +192,12 @@ public class PlayerMovement : MonoBehaviour
                 if (inAirTimer > 0.5f)
                 {
                     Debug.Log("you were in the air for " + inAirTimer);
-                    animatorHandler.PlayTargetAnimation("Land", true);
+                    animatorHandler.PlayTargetAnimation("Land", true, 0.2f);
                     inAirTimer = 0;
                 }
                 else
                 {
-                    animatorHandler.PlayTargetAnimation("Movement", false);
+                    animatorHandler.PlayTargetAnimation("Movement", false, 0.2f);
                     inAirTimer = 0;
                 }
 
@@ -214,7 +214,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (playerManager.isInteracting == false)
                 {
-                    animatorHandler.PlayTargetAnimation("Falling", true);
+                    animatorHandler.PlayTargetAnimation("Falling", true, 0.2f);
                 }
                 Vector3 vel = rigidbody.velocity;
                 vel.Normalize();
@@ -256,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 moveDirection = cameraObject.forward * inputHandler.vertical;
                 moveDirection += cameraObject.right * inputHandler.horizontal;
-                animatorHandler.PlayTargetAnimation("Jump", true);
+                animatorHandler.PlayTargetAnimation("Jump", true, 0.2f);
 
                 //Y=0 because we are using the root motion of the jump animation
                 moveDirection.y = 0;
