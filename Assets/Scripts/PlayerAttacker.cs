@@ -8,6 +8,7 @@ public class PlayerAttacker : MonoBehaviour
     AnimatorHandler animatorHandler;
     InputHandler inputHandler;
     public string lastAttack;
+    int comboCounter = 0;
 
     CardsContainer cards;
 
@@ -22,42 +23,22 @@ public class PlayerAttacker : MonoBehaviour
         cards = this.GetComponent<CardsContainer>();
     }
 
-    public void HandleWeaponCombo(WeaponItem weapon)
+    public void HandleAttack(WeaponItem weapon)
     {
         if (inputHandler.comboFlag)
         {
             animatorHandler.anim.SetBool("canDoCombo", false);
-            if (lastAttack == weapon.OH_Light_Attack_1)
+
+            for (comboCounter=0; comboCounter < weapon.attacks.Count; comboCounter++)
             {
-                animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_2, true);
-                lastAttack = weapon.OH_Light_Attack_2;
+                animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true);
+                lastAttack = weapon.attacks[comboCounter];
             }
-            else if (lastAttack == weapon.OH_Light_Attack_2)
+            if (comboCounter >= weapon.attacks.Count - 1)
             {
-                animatorHandler.PlayTargetAnimation(weapon.OH_Heavy_Attack_1, true);
+                comboCounter = 0;
             }
         }
-    }
-
-    public void HandleLightAttack(WeaponItem weapon)
-    {
-        animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_1, true);
-        lastAttack = weapon.OH_Light_Attack_1;
-        EnemiesInFront(3f, 1);
-    }
-
-    public void HandleLightAttackCombo(WeaponItem weapon)
-    {
-        animatorHandler.PlayTargetAnimation(weapon.OH_Light_Attack_2, true);
-        lastAttack = weapon.OH_Light_Attack_2;
-        EnemiesInFront(3f, 1.2f);
-    }
-
-    public void HandleHeavyAttack(WeaponItem weapon)
-    {
-        animatorHandler.PlayTargetAnimation(weapon.OH_Heavy_Attack_1, true);
-        lastAttack = weapon.OH_Heavy_Attack_1;
-        EnemiesInFront(3f, 2);
     }
 
     void EnemiesInFront(float radious, float dmgMultiplier)

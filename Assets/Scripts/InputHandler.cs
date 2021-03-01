@@ -124,7 +124,7 @@ public class InputHandler : MonoBehaviour
             if (playerManager.canDoCombo)
             {
                 comboFlag = true;
-                playerAttacker.HandleWeaponCombo(playerInventory.rightWeapon);
+                playerAttacker.HandleAttack(playerInventory.rightWeapon);
                 comboFlag = false;
             }
             else
@@ -133,14 +133,14 @@ public class InputHandler : MonoBehaviour
                     return;
                 if (playerManager.canDoCombo)
                     return;
-                playerAttacker.HandleLightAttack(playerInventory.rightWeapon);
+                playerAttacker.HandleAttack(playerInventory.rightWeapon);
             }
         }
         if (heavyAttack_Input)
         {
             if (playerManager.isInteracting)
                 return;
-            playerAttacker.HandleHeavyAttack(playerInventory.rightWeapon);
+            playerAttacker.HandleAttack(playerInventory.rightWeapon);
         }
     }
 

@@ -3239,13 +3239,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275489801}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -1, z: -0.0000000037252899, w: 0.000000398606}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 99.9984, y: 100.00009, z: 100.001114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1160516232}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1001 &285117368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4458,7 +4458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a021ee74ed82a04d8bd8c3fe2a046bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightWeapon: {fileID: 11400000, guid: 1fb410a9d127bdd4d9f760f4f5ef9992, type: 2}
+  rightWeapon: {fileID: 11400000, guid: b9d4c852b72432f4087368c8462313d1, type: 2}
   leftWeapon: {fileID: 0}
 --- !u!114 &430457392
 MonoBehaviour:
@@ -8563,6 +8563,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 60eecc41c20b70e41877bfe01519aad4, type: 2}
+    - target: {fileID: -2214671780200814635, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -2154287478724095537, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8575,6 +8579,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 60eecc41c20b70e41877bfe01519aad4, type: 2}
+    - target: {fileID: -905497482767229526, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -905497482767229526, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -905497482767229526, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -558653990029338249, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8611,10 +8627,26 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6305993007947968127, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 60eecc41c20b70e41877bfe01519aad4, type: 2}
+    - target: {fileID: 7096146596422175778, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096146596422175778, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096146596422175778, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7338430634263029371, guid: 554283aba56bd4645901ec78fe5ce287, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8670,7 +8702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff7258b71209df4dbd0e7d3255e6ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentOverride: {fileID: 1160516232}
+  parentOverride: {fileID: 275489802}
   isLeftHandSlot: 0
   isRightHandSlot: 1
   currentWeaponModel: {fileID: 0}
@@ -13799,7 +13831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b4ab7562e153d54c9478d761fbbded3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 1817364725}
   allVfx: []
   vfxNumber: 0
 --- !u!114 &1817364727
@@ -15161,7 +15193,7 @@ Transform:
   m_GameObject: {fileID: 1974883152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100.00108, y: 99.99961, z: 99.99893}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1160516234}
   m_RootOrder: 0
