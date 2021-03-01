@@ -146,11 +146,15 @@ public class InputHandler : MonoBehaviour
 
     private void HandleBlockInput()
     {
-        inputActions.Player.Block.performed += i => block_Input = true;
+        block_Input = (inputActions.Player.Block.phase == UnityEngine.InputSystem.InputActionPhase.Performed);
 
-        if(block_Input)
+        if (block_Input)
         {
             this.GetComponent<TakeDamage>().isBlocking = true;
+        }
+        else
+        {
+            this.GetComponent<TakeDamage>().isBlocking = false;
         }
     }
 

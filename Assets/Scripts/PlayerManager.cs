@@ -106,14 +106,15 @@ public class PlayerManager : Entity
 
     public override void ReduceStamina(float amount)
     {
+        StopCoroutine(UpdateStaminaBar());
         OnWorldCanvas.gameObject.SetActive(true);
+        startRechargeStamina = false;
 
         if (!startReducingStamina)
             staminaBardelay.fillAmount = stamina / maxStamina;
 
         base.ReduceStamina(amount);
-
-        startRechargeStamina = false;
+                
         StartCoroutine(UpdateStaminaBar());
     }
 

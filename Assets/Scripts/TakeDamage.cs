@@ -12,9 +12,7 @@ public class TakeDamage : MonoBehaviour
     bool imPlayer;
 
     public bool isBlocking;
-
-    float stamina;
-
+    
     CardsContainer card;
 
     public void Awake()
@@ -25,6 +23,7 @@ public class TakeDamage : MonoBehaviour
             imPlayer = true;
             card = this.GetComponent<CardsContainer>();
         }
+        me = this.GetComponent<Entity>();
     }
 
     public void Heal(float amount)
@@ -46,10 +45,17 @@ public class TakeDamage : MonoBehaviour
             card.armorSlot.TriggerCard(dmgDealer.GetComponent<Enemy>());
         }
 
-        if (isBlocking)
+        if (isBlocking && me.stamina > 0)
         {
+            var initialDamage = damage;
             damage -= me.stamina;
-            damage = Mathf.Clamp(damage, 0, maxHealth);
+            if (damage <= 0)
+            {
+                damage = 0;
+                me.ReduceStamina(initialDamage);
+            }
+            else
+                me.ReduceStamina(damage);
         }
         //else
          //   me.anim.Play("TakeDamage");
