@@ -20,20 +20,20 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _AmbientStrength: 0.31
+    - _AmbientStrength: 0.369
     - _BladeCurve: 2.35
-    - _BladeForward: 0.47
-    - _GrassHeight: 5.57
-    - _GrassWidth: 0.08
-    - _MaxDist: 60
+    - _BladeForward: 0.65
+    - _GrassHeight: 9.76
+    - _GrassWidth: 0.1
+    - _MaxDist: 30
     - _MinDist: 30
-    - _Rad: 0.013
+    - _Rad: 0.539
     - _Radius: 1.86
-    - _RandomHeight: -0.47
+    - _RandomHeight: 0.55
     - _Strength: -1.33
-    - _WindSpeed: 60.63
+    - _WindSpeed: 60
     - _WindStrength: 0.03
     m_Colors:
-    - _BottomColor: {r: 0.55074644, g: 0, b: 1, a: 1}
-    - _TopColor: {r: 0.8014243, g: 0.759434, b: 1, a: 1}
+    - _BottomColor: {r: 0.754717, g: 0, b: 0.18781626, a: 1}
+    - _TopColor: {r: 0, g: 1, b: 0.33355212, a: 1}
   m_BuildTextureStacks: []
