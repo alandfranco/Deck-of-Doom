@@ -48,8 +48,15 @@ public class NecroUltimate : Skills
                 enemy.GetStuned(duration);
             }
         }
-        Debug.Log("Explote");
+        StartCoroutine(DeactivateFX());
         //this.gameObject.SetActive(false);
+    }
+
+    IEnumerator DeactivateFX()
+    {
+        yield return new WaitForSeconds(duration);
+        Deactivate();
+        yield break;
     }
 
     private void Update()

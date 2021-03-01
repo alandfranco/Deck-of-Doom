@@ -17,4 +17,9 @@ public class FrostArmorCard : Card
         enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg, pl);
         enemy.GetStuned(cardSO.duration);
     }
+
+    protected override void CardEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

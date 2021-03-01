@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public abstract class Skills : MonoBehaviour
 {
@@ -10,10 +11,16 @@ public abstract class Skills : MonoBehaviour
     [Header("Skill Info")]
     public string title;
     public Sprite icon;
+    public Image skillImage;
     public float cooldownTime;
+    public float currentCooldown;
     private bool canUse = true;
     public GameObject visual;
 
+    private void Awake()
+    {
+        skillImage.fillAmount = 0;
+    }
 
     public void TriggerAbility()
     {
@@ -23,16 +30,28 @@ public abstract class Skills : MonoBehaviour
             Skill();
             StartCooldown();
         }
-
     }
+
+    protected virtual void LateUpdate()
+    {
+        if(currentCooldown > 0)
+        {
+            currentCooldown -= Time.deltaTime;
+            if (currentCooldown <= 0.1f)
+                currentCooldown = 0;
+        }
+        skillImage.fillAmount = currentCooldown / cooldownTime;
+    }
+
     public abstract void Skill();
     void StartCooldown()
     {
+        currentCooldown = cooldownTime;
         StartCoroutine(Cooldown());
         IEnumerator Cooldown()
         {
             canUse = false;
-            yield return new WaitForSeconds(cooldownTime);
+            yield return new WaitForSeconds(cooldownTime);            
             canUse = true;
         }
     }

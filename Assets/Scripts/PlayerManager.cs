@@ -23,9 +23,10 @@ public class PlayerManager : Entity
     public bool canDoCombo;
 
     private float _delta;
-
     [Header("UI")]
     public Transform OnWorldCanvas;
+   
+    [Header("UI Stamina")]
     public Image staminaBardelay;
     public Image staminaBar;
     bool startRechargeStamina;

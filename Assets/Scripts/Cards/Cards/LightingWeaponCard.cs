@@ -37,4 +37,8 @@ public class LightingWeaponCard : Card
         <= 90 && !x.GetComponent<PlayerMovement>() && x.GetComponent<Enemy>()).OrderBy(x => Random.value).Select(x => x.GetComponent<Enemy>()).First();
         return _enemiesInFront;
     }
+
+    protected override void CardEffect()
+    {
+    }
 }

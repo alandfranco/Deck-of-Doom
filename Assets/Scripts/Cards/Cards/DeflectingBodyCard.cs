@@ -2,32 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VenomWeaponCard : Card
+public class DeflectingBodyCard : Card
 {
+
     protected override void Awake()
     {
         base.Awake();
-        cardSO = Resources.Load<CardSO>("ScriptableObjects/Cards/VenomWeapon");
-    }
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
+        cardSO = Resources.Load<CardSO>("ScriptableObjects/Cards/DeflectingBody");
     }
 
     protected override void CardEffect(Enemy enemy)
     {
         enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg, pl);
-        enemy.AddDebuff(cardSO.dmg, cardSO.duration);
-        //enemy.PlayVenom();
+        enemy.GetPush();
     }
 
     protected override void CardEffect()
     {
+        throw new System.NotImplementedException();
     }
 }

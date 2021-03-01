@@ -28,6 +28,7 @@ public class TakeDamage : MonoBehaviour
 
     public void Heal(float amount)
     {
+        Debug.Log("GotHealed");
         health += amount;
         if (health > maxHealth)
             health = maxHealth;
@@ -102,8 +103,16 @@ public class TakeDamage : MonoBehaviour
         }
         else
         {
-            this.gameObject.SetActive(false);
+            me.anim.Play("Die");
+            StartCoroutine(DieCourutine());
         }
+    }
+
+    IEnumerator DieCourutine()
+    {
+        yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
+        yield break;
     }
 
     private void OnDisable()

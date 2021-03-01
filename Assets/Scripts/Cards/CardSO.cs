@@ -8,7 +8,9 @@ using UnityEngine;
 public class CardSO : ScriptableObject
 {
     public new string name;
-    public string description;
+
+    [TextArea(3,10)] public string description;
+
     public Sprite image;
 
     public float chance;
@@ -21,6 +23,8 @@ public class CardSO : ScriptableObject
     public float cooldown;
 
     public bool isOwned;
+
+    public bool isUsedOnUpdate;
 
     public CardType cardType;
 

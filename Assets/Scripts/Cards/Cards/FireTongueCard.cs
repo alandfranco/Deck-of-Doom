@@ -7,7 +7,7 @@ public class FireTongueCard : Card
     protected override void Awake()
     {
         base.Awake();
-        cardSO = Resources.Load<CardSO>("ScriptableObjects/Cards/FireTongue");
+        cardSO = Resources.Load<CardSO>("ScriptableObjects/Cards/FlameTongue");
     }
 
     void Start()
@@ -25,5 +25,9 @@ public class FireTongueCard : Card
         enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg, pl);
         enemy.GetComponent<TakeDamage>().TakeDamageOvertime(cardSO.duration, cardSO.dmgOvertime, pl);
         //enemy.PlayFire();
+    }
+
+    protected override void CardEffect()
+    {
     }
 }

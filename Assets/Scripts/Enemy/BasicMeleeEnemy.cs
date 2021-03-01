@@ -65,10 +65,10 @@ public class BasicMeleeEnemy : Enemy
 
     bool MovementCheck(float dist, GOAPAction nextAction)
     {
-        NavMeshPath navMeshPath = new NavMeshPath();
+        /*NavMeshPath navMeshPath = new NavMeshPath();
         bool canReach = agent.CalculatePath(nextAction.target.transform.position, navMeshPath);
         if (navMeshPath.status == NavMeshPathStatus.PathInvalid)
-            return false;
+            return false;*/
         if (dist < config.aggroDist && dist > config.attackDistance && !anim.GetBool("isWalking"))
         {
             anim.SetBool("isRolling", true);

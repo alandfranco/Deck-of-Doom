@@ -25,6 +25,10 @@ public abstract class Enemy : Entity, IGOAP
     [Header("BuffsFXs")]
     public GameObject venomFX;
 
+    bool getPush;
+    float pushCont;
+    Vector3 finalPos;
+
     protected virtual void Awake()
     {
         SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/BasicEnemy"));        
@@ -51,6 +55,17 @@ public abstract class Enemy : Entity, IGOAP
         else
             stamina = config.maxStamina;
         CheckDisabled();
+
+        if(getPush)
+        {
+            pushCont += Time.deltaTime;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, finalPos, Vector3.Distance(finalPos, this.transform.position) * Time.deltaTime);
+            if (pushCont >= 1f)
+            {
+                pushCont = 0;
+                getPush = false;
+            }
+        }
     }
 
     protected virtual void CheckDisabled()
@@ -80,7 +95,6 @@ public abstract class Enemy : Entity, IGOAP
     {
         isStuned = true;
         GetComponent<GotStunedAction>().count = duration;
-        Debug.Log("GOT SUTNEd");
         GetDisabled(duration);
     }
 
@@ -145,6 +159,12 @@ public abstract class Enemy : Entity, IGOAP
         config.dmg *= debuff;
 
         yield break;
+    }
+
+    public virtual void GetPush()
+    {
+        finalPos = this.transform.position - this.transform.forward * 5;
+        getPush = true;
     }
 
     protected virtual void OnDisable()

@@ -12,11 +12,33 @@ public class CardsManager : MonoBehaviour, ISaveable
     public CardSO weaponSlot;
     public CardSO armorSlot;
     public CardSO specialSlot;
-        
+
     [SerializeField] List<CardSO> allCardsInGame = new List<CardSO>();
+
+    [ContextMenu("Fill AllCardsList")]
+    private void AllCards()
+    {
+        allCardsInGame.Clear();
+        foreach (var item in Resources.LoadAll<CardSO>("ScriptableObjects/Cards"))
+        {
+            allCardsInGame.Add(item);
+        }
+    }
+
     [SerializeField] List<CardSO> ownedCards = new List<CardSO>();
 
     [SerializeField] string[] ownCardsID;
+
+    [ContextMenu("GiveMeMyCards")]
+    private void GiveMeAllCards()
+    {
+        ownedCards.Clear();
+        ownCardsID = new string[allCardsInGame.Count];
+        for (int i = 0; i < allCardsInGame.Count; i++)
+        {
+            ownCardsID[i] = allCardsInGame[i].Id;
+        }
+    }
 
     public bool ofAvailable;
     public bool defAvailable;
@@ -78,8 +100,6 @@ public class CardsManager : MonoBehaviour, ISaveable
     public void AddCard(List<CardSO> onGameCards)
     {
         var newCard = onGameCards.OrderBy(x => UnityEngine.Random.value).First();
-
-        
     }
 
     public void PickCard(CardSO card)

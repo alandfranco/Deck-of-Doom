@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(enemiesAttacking);
     }
 
     public void RestartScene()

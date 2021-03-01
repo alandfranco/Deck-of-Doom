@@ -12,6 +12,8 @@ public class CardsContainer : MonoBehaviour
     GameObject armorCard;
     GameObject specialCard;
 
+    List<Card> UseOnUpdate = new List<Card>();
+
     void Start()
     {
         if(FindObjectOfType<CardsManager>())
@@ -21,6 +23,8 @@ public class CardsContainer : MonoBehaviour
                 weaponCard = GameObject.Instantiate(CardsManager.instance.weaponSlot.myCard);
                 weaponCard.name = "WeaponSlot";
                 weaponSlot = weaponCard.GetComponent<Card>();
+                if (CardsManager.instance.weaponSlot.isUsedOnUpdate)
+                    UseOnUpdate.Add(weaponSlot);
             }
 
             if (CardsManager.instance.armorSlot != null)
@@ -28,6 +32,8 @@ public class CardsContainer : MonoBehaviour
                 armorCard = GameObject.Instantiate(CardsManager.instance.armorSlot.myCard);
                 armorCard.name = "ArmorSlot";
                 armorSlot = armorCard.GetComponent<Card>();
+                if (CardsManager.instance.armorSlot.isUsedOnUpdate)
+                    UseOnUpdate.Add(armorSlot);
             }
 
             if (CardsManager.instance.specialSlot != null)
@@ -35,7 +41,20 @@ public class CardsContainer : MonoBehaviour
                 specialCard = GameObject.Instantiate(CardsManager.instance.specialSlot.myCard);
                 specialCard.name = "SpecialSlot";
                 specialSlot = specialCard.GetComponent<Card>();
+                if (CardsManager.instance.specialSlot.isUsedOnUpdate)
+                    UseOnUpdate.Add(specialSlot);
             }
         }
+    }
+
+    private void Update()
+    {
+        if(UseOnUpdate.Count > 0)
+        {
+            foreach (var item in UseOnUpdate)
+            {
+                item.TriggerCard();
+            }
+        }        
     }
 }

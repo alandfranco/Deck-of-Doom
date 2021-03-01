@@ -30,10 +30,18 @@ public abstract class Card : MonoBehaviour
     {       
         float random = Random.Range(0.0f, 1.0f);
         if (random <= cardSO.chance / 100 && canUse)
+        {
             CardEffect(enemy);
+        }
+    }
+
+    public virtual void TriggerCard()
+    {
+        CardEffect();
     }
 
     protected abstract void CardEffect(Enemy enemy);
+    protected abstract void CardEffect();
 
     protected virtual IEnumerator Cooldown()
     {
