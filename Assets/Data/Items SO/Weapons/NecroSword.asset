@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 1c9637a3ba46f334b95bf2907845e2c3, type: 3}
   itemName: Necro Sword
-  modelPrefab: {fileID: 3446380397346193055, guid: dd97f3eaae54cfc478067104e0e225db, type: 3}
+  modelPrefab: {fileID: 8892006690746876824, guid: 473f58abd9558824992041e9241256d2, type: 3}
   isUnarmed: 0
   attacks:
   - combo_1

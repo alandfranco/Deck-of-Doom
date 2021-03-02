@@ -50,7 +50,7 @@ Material:
     - _smoothness: 0.85
     - _step: 0
     m_Colors:
-    - _color: {r: 0, g: 0.17254902, b: 2.9960785, a: 0}
+    - _color: {r: 0.0048059924, g: 1.018868, b: 0.72733057, a: 0}
     - _color2: {r: 4, g: 0, b: 0, a: 0}
-    - _fresnelColor: {r: 0, g: 3.6078432, b: 4, a: 0}
+    - _fresnelColor: {r: 0.1763312, g: 5.3403134, b: 3.0154316, a: 0}
   m_BuildTextureStacks: []
