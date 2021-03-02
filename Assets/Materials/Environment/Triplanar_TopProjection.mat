@@ -48,15 +48,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _topNormal:
-        m_Texture: {fileID: 2800000, guid: 04f0cd5fa1c19774a8903082d2ea9076, type: 3}
+        m_Texture: {fileID: 2800000, guid: dfd85fdc22807c84faa4fba6bdf78636, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_B60E0735: 0.53
-    - _tiling: 1
-    - _topBlend: 0.69
-    - _verticalOffset: 0.67
+    - _tiling: 0.16
+    - _topBlend: 0.49
+    - _verticalOffset: 0.57
     m_Colors:
-    - _albedoTint: {r: 1, g: 1, b: 1, a: 0}
-    - _diffuseTint: {r: 0, g: 1, b: 0.23965836, a: 0}
+    - _albedoTint: {r: 0.6471649, g: 0.5707547, b: 1, a: 0}
+    - _diffuseTint: {r: 0.764151, g: 0.58383244, b: 0.48660558, a: 0}
   m_BuildTextureStacks: []
