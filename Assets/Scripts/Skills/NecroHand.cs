@@ -14,7 +14,7 @@ public class NecroHand : Skills
     public Vector3 target;
     public GameObject targetPoint;
 
-    GameObject pl;
+    GameObject plM;
 
     public float dmg;
     public float dmgInExplotion;
@@ -23,9 +23,10 @@ public class NecroHand : Skills
 
     float duration;
 
-    private void Awake()
+    protected override void Awake()
     {
-        pl = FindObjectOfType<PlayerMovement>().gameObject;        
+        base.Awake();
+        plM = FindObjectOfType<PlayerMovement>().gameObject;        
     }
 
     private void Initialize()
@@ -37,10 +38,11 @@ public class NecroHand : Skills
     public override void Skill()
     {
         Initialize();
-        duration = Vector3.Distance(target, pl.transform.position) / speed;
+        duration = Vector3.Distance(target, plM.transform.position) / speed;
         if (duration >= cooldownTime)
             duration = cooldownTime - 0.5f;
         Sequence sq = DOTween.Sequence()
+            .Insert(0, plM.transform.DOLookAt(new Vector3(target.x,plM.transform.position.y,target.z), 0.2f))
             .Insert(0, transform.DOMove(target, duration))
             .AppendCallback(() => Explode());
     }
@@ -52,7 +54,7 @@ public class NecroHand : Skills
         {            
             if(item.GetComponent<Enemy>())
             {
-                item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion, pl);
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion, plM);
             }            
         }
         Deactivate();
@@ -61,7 +63,7 @@ public class NecroHand : Skills
     private void OnTriggerEnter(Collider c)
     {
         if (c.GetComponent<Enemy>())
-            c.GetComponent<TakeDamage>().TakeDamageToHealth(dmg, pl);
+            c.GetComponent<TakeDamage>().TakeDamageToHealth(dmg, plM);
     }
 
     private void OnDrawGizmos()

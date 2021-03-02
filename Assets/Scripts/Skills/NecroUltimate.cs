@@ -10,7 +10,7 @@ public class NecroUltimate : Skills
     [SerializeField] private Renderer skinnedMesh = default;
     [SerializeField] private ParticleSystem particle = default;
 
-    GameObject pl;
+    GameObject plM;
 
     public Transform target;
 
@@ -18,9 +18,10 @@ public class NecroUltimate : Skills
 
     public float duration;
 
-    private void Awake()
+    protected override void Awake()
     {
-        pl = FindObjectOfType<PlayerMovement>().gameObject;
+        base.Awake();
+        plM = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
     private void Initialize()
@@ -43,7 +44,7 @@ public class NecroUltimate : Skills
         {
             if (item.TryGetComponent<Enemy>(out var enemy))
             {
-                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, pl);
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, plM);
                 //HACER APARECER LOS HUESOS
                 enemy.GetStuned(duration);
             }

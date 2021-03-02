@@ -33,16 +33,22 @@ public class PlayerManager : Entity
     bool startReducingStamina;
     float speedToReduce;
 
+    [Header("UI Health")]
+    public Image healthBar;
+    TakeDamage plHealth;
+
     void Start()
     {
         inputHandler = GetComponent<InputHandler>();
         anim = GetComponentInChildren<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        plHealth = this.GetComponent<TakeDamage>();
 
         cam = Camera.main.transform;
 
         staminaBar.fillAmount = 1;
         staminaBardelay.fillAmount = 1;
+        healthBar.fillAmount = 1;
         OnWorldCanvas.gameObject.SetActive(false);
     }
 
@@ -50,12 +56,9 @@ public class PlayerManager : Entity
     {
         if(OnWorldCanvas.gameObject.activeInHierarchy)
             OnWorldCanvas.LookAt(cam);
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            ReduceStamina(5);
-        }
 
-        if(startRechargeStamina)
+        #region Stamina
+        if (startRechargeStamina)
         {
             stamina += staminaRecoverPS * Time.deltaTime;
             staminaBar.fillAmount = stamina / maxStamina;
@@ -69,6 +72,7 @@ public class PlayerManager : Entity
         }
         if (startReducingStamina)
             StartReducingStamina();
+        #endregion
     }
 
     private void FixedUpdate()
@@ -96,6 +100,7 @@ public class PlayerManager : Entity
         inputHandler.sprintFlag = false;
         inputHandler.lightAttack_Input = false;
         inputHandler.heavyAttack_Input = false;
+        inputHandler.skill_input = false;
         inputHandler.block_Input = false;
         inputHandler.jump_Input = false;
 
@@ -104,6 +109,15 @@ public class PlayerManager : Entity
             playerMovement.inAirTimer = playerMovement.inAirTimer + Time.deltaTime;
         }
     }
+
+    #region Health
+    public void UpdateHealthBar()
+    {
+        healthBar.fillAmount = plHealth.health / plHealth.maxHealth;
+    }
+    #endregion
+
+    #region Stamina
 
     public override void ReduceStamina(float amount)
     {
@@ -135,4 +149,6 @@ public class PlayerManager : Entity
     {
         staminaBardelay.fillAmount -= speedToReduce * Time.deltaTime;        
     }
+
+    #endregion
 }

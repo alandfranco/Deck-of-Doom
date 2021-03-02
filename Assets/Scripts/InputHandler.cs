@@ -19,6 +19,7 @@ public class InputHandler : MonoBehaviour
     public bool skill_input2;
     public bool skill_input3;
     public bool skill_input4;
+    public bool skill_input;
 
     public bool rollFlag;
     public bool sprintFlag;
@@ -72,6 +73,8 @@ public class InputHandler : MonoBehaviour
     #region Actions
     public void TickInput(float delta)
     {
+        if (Input.GetKey(KeyCode.Tab))
+            return;
         MoveInput(delta);
         HandleRollInput(delta);
         HandleAttackInput(delta);
@@ -81,6 +84,7 @@ public class InputHandler : MonoBehaviour
         HandleSkillTwo();
         HandleSkillThree();
         HandleSkillFour();
+        HandleSkill();
     }
 
     private void MoveInput(float delta)
@@ -177,6 +181,16 @@ public class InputHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         else
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    void HandleSkill()
+    {
+        skill_input = inputActions.Player.Skill.triggered;
+
+        if(skill_input)
+        {
+            skillManager.PerfomSkill();
+        }
     }
 
     void HandleSkillOne()

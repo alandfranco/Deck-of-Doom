@@ -15,6 +15,8 @@ public class TakeDamage : MonoBehaviour
     
     CardsContainer card;
 
+    AnimatorHandler anim;
+
     public void Awake()
     {
         health = maxHealth;
@@ -24,14 +26,22 @@ public class TakeDamage : MonoBehaviour
             card = this.GetComponent<CardsContainer>();
         }
         me = this.GetComponent<Entity>();
+
+        if(me is PlayerManager)
+        {
+            anim = GetComponentInChildren<AnimatorHandler>();
+        }
     }
 
     public void Heal(float amount)
-    {
-        Debug.Log("GotHealed");
+    {        
+        
         health += amount;
         if (health > maxHealth)
             health = maxHealth;
+
+        if (imPlayer)
+            (me as PlayerManager).UpdateHealthBar();
     }
 
     public bool TakeDamageToHealth(float damage, GameObject dmgDealer)
@@ -50,6 +60,10 @@ public class TakeDamage : MonoBehaviour
         {
             var initialDamage = damage;
             damage -= me.stamina;
+            if(imPlayer)
+            {
+                anim.PlayTargetAnimation("BlockHit", true, 0.2f);
+            }
             if (damage <= 0)
             {
                 damage = 0;
@@ -63,6 +77,13 @@ public class TakeDamage : MonoBehaviour
 
         health -= damage;
 
+        if (imPlayer)
+        {
+            (me as PlayerManager).UpdateHealthBar();
+        }
+
+        HandleAnimation();
+
         if (health <= 0)
         {
             if (dmgDealer.TryGetComponent<PlayerManager>(out var pl))
@@ -74,6 +95,14 @@ public class TakeDamage : MonoBehaviour
         }
         else
             return false;
+    }
+
+    void HandleAnimation()
+    {
+        if(imPlayer)
+        {
+            anim.PlayTargetAnimation("TakeDamage", true, 0.2f);
+        }
     }
 
     public void TakeDamageOvertime(float duration, float damage, GameObject dmgDealer)

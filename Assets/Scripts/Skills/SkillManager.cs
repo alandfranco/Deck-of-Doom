@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Cinemachine;
 
 public class SkillManager : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class SkillManager : MonoBehaviour
     public int selection;
     int previousSelection;
 
+    AnimatorHandler anim;
+
     [SerializeField] Image[] skillsImg = new Image[4];
     
     void Start()
@@ -37,6 +40,7 @@ public class SkillManager : MonoBehaviour
         skillWheelPanel.SetActive(false);
         currentSkill = skills[0];
         baseColor = skillsImg[0].color;
+        anim = GetComponentInChildren<AnimatorHandler>();
     }
 
     public void Select(Image img)
@@ -56,7 +60,9 @@ public class SkillManager : MonoBehaviour
         if(Input.GetKey(KeyCode.Tab))
         {
             ActivateWheel();
-            this.GetComponent<InputHandler>().enabled = false;
+            //this.GetComponent<InputHandler>().enabled = false;
+            //this.GetComponent<PlayerMovement>().enabled = false;
+            FindObjectOfType<Cinemachine.CinemachineFreeLook>().enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 
@@ -78,12 +84,11 @@ public class SkillManager : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Tab))
         {
             DeactivateWheel();
-            this.GetComponent<InputHandler>().enabled = true;
+            //this.GetComponent<InputHandler>().enabled = true;
+            FindObjectOfType<Cinemachine.CinemachineFreeLook>().enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-
-        Debug.Log(selection);
 
         if (viewVisual)
             visualPoint.SetActive(true);
@@ -106,6 +111,12 @@ public class SkillManager : MonoBehaviour
         currentSkill = skills[index];
     }
 
+    public void PerfomSkill()
+    {
+        currentSkill.transform.position = this.transform.position;
+        currentSkill.TriggerAbility();
+    }
+    /*
     public void PerformSkilOne()
     {
         skills[0].transform.position = this.transform.position;        
@@ -129,7 +140,7 @@ public class SkillManager : MonoBehaviour
         skills[3].transform.position = this.transform.position;        
         skills[3].TriggerAbility();
     }
-
+    */
     public void AimingPoint()
     {
         int layerMask2 = 1 << 10;

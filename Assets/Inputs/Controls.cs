@@ -129,6 +129,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Skill"",
+                    ""type"": ""Button"",
+                    ""id"": ""60a11394-fd00-45d2-a310-033659c049f8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -329,6 +337,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Heavy Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d0d39e2-14c9-4638-bff7-4d30f23c4984"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -379,6 +398,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_UseItem = m_Player.FindAction("UseItem", throwIfNotFound: true);
         m_Player_XYAxis = m_Player.FindAction("XYAxis", throwIfNotFound: true);
+        m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -442,6 +462,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_UseItem;
     private readonly InputAction m_Player_XYAxis;
+    private readonly InputAction m_Player_Skill;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -460,6 +481,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @UseItem => m_Wrapper.m_Player_UseItem;
         public InputAction @XYAxis => m_Wrapper.m_Player_XYAxis;
+        public InputAction @Skill => m_Wrapper.m_Player_Skill;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -511,6 +533,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @XYAxis.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXYAxis;
                 @XYAxis.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXYAxis;
                 @XYAxis.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXYAxis;
+                @Skill.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkill;
+                @Skill.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkill;
+                @Skill.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkill;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -557,6 +582,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @XYAxis.started += instance.OnXYAxis;
                 @XYAxis.performed += instance.OnXYAxis;
                 @XYAxis.canceled += instance.OnXYAxis;
+                @Skill.started += instance.OnSkill;
+                @Skill.performed += instance.OnSkill;
+                @Skill.canceled += instance.OnSkill;
             }
         }
     }
@@ -595,5 +623,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
         void OnXYAxis(InputAction.CallbackContext context);
+        void OnSkill(InputAction.CallbackContext context);
     }
 }

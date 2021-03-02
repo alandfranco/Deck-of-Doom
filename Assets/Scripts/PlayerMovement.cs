@@ -40,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float ledgePush = 10f;
 
+    [Header("Stamina Stats")]
+    [SerializeField] float jumpStaminaCost;
+    [SerializeField] float dashStaminaCost;
+
     void Start()
     {
         playerManager = GetComponent<PlayerManager>();
@@ -90,6 +94,13 @@ public class PlayerMovement : MonoBehaviour
         //Disable the player control when the character is Interacting or doing certain things.
         if (playerManager.isInteracting)
             return;
+
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            animatorHandler.UpdateAnimatorValues(0, 0, false);
+            rigidbody.velocity = Vector3.zero;
+            return;
+        }
 
         moveDirection = cameraObject.forward * inputHandler.vertical;
         moveDirection += cameraObject.right * inputHandler.horizontal;
@@ -142,7 +153,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (inputHandler.moveAmount > 0)
             {
-                animatorHandler.PlayTargetAnimation("Roll", true, 0.2f);
+                playerManager.ReduceStamina(dashStaminaCost);
+                animatorHandler.PlayTargetAnimation("Dash", true, 0.2f);
                 moveDirection.y = 0;
                 Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
                 myTransform.rotation = rollRotation;
@@ -250,10 +262,16 @@ public class PlayerMovement : MonoBehaviour
         if (playerManager.isInteracting)
             return;
 
+        if (Input.GetKey(KeyCode.Tab))
+        {            
+            return;
+        }
+
         if (inputHandler.jump_Input)
         {
             if (inputHandler.moveAmount > 0) //Can only jump while moving. We can ignore this IF, BUT we need to change how Jumping Works
             {
+                playerManager.ReduceStamina(jumpStaminaCost);
                 moveDirection = cameraObject.forward * inputHandler.vertical;
                 moveDirection += cameraObject.right * inputHandler.horizontal;
                 animatorHandler.PlayTargetAnimation("Jump", true, 0.2f);

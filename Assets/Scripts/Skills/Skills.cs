@@ -17,9 +17,16 @@ public abstract class Skills : MonoBehaviour
     private bool canUse = true;
     public GameObject visual;
 
-    private void Awake()
+    protected PlayerManager pl;
+    protected AnimatorHandler anim;
+
+    public string skillAnimation;
+
+    protected virtual void Awake()
     {
         skillImage.fillAmount = 0;
+        pl = FindObjectOfType<PlayerManager>();
+        anim = pl.GetComponentInChildren<AnimatorHandler>();
     }
 
     public void TriggerAbility()
@@ -29,6 +36,7 @@ public abstract class Skills : MonoBehaviour
             OnSkillUse.Invoke(cooldownTime);
             Skill();
             StartCooldown();
+            anim.PlayTargetAnimation(skillAnimation, true, 0.2f);
         }
     }
 
