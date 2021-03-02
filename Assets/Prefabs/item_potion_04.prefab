@@ -160,8 +160,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Healing Potion
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7594288f85f5dc1498107ccfe083d8d0, type: 3}
+  potIcon: {fileID: 0}
+  potFill: {fileID: 0}
   visual: {fileID: 1318824303939288603}
+  duration: 0
+  currentDuration: 0
   healingAmountOnPorcentage: 35
 --- !u!65 &-4952926033050944665
 BoxCollider:

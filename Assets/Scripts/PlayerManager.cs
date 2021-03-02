@@ -37,6 +37,11 @@ public class PlayerManager : Entity
     public Image healthBar;
     TakeDamage plHealth;
 
+    [Header("UI Potion")]
+    public Image potionDurationFill;
+    public Image potionImage;
+    public GameObject potionUI;
+
     public GameObject potion;
     [SerializeField]Transform potionPos;
 
@@ -53,6 +58,7 @@ public class PlayerManager : Entity
         staminaBardelay.fillAmount = 1;
         healthBar.fillAmount = 1;
         OnWorldCanvas.gameObject.SetActive(false);
+        potionUI.SetActive(false);
     }
 
     void Update()
@@ -113,13 +119,25 @@ public class PlayerManager : Entity
         }
     }
 
+    public void DeactivatePotionUI()
+    {
+        potionUI.SetActive(false);
+    }
+
     public void UsePotion()
     {
         if(potion != null)
         {
-            potion.GetComponent<Potion>().TriggerPotion();            
-            potion = null;
+            potion.TryGetComponent<Potion>(out var pot);
+            pot.TriggerPotion();
+            if (pot.duration > 0)
+            {
+                potionUI.SetActive(true);
+                pot.potIcon = potionImage;
+                pot.potFill = potionDurationFill;
+            }
         }
+        potion = null;
     }
 
     private void OnTriggerEnter(Collider other)

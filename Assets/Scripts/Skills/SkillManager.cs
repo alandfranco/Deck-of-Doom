@@ -54,9 +54,12 @@ public class SkillManager : MonoBehaviour
         img.color = hoverColor;
     }
 
-    public void Deselect(Image img)
+    public void Deselect(int skill)
     {
-        img.color = baseColor;
+        if (skills[skill].currentCooldown > 0)
+            return;
+
+        skillsImg[skill].color = baseColor;
     }
 
     void Update()
@@ -86,7 +89,7 @@ public class SkillManager : MonoBehaviour
             Select(skillsImg[selection]);
             if(selection != previousSelection)
             {
-                Deselect(skillsImg[previousSelection]);
+                Deselect(previousSelection);
                 SelectSkill(selection);
                 previousSelection = selection;
             }
@@ -111,9 +114,14 @@ public class SkillManager : MonoBehaviour
             OnSelectSkill();
         }
 
-        foreach (var item in skillsImg)
+        foreach (var item in skills)
         {
-            
+            if (item.currentCooldown > 0 || currentSkill == item)
+            {
+                skillsImg[skills.IndexOf(item)].color = hoverColor;
+            }
+            else
+                skillsImg[skills.IndexOf(item)].color = baseColor;
         }
 
         #region Testing

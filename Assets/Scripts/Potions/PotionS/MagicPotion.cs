@@ -5,7 +5,7 @@ using UnityEngine;
 public class MagicPotion : Potion
 {
     public float cooldownReduction;
-
+    
     public override void PotionEffect()
     {
         visual.SetActive(false);
@@ -20,16 +20,18 @@ public class MagicPotion : Potion
             originalCD.Add(item.cooldownTime);
             item.cooldownTime /= cooldownReduction;
             if (item.cooldownTime < item.currentCooldown)
-                item.currentCooldown = item.cooldownTime;
+            {
+                item.RecallCooldown();
+            }
         }
         yield return new WaitForSeconds(0);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(duration);
         for (int i = 0; i < originalCD.Count - 1; i++)
         {
             pl.GetComponent<SkillManager>().skills[i].cooldownTime = originalCD[i];
         }
-
+        pl.DeactivatePotionUI();
         Destroy(this.gameObject);
         yield break;
     }

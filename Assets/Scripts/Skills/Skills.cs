@@ -63,8 +63,13 @@ public abstract class Skills : MonoBehaviour
         }
     }
 
-    protected virtual void Deactivate()
+    public void RecallCooldown()
     {
+        StartCooldown();
+    }
+
+    protected virtual void Deactivate()
+    {        
         visual.SetActive(false);
     }
 
