@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mushroom_01
+  m_Shader: {fileID: -6465566751694194690, guid: 70a58db3fd0a0234ea613c9a25246749, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_97B89F93_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 8a9e51113f01a9549bfeb27b7cf1769a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _albedo:
+        m_Texture: {fileID: 2800000, guid: 4954661849064b648afea78c7962f845, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _mask:
+        m_Texture: {fileID: 2800000, guid: 87ce03bd447ccce48bbff87ac0d8355f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normal:
+        m_Texture: {fileID: 2800000, guid: 5f77f20afa4153d47b190a7defc9edf0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _sidesDiffuse:
+        m_Texture: {fileID: 2800000, guid: 1949dc4c84faa4540ab4f2cfaea2ad53, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _sidesNormal:
+        m_Texture: {fileID: 2800000, guid: 02043342ab6197146b428457ba79d4a4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _topDiffuse:
+        m_Texture: {fileID: 2800000, guid: 7cf268fb256f3f74d95e3849a6905696, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _topNormal:
+        m_Texture: {fileID: 2800000, guid: 8f02f505176e41a4fa5d3949018acca2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_B60E0735: 0.53
+    - _tiling: 0.8
+    - _topBlend: 1
+    - _verticalOffset: 0
+    m_Colors:
+    - _albedoTint: {r: 0.1707734, g: 0.17007832, b: 0.24528301, a: 0}
+    - _diffuseTint: {r: 1, g: 0.48117012, b: 0, a: 0}
+  m_BuildTextureStacks: []

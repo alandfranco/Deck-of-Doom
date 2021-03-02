@@ -3,7 +3,12 @@ guid: a93e7ffbb1d2f8543a887354a23f95a2
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_lampMat
+    second: {fileID: 2100000, guid: 081fea12c7e87cf4991fc84b68e1852a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

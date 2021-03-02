@@ -46,11 +46,11 @@ Material:
     - Vector1_88E85215: 0.75
     - Vector1_8DFEB1D2: 32
     - Vector1_FD47D2BE: 0.25
-    - _alphaClip: 0.75
+    - _alphaClip: 1
     - _glossiness: 32
-    - _rimAmount: 0.75
+    - _rimAmount: 0.188
     - _rimThreshold: 1
-    - _shadowIntensity: 1
+    - _shadowIntensity: 0.178
     - _windDensity: 0.5
     - _windStrength: 0.25
     m_Colors:
