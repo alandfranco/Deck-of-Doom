@@ -11,7 +11,6 @@ public abstract class Skills : MonoBehaviour
     [Header("Skill Info")]
     public string title;
     public Sprite icon;
-    public Image skillImage;
     public float cooldownTime;
     public float currentCooldown;
     private bool canUse = true;
@@ -24,7 +23,7 @@ public abstract class Skills : MonoBehaviour
 
     protected virtual void Awake()
     {
-        skillImage.fillAmount = 0;
+        //skillImage.fillAmount = 0;
         pl = FindObjectOfType<PlayerManager>();
         anim = pl.GetComponentInChildren<AnimatorHandler>();
     }
@@ -48,7 +47,7 @@ public abstract class Skills : MonoBehaviour
             if (currentCooldown <= 0.1f)
                 currentCooldown = 0;
         }
-        skillImage.fillAmount = currentCooldown / cooldownTime;
+        //skillImage.fillAmount = currentCooldown / cooldownTime;
     }
 
     public abstract void Skill();

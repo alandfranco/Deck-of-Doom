@@ -267,7 +267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7075814}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1107,6 +1107,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150637969}
   m_CullTransparentMesh: 0
+--- !u!1 &156138036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 156138037}
+  - component: {fileID: 156138039}
+  - component: {fileID: 156138038}
+  m_Layer: 5
+  m_Name: SkillName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &156138037
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156138036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1796798555}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 770.22186, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &156138038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156138036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 48
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Necro Hand Uhlala
+--- !u!222 &156138039
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156138036}
+  m_CullTransparentMesh: 0
 --- !u!1001 &162143383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1940,7 +2019,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240242536}
-  m_LocalRotation: {x: 0.2669336, y: 3.5617736e-24, z: -9.865542e-25, w: 0.96371496}
+  m_LocalRotation: {x: 0.26693365, y: -0.000000029604868, z: 0.000000008200076, w: 0.96371496}
   m_LocalPosition: {x: -10.97, y: 3.2432294, z: -14.036097}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2042,8 +2121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: NecroUltimate
-  icon: {fileID: 0}
-  skillImage: {fileID: 150637971}
+  icon: {fileID: 21300000, guid: 61eeab80811c01048a0d1c18545d4a9f, type: 3}
   cooldownTime: 10
   currentCooldown: 0
   visual: {fileID: 1160455137}
@@ -2169,8 +2247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: LifeSteal
-  icon: {fileID: 0}
-  skillImage: {fileID: 1494819266}
+  icon: {fileID: 21300000, guid: 1c9637a3ba46f334b95bf2907845e2c3, type: 3}
   cooldownTime: 1
   currentCooldown: 0
   visual: {fileID: 1765351088}
@@ -2179,6 +2256,7 @@ MonoBehaviour:
   skinnedMesh: {fileID: 0}
   particle: {fileID: 0}
   target: {fileID: 0}
+  damage: 3
 --- !u!4 &261034508
 Transform:
   m_ObjectHideFlags: 0
@@ -3836,6 +3914,10 @@ MonoBehaviour:
   - {fileID: 861853462}
   - {fileID: 937752502}
   - {fileID: 1574584945}
+  skillBar: {fileID: 666708340}
+  skillLogo: {fileID: 273297943}
+  skillName: {fileID: 156138038}
+  skillState: {fileID: 1749722174}
 --- !u!114 &430457397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4018,8 +4100,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489876279}
-  m_LocalRotation: {x: 0.14866704, y: -0.000000015331313, z: 0.0000000049341997, w: 0.98888737}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.14866702, y: 0.000000024788905, z: -0.000000007978013, w: 0.98888737}
+  m_LocalPosition: {x: 3.0719296e-14, y: -0.0000001539608, z: -0.00000094116456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1740773269}
@@ -6980,8 +7062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: NecroFear
-  icon: {fileID: 0}
-  skillImage: {fileID: 570596364}
+  icon: {fileID: 21300000, guid: 106efc2cd4844ca4286ec4fa7be56407, type: 3}
   cooldownTime: 1
   currentCooldown: 0
   visual: {fileID: 1122894790}
@@ -10371,9 +10452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11de8406573c5e84fa16914148cfb402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Hola
-  icon: {fileID: 0}
-  skillImage: {fileID: 1819847425}
+  title: Necro Hand
+  icon: {fileID: 21300000, guid: ce95839a8fc0087439a502e64d004675, type: 3}
   cooldownTime: 5
   currentCooldown: 0
   visual: {fileID: 234682547}
@@ -11742,8 +11822,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593203607}
-  m_LocalRotation: {x: 0.16834041, y: -0.000000009449483, z: 0.000000003250362, w: 0.985729}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.16834044, y: -0.000000017167995, z: 0.0000000059053176, w: 0.985729}
+  m_LocalPosition: {x: 3.0719296e-14, y: -0.0000001539608, z: -0.00000094116456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 813114683}
@@ -12452,8 +12532,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690108645}
-  m_LocalRotation: {x: 0.18800953, y: -0.000000015122204, z: 0.0000000055420557, w: 0.9821672}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.18800959, y: -0.000000043965734, z: 0.00000001611277, w: 0.9821672}
+  m_LocalPosition: {x: 3.0719296e-14, y: -0.0000001539608, z: -0.00000094116456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1741220840}
@@ -13192,6 +13272,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1749722172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1749722173}
+  - component: {fileID: 1749722175}
+  - component: {fileID: 1749722174}
+  m_Layer: 5
+  m_Name: CooldownText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1749722173
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749722172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1796798555}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -66.05802}
+  m_SizeDelta: {x: 770.22186, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1749722174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749722172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 48
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: On Cooldown
+--- !u!222 &1749722175
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749722172}
+  m_CullTransparentMesh: 0
 --- !u!1 &1765351088
 GameObject:
   m_ObjectHideFlags: 0
@@ -13671,6 +13830,8 @@ RectTransform:
   - {fileID: 861853461}
   - {fileID: 937752501}
   - {fileID: 1574584944}
+  - {fileID: 156138037}
+  - {fileID: 1749722173}
   m_Father: {fileID: 376202514}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
