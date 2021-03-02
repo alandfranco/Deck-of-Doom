@@ -32,6 +32,12 @@ public class SkillManager : MonoBehaviour
     AnimatorHandler anim;
 
     [SerializeField] Image[] skillsImg = new Image[4];
+
+    [Header("UI")]
+    public Image skillBar;
+    public Image skillLogo;
+    public Text skillName;
+    public Text skillState;    
     
     void Start()
     {
@@ -57,6 +63,10 @@ public class SkillManager : MonoBehaviour
     {
         AimingPoint();
         
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            Time.timeScale = 0.4f;
+        }
         if(Input.GetKey(KeyCode.Tab))
         {
             ActivateWheel();
@@ -77,7 +87,7 @@ public class SkillManager : MonoBehaviour
             if(selection != previousSelection)
             {
                 Deselect(skillsImg[previousSelection]);
-                currentSkill = skills[selection];
+                SelectSkill(selection);
                 previousSelection = selection;
             }
         }
@@ -85,15 +95,44 @@ public class SkillManager : MonoBehaviour
         {
             DeactivateWheel();
             //this.GetComponent<InputHandler>().enabled = true;
+            Time.timeScale = 1;
             FindObjectOfType<Cinemachine.CinemachineFreeLook>().enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
 
+        if (currentSkill.currentCooldown > 0)
+        {
+            skillBar.fillAmount = 1 - (currentSkill.currentCooldown / currentSkill.cooldownTime);            
+        }
+        else
+        {
+            skillBar.fillAmount = 1;
+            OnSelectSkill();
+        }
+
+        foreach (var item in skillsImg)
+        {
+            
+        }
+
+        #region Testing
         if (viewVisual)
             visualPoint.SetActive(true);
         else
             visualPoint.SetActive(false);
+        #endregion
+    }
+
+    void OnSelectSkill()
+    {
+        skillBar.fillAmount = 1 - (currentSkill.currentCooldown / currentSkill.cooldownTime);
+        skillLogo.sprite = currentSkill.icon;
+        skillName.text = currentSkill.title;
+        if(currentSkill.currentCooldown > 0)
+            skillState.text = "On Cooldown";
+        else
+            skillState.text = "Ready To Use";
     }
 
     public void ActivateWheel()
@@ -109,12 +148,15 @@ public class SkillManager : MonoBehaviour
     public void SelectSkill(int index)
     {
         currentSkill = skills[index];
+        OnSelectSkill();
     }
 
     public void PerfomSkill()
     {
         currentSkill.transform.position = this.transform.position;
         currentSkill.TriggerAbility();
+        skillsImg[skills.IndexOf(currentSkill)].color = hoverColor;
+        OnSelectSkill();        
     }
     /*
     public void PerformSkilOne()

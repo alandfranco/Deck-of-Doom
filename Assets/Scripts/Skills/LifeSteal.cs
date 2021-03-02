@@ -13,6 +13,8 @@ public class LifeSteal : Skills
 
     public Transform target;
 
+    public float damage;
+
     private void Initialize()
     {
         target = FindObjectOfType<PlayerMovement>().transform;
@@ -47,10 +49,10 @@ public class LifeSteal : Skills
         {
             if (item.GetComponent<Enemy>())
             {
-                //Debug.Log("Te pegue ñery " + item.name, item);
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, pl.gameObject);
+                pl.GetComponent<TakeDamage>().Heal(damage / 2);
             }
         }
-        Debug.Log("Explote");
         //this.gameObject.SetActive(false);
     }
 
@@ -62,8 +64,6 @@ public class LifeSteal : Skills
 
     private void OnTriggerEnter(Collider c)
     {
-        if (c.GetComponent<Enemy>())
-            Debug.Log("Te pegue ñeri en movimiento");
     }
 
     private void OnDrawGizmos()
