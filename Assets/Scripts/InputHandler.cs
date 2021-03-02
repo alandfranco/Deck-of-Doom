@@ -20,6 +20,7 @@ public class InputHandler : MonoBehaviour
     public bool skill_input3;
     public bool skill_input4;
     public bool skill_input;
+    public bool useItem_input;
 
     public bool rollFlag;
     public bool sprintFlag;
@@ -85,6 +86,7 @@ public class InputHandler : MonoBehaviour
         HandleSkillThree();
         HandleSkillFour();
         HandleSkill();
+        HandleUseItem();
     }
 
     private void MoveInput(float delta)
@@ -234,6 +236,16 @@ public class InputHandler : MonoBehaviour
         {
             skillManager.SelectSkill(3);
             //skillManager.PerfomSkillFour();
+        }
+    }
+
+    void HandleUseItem()
+    {
+        useItem_input = inputActions.Player.UseItem.triggered;
+
+        if(useItem_input)
+        {
+            playerManager.UsePotion();
         }
     }
 

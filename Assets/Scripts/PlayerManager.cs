@@ -37,6 +37,9 @@ public class PlayerManager : Entity
     public Image healthBar;
     TakeDamage plHealth;
 
+    public GameObject potion;
+    [SerializeField]Transform potionPos;
+
     void Start()
     {
         inputHandler = GetComponent<InputHandler>();
@@ -110,6 +113,29 @@ public class PlayerManager : Entity
         }
     }
 
+    public void UsePotion()
+    {
+        if(potion != null)
+        {
+            potion.GetComponent<Potion>().TriggerPotion();            
+            potion = null;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.GetComponent<Potion>())
+        {
+            if (potion != null)
+                return;
+            potion = other.gameObject;
+            potion.transform.parent = potionPos;
+            potion.transform.localPosition = Vector3.zero;
+            potion.transform.localRotation = Quaternion.identity;
+            potion.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
     #region Health
     public void UpdateHealthBar()
     {
@@ -149,6 +175,5 @@ public class PlayerManager : Entity
     {
         staminaBardelay.fillAmount -= speedToReduce * Time.deltaTime;        
     }
-
     #endregion
 }

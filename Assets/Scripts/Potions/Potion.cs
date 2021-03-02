@@ -1,18 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Potion : MonoBehaviour
+public abstract class Potion : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MyFloatEvent : UnityEvent<float> { }
+    public MyFloatEvent OnPotionUse = new MyFloatEvent();
+    [Header("Potion Info")]
+    public string title;
+    public Sprite icon;
+
+    private bool canUse = true;
+
+    public GameObject visual;
+
+    protected PlayerManager pl;
+    protected AnimatorHandler anim;
+
+    //public string skillAnimation;
+
+    protected virtual void Awake()
     {
-        
+        //skillImage.fillAmount = 0;
+        pl = FindObjectOfType<PlayerManager>();
+        anim = pl.GetComponentInChildren<AnimatorHandler>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TriggerPotion()
     {
-        
+        if (canUse)
+        {
+            //OnPotionUse.Invoke(cooldownTime);
+            PotionEffect();
+        }
     }
+
+    protected virtual void LateUpdate()
+    {
+    }
+
+    public abstract void PotionEffect();
+
 }
