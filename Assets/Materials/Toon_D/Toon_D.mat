@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b6fc60785b6a795478135ce6f7712c5a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9ddfb8bbaf39d6044895c2d9e20af44f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -73,7 +73,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normalMap:
-        m_Texture: {fileID: 2800000, guid: dfd85fdc22807c84faa4fba6bdf78636, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3055578d1a3568b45bcb45d45e1f83ec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -102,10 +102,10 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _rimLightBlend: 0.6
+    - _rimLightBlend: 0.73
     - _rimLightSize: 0
-    - _shadowBlend: 0
-    - _shadowSize: 0.612
+    - _shadowBlend: 0.21
+    - _shadowSize: 0.81
     m_Colors:
     - Color_45A98489: {r: 1, g: 1, b: 1, a: 0}
     - Color_6976E333: {r: 2, g: 2, b: 2, a: 0}
@@ -114,7 +114,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _rimColor: {r: 4, g: 4, b: 4, a: 0}
+    - _rimColor: {r: 2.4784315, g: 0.65882355, b: 5.992157, a: 0}
     - _shadowColor: {r: 1, g: 1, b: 1, a: 0}
     - _tint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

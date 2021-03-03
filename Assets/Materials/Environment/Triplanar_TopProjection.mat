@@ -52,9 +52,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_68CE0B00: 0
     - Vector1_B60E0735: 0.53
+    - _diffStochastic: 1
     - _tiling: -0.15
     - _topBlend: 1
+    - _topStochastic: 1
     - _verticalOffset: 1
     m_Colors:
     - _albedoTint: {r: 0, g: 0.088574216, b: 0.7735849, a: 0}
