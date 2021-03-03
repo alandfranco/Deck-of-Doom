@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: 3db1fe971729802418b2e4cc995e07b2
   - enabled: 1
-    path: Assets/Scenes/Alan.unity
-    guid: f5c5658f4e8826d46add71fccd83e93e
+    path: Assets/Scenes/map_fungiBog.unity
+    guid: 02b5ba3b200ec8548b7aedae14bd8357
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e03f4f34233672146b95105e0d5fbef9, type: 2}

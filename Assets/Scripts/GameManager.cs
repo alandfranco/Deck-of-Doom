@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int enemiesAttacking;
     public int maxAmountAttacking;
 
+    public LoadScreenManager load;
+
     private void Awake()
     {
         instance = this;
@@ -25,6 +27,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            load.gameObject.SetActive(true);
+            load.LoadScene(load.sceneToLoad);
+        }
+
     }
 
     public void RestartScene()

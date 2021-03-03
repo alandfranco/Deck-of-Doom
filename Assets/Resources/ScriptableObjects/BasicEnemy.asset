@@ -16,7 +16,7 @@ MonoBehaviour:
   speed: 5
   dmg: 3
   attackRate: 2
-  aggroDist: 15
+  aggroDist: 500
   attackDistance: 3
   maxStamina: 100
   staminaRegen: 50
