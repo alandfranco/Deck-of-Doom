@@ -136,6 +136,7 @@ Material:
     - _emissionMultiplier: 210.6
     - _fresnelPower: 2.4
     - _maskIntensity: 0.029
+    - _rimLight: 0
     - _specularSize: 2.1
     - _specularStrength: 10
     - _useEmissionMap: 1

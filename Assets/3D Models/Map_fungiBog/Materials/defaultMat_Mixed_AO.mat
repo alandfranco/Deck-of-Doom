@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: defaultMat_Mixed_AO
+  m_Shader: {fileID: -6465566751694194690, guid: 7445afcd790878f469ca2903ec6f41e9, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 166e002f8714af44db8e2a8a7caa7997, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _detailTexture:
+        m_Texture: {fileID: 2800000, guid: ecb23393a0d1b424a82fff68a4c00a66, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _emissionMap:
+        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _metallicMap:
+        m_Texture: {fileID: 2800000, guid: 93d17568b4ca8f143b2bf3c4fb2571a7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normalMap:
+        m_Texture: {fileID: 2800000, guid: e231e4c02c48ee14aafa55f7b1a843c1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _dabsRotation: 33
+    - _dabsSize: 1
+    - _emissionMultiplier: 0.5
+    - _fresnelPower: 5
+    - _maskIntensity: 1
+    - _specularSize: 0.2
+    - _specularStrength: 0.2
+    - _useEmissionMap: 1
+    - _useNormalMap: 1
+    - _useSpecularDabs: 1
+    m_Colors:
+    - _emissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _tint: {r: 0.23638305, g: 0.28324953, b: 0.6037736, a: 0}
+  m_BuildTextureStacks: []
