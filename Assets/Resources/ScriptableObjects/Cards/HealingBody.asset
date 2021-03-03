@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Healing Body
   description: If you stay still for 5 seconds you will start healing
-  image: {fileID: 21300000, guid: 5a2cdfc1fceba52438253d0711774553, type: 3}
+  image: {fileID: 21300000, guid: bfe1103dec997794fa8257a254010ab9, type: 3}
   chance: 0
   duration: 0
   dmg: 3

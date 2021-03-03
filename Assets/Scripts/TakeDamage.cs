@@ -17,6 +17,8 @@ public class TakeDamage : MonoBehaviour
 
     AnimatorHandler anim;
 
+    public ParticleSystem hitFX;
+
     public void Awake()
     {
         health = maxHealth;
@@ -69,11 +71,14 @@ public class TakeDamage : MonoBehaviour
                 me.ReduceStamina(initialDamage);
             }
             else
+            {
+                hitFX.Play();
                 me.ReduceStamina(damage);
+            }
         }
         //else
-         //   me.anim.Play("TakeDamage");
-
+        //   me.anim.Play("TakeDamage");
+        hitFX.Play();
         health -= damage;
 
         if (imPlayer)

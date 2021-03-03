@@ -23,6 +23,9 @@ public class MenuManager : MonoBehaviour
 
     public AudioMixer audioMixer;
 
+    public GameObject sword;
+    public GameObject necro;
+
     private void Awake()
     {
         instance = this;
@@ -36,6 +39,8 @@ public class MenuManager : MonoBehaviour
         optionsPanel.SetActive(false);
         LoadingScreenCanvas.SetActive(false);
         cardInventoryPanel.SetActive(false);
+        necro.SetActive(false);
+        sword.SetActive(true);
 
         ResolutionAvailables();
     }
@@ -88,6 +93,8 @@ public class MenuManager : MonoBehaviour
         optionsPanel.SetActive(false);
         characterPanel.SetActive(true);
         cardInventoryPanel.SetActive(false);
+        necro.SetActive(true);
+        sword.SetActive(false);
     }
 
     public void CreditsButton()
@@ -117,6 +124,9 @@ public class MenuManager : MonoBehaviour
         playPanel.SetActive(false);
         mainPanel.SetActive(true);
         creditsPanel.SetActive(false);
+
+        necro.SetActive(false);
+        sword.SetActive(true);
 
         foreach (var item in cardInventoryLayout.GetComponentsInChildren<RectTransform>())
         {
