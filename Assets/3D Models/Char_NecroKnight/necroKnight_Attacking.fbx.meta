@@ -35,8 +35,8 @@ ModelImporter:
       rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_knee'
       : rotation error = 5.414031 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
       error = 0.100782 deg\n\t'necroKnight_ribcage' : rotation error = 0.934970 deg\n\t'necroKnight_lefArm_elbow'
-      : rotation error = 20.000053 deg\n\t'necroKnight_lefArm_wrist' : rotation error
-      = 50.000008 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000016
+      : rotation error = 20.000055 deg\n\t'necroKnight_lefArm_wrist' : rotation error
+      = 50.000019 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000014
       deg\n\t'necroKnight_rightLeg_knee' : rotation error = 1.382784 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
@@ -93,12 +93,12 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 1
-      heightFromFeet: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
