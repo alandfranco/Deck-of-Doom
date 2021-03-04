@@ -21,6 +21,8 @@ public class TakeDamage : MonoBehaviour
 
     public void Awake()
     {
+        if (me is Enemy)
+            maxHealth = this.GetComponent<Enemy>().config.maxHealth;
         health = maxHealth;
         if (this.GetComponent<PlayerMovement>())
         {
@@ -76,14 +78,16 @@ public class TakeDamage : MonoBehaviour
                 me.ReduceStamina(damage);
             }
         }
-        //else
-        //   me.anim.Play("TakeDamage");
         hitFX.Play();
         health -= damage;
 
         if (imPlayer)
         {
             (me as PlayerManager).UpdateHealthBar();
+        }
+        if(me is Enemy && (me as Enemy).canTeleport)
+        {
+            (me as Enemy).TeleportTo();
         }
 
         HandleAnimation();

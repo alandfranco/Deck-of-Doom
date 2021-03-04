@@ -106,6 +106,8 @@ MonoBehaviour:
   isStuned: 0
   isDisable: 0
   weapon: {fileID: 0}
+  canTeleport: 0
+  teleportVFX: {fileID: 0}
   venomFX: {fileID: 0}
 --- !u!114 &1647875990098644594
 MonoBehaviour:
@@ -203,7 +205,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.31
   m_Height: 1.22
   m_Direction: 1
   m_Center: {x: 0, y: 0.54, z: 0}

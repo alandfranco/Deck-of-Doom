@@ -40,12 +40,13 @@ public class BasicRangeAction : GOAPAction
             target = null;
             return false;
         }
-        else if(this.GetComponent<Enemy>().config.attackDistance < Vector3.Distance(this.transform.position, target.transform.position))
-        {
-            return false;
-        }
         else
             return target != null;
+        /*else if(this.GetComponent<Enemy>().config.attackDistance < Vector3.Distance(this.transform.position, target.transform.position))
+        {
+            return target != null;
+        }*/
+
     }
 
     public override bool Perform(GameObject agent)

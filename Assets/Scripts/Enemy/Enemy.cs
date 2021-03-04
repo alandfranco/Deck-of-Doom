@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public abstract class Enemy : Entity, IGOAP
 {
@@ -22,6 +23,13 @@ public abstract class Enemy : Entity, IGOAP
 
     public Dictionary<string, float> buffs = new Dictionary<string, float>();
 
+
+    [Header("Teleport")]
+    public bool canTeleport;
+    protected bool isTeleporAvailable;
+    protected List<TeleportSpots> teleportSpots = new List<TeleportSpots>();
+    public GameObject teleportVFX;
+
     [Header("BuffsFXs")]
     public GameObject venomFX;
 
@@ -31,7 +39,15 @@ public abstract class Enemy : Entity, IGOAP
 
     protected virtual void Awake()
     {
-        SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/BasicEnemy"));        
+        if (canTeleport)
+        {
+            foreach (var item in FindObjectsOfType<TeleportSpots>())
+            {
+                teleportSpots.Add(item);
+            }
+            isTeleporAvailable = true;
+        }        
+        //StartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/BasicEnemy"));        
     }
 
     public virtual void SetStartingValues(ScriptableObject SO)
@@ -199,6 +215,45 @@ public abstract class Enemy : Entity, IGOAP
     {
     }
 
+    protected virtual IEnumerator CooldownTeleport()
+    {
+        yield return new WaitForSeconds(30f);
+        isTeleporAvailable = true;
+    }
+
+    public virtual void TeleportTo()
+    {
+        if(isTeleporAvailable)
+        {
+            ObjectPooler.instance.GetPooledObject(teleportVFX, this.transform.position);
+            var teleportTo = teleportSpots.OrderByDescending(x => Vector3.Distance(this.transform.position, x.transform.position)).First();
+            agent.isStopped = true;
+            this.transform.position = teleportTo.transform.position;
+            agent.ResetPath();
+            agent.isStopped = false;
+            ObjectPooler.instance.GetPooledObject(teleportVFX, this.transform.position);
+            
+            isTeleporAvailable = false;
+        }
+        StartCoroutine(CooldownTeleport());
+    }
+
+    public virtual Transform BestPlaceToTeleport(Vector3 posToTravel)
+    {
+        float bestDistance = Vector3.Distance(this.transform.position, posToTravel);
+        Transform bestPlace = null;
+        foreach (var item in teleportSpots)
+        {
+            var dist = Vector3.Distance(item.transform.position, posToTravel);
+            if (dist < bestDistance * 2)
+            {
+                bestDistance = dist;
+                bestPlace = item.transform;
+            }
+        }
+        return bestPlace;
+    }
+
     public virtual bool moveAgent(GOAPAction nextAction)
     {
         float dist = Vector3.Distance(this.transform.position, nextAction.target.transform.position);
@@ -206,11 +261,17 @@ public abstract class Enemy : Entity, IGOAP
         {
             if (dist < config.aggroDist)
             {
+                var teleporTo = BestPlaceToTeleport(nextAction.transform.transform.position);
+                if (teleporTo != null)
+                {
+                    this.transform.position = teleporTo.position;
+                }
+
                 anim.Play("Move");
                 anim.SetBool("isWalking", true);
                 agent.destination = nextAction.target.transform.position;
                 agent.isStopped = false;
-            }
+            }                            
             if (dist <= config.attackDistance)
             {
                 agent.isStopped = true;
@@ -219,14 +280,29 @@ public abstract class Enemy : Entity, IGOAP
             }
             else
             {
+                anim.Play("Idle");
                 return false;
             }
         }
         else if(!nextAction.requiesVision)
         {
+            var teleporTo = BestPlaceToTeleport(nextAction.transform.transform.position);
+            if (teleporTo != null)
+            {
+                this.transform.position = teleporTo.position;
+            }
+
             agent.destination = nextAction.target.transform.position;
             agent.isStopped = false;
-            return true;
+
+            if (dist <= config.attackDistance)
+            {
+                agent.isStopped = true;
+                nextAction.setInRange(true);
+                return true;
+            }
+            else
+                return false;
         }
         else
         {

@@ -6,6 +6,7 @@ public class HealerEnemy : Enemy
 {
     protected override void Awake()
     {
+        base.Awake();
         SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/HealerEnemy"));
     }
 
@@ -27,6 +28,59 @@ public class HealerEnemy : Enemy
     public override void VisualBuff()
     {
         base.VisualBuff();
+    }
+
+    public override Transform BestPlaceToTeleport(Vector3 posToTravel)
+    {
+        return base.BestPlaceToTeleport(posToTravel);
+    }
+
+    public override bool moveAgent(GOAPAction nextAction)
+    {                
+        float dist = Vector3.Distance(this.transform.position, nextAction.target.transform.position);
+        if (nextAction.requiesVision)
+        {
+            if (dist < config.aggroDist)
+            {
+                var teleporTo = BestPlaceToTeleport(nextAction.transform.transform.position);
+                if (teleporTo != null)
+                {
+                    this.transform.position = teleporTo.position;
+                }
+
+                anim.Play("Move");
+                anim.SetBool("isWalking", true);
+                agent.destination = nextAction.target.transform.position;
+                agent.isStopped = false;
+            }
+            if (dist <= config.attackDistance)
+            {
+                agent.isStopped = true;
+                nextAction.setInRange(true);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if (!nextAction.requiesVision)
+        {
+            var teleporTo = BestPlaceToTeleport(nextAction.transform.transform.position);
+            if (teleporTo != null)
+            {
+                this.transform.position = teleporTo.position;
+            }
+
+            agent.destination = nextAction.target.transform.position;
+            agent.isStopped = false;
+            return true;
+        }
+        else
+        {
+            anim.Play("Idle");
+            return false;
+        }
     }
 
     public override HashSet<KeyValuePair<string, object>> createGoalState()

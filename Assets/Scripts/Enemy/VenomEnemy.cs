@@ -6,6 +6,7 @@ public class VenomEnemy : Enemy
 {
     protected override void Awake()
     {
+        base.Awake();
         SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/VenomEnemy"));
     }
 
