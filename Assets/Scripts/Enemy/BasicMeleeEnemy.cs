@@ -8,6 +8,7 @@ public class BasicMeleeEnemy : Enemy
     protected override void Awake()
     {
         base.Awake();
+        SetStartingValues(Resources.Load<ScriptableObject>("ScriptableObjects/BasicEnemy"));
     }
 
     protected override void Update()

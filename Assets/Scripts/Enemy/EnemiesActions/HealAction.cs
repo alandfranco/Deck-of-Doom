@@ -6,12 +6,18 @@ using System.Linq;
 public class HealAction : GOAPAction
 {
     private bool healed = false;
-
+    Enemy me;
     public HealAction()
     {
         addEffect("buffEnemy", true);
         cost = 100f;
     }
+
+    private void Start()
+    {
+        me = this.GetComponent<Enemy>();
+    }
+
     public override void Reset()
     {
         healed = false;
@@ -30,8 +36,9 @@ public class HealAction : GOAPAction
 
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
-        var posibleTarget = FindObjectsOfType<Enemy>().Where(x => x.GetComponent<TakeDamage>().health <= x.config.maxHealth / 2)
+        var posibleTarget = FindObjectsOfType<Enemy>().Where(x => x.GetComponent<TakeDamage>().health < x.GetComponent<TakeDamage>().maxHealth)
             .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position)).ToList();
+
         if (posibleTarget.Count > 0 && !this.GetComponent<Enemy>().isDisable)
         {
             target = posibleTarget[0].gameObject;
@@ -46,7 +53,7 @@ public class HealAction : GOAPAction
         if (currEnemy.stamina >= (cost) && !currEnemy.isDisable)
         {
             currEnemy.agent.isStopped = true;
-            currEnemy.anim.Play("Attack");
+            //currEnemy.anim.Play("Attack");
             float damage = currEnemy.config.dmg;
             var _tar = target.GetComponent<TakeDamage>();
             _tar.Heal(_tar.maxHealth / damage);
