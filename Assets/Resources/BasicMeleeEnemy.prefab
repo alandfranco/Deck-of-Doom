@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886913937684972163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.888, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7009118161976232782}
@@ -180,19 +180,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 1647875990098644596}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.66
+  m_Radius: 0.45
   m_Speed: 2
   m_Acceleration: 10
-  avoidancePriority: 50
+  avoidancePriority: 70
   m_AngularSpeed: 200
   m_StoppingDistance: 1.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.63
+  m_Height: 1.09
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 3
+  m_ObstacleAvoidanceType: 2
 --- !u!136 &5201885681553013652
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -203,10 +203,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.86
-  m_Height: 1.52
+  m_Radius: 0.5
+  m_Height: 1.22
   m_Direction: 1
-  m_Center: {x: 0, y: 0.88, z: 0}
+  m_Center: {x: 0, y: 0.54, z: 0}
 --- !u!1 &1799481251953993073
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +269,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 1614158851}
+--- !u!114 &3401480671764974962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196783223552402088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d81fccc975ebb48b229317f00dc2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathParticles: {fileID: 153190, guid: e654196eade2ee04493d15d57c6f0dc2, type: 3}
+  vfxContainer: {fileID: 4483555355699137182}
 --- !u!114 &4109098507231749717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +452,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
       propertyPath: m_Name
@@ -757,6 +783,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4483555355699137182}
     m_Modifications:
+    - target: {fileID: 3647040562874615096, guid: ee205ab9ec67ebe46bb945c8e38a6d29, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7dd1f98ee4feec41bb99093427bee30, type: 2}
+    - target: {fileID: 3647040562874615096, guid: ee205ab9ec67ebe46bb945c8e38a6d29, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2e02a488b94fed4c820302a8e77c40e, type: 2}
+    - target: {fileID: 3647040563088659362, guid: ee205ab9ec67ebe46bb945c8e38a6d29, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2e02a488b94fed4c820302a8e77c40e, type: 2}
+    - target: {fileID: 3647040563252733012, guid: ee205ab9ec67ebe46bb945c8e38a6d29, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a2d6be544e85b942abcce236e6cb116, type: 2}
     - target: {fileID: 3647040563252733013, guid: ee205ab9ec67ebe46bb945c8e38a6d29, type: 3}
       propertyPath: m_Name
       value: vfx_BloodSplat Tree
@@ -767,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3647040563252733014, guid: ee205ab9ec67ebe46bb945c8e38a6d29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.785
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3647040563252733014, guid: ee205ab9ec67ebe46bb945c8e38a6d29, type: 3}
       propertyPath: m_LocalPosition.z

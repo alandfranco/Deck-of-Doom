@@ -55,16 +55,21 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject GetPooledObject(GameObject _obj, Vector3 pos)
     {
-        var _objetcToPool = pooledObjects.Where(x => x.name == _obj.name && !x.activeInHierarchy).FirstOrDefault();
-        
-        if (_objetcToPool == null)
+        var _objectToPool = pooledObjects.Where(x => x.name == _obj.name && !x.activeInHierarchy).FirstOrDefault();
+
+        if (_objectToPool == null)
         {
             GameObject obj = Instantiate(_obj, pos, Quaternion.identity);
             obj.name = _obj.name;
-            _objetcToPool = obj;
+            _objectToPool = obj;
             pooledObjects.Add(obj);
         }
+        else
+        {
+            _objectToPool.SetActive(true);
+            _objectToPool.transform.position = pos;
+        }
 
-        return _objetcToPool;
+        return _objectToPool;
     }
 }
