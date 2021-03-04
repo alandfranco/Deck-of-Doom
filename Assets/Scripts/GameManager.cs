@@ -27,11 +27,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        /*if(Input.GetKeyDown(KeyCode.Escape))
         {
             load.gameObject.SetActive(true);
             load.LoadScene(load.sceneToLoad);
-        }
+        }*/
 
     }
 

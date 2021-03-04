@@ -105,7 +105,7 @@ public class InputHandler : MonoBehaviour
         if (roll_Input)
         {
             rollInputTimer += delta;
-            playerManager.anim.Play("Roll");
+            playerManager.anim.Play("Dash");
             sprintFlag = true;
         }
         else

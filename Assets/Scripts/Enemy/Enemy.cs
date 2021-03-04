@@ -207,6 +207,7 @@ public abstract class Enemy : Entity, IGOAP
             if (dist < config.aggroDist)
             {
                 anim.Play("Move");
+                anim.SetBool("isWalking", true);
                 agent.destination = nextAction.target.transform.position;
                 agent.isStopped = false;
             }

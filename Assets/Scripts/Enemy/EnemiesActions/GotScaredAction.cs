@@ -26,8 +26,9 @@ public class GotScaredAction : GOAPAction
         if(isScared)
         {
             count -= Time.deltaTime;
-            if (count <= 0)
+            if (count <= 0.05f)
             {
+                count = 0;
                 isScared = false;
                 curr.isScared = false;
                 curr.anim.SetBool("isWalking", false);
@@ -78,7 +79,7 @@ public class GotScaredAction : GOAPAction
         Enemy currEnemy = agent.GetComponent<Enemy>();
         if (isScared && !currEnemy.isStuned)
         {
-            currEnemy.anim.Play("Move");
+            //currEnemy.anim.Play("Move");
             currEnemy.anim.SetBool("isWalking", true);
             dashTarget = FindObjectOfType<HideSpots>().hideSpots
             .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position))

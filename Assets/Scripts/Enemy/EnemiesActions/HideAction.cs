@@ -10,6 +10,9 @@ public class HideAction : GOAPAction
     private Transform dashTarget;
     private bool isDashing = false;
 
+    Enemy currE;
+    PlayerManager player;
+
     public HideAction()
     {
         addEffect("stayAlive", true);
@@ -18,13 +21,19 @@ public class HideAction : GOAPAction
         requiesVision = false;
     }
 
+    void Awake()
+    {
+        currE = this.GetComponent<Enemy>();
+        player = FindObjectOfType<PlayerManager>();
+    }
+
     private void Update()
     {
-        Enemy curr = GetComponent<Enemy>();
         
-        if(target != null && Vector3.Distance(target.transform.position, this.transform.position) <= curr.agent.stoppingDistance + 1)
+        if(target != null && Vector3.Distance(player.transform.position, this.transform.position) >= 10)
         {
             isDashing = false;
+            currE.agent.isStopped = true;
             target = null;
         }
     }
@@ -47,27 +56,28 @@ public class HideAction : GOAPAction
 
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
-        Enemy currE = agent.GetComponent<Enemy>();
-        var player = FindObjectOfType<PlayerMovement>();
-
-        dashTarget = FindObjectOfType<HideSpots>().hideSpots
+        
+        if (Vector3.Distance(this.transform.position, player.transform.position) <= 5 && currE.stamina >= cost && !currE.isDisable)
+        {
+            dashTarget = FindObjectOfType<HideSpots>().hideSpots
             .OrderBy(x => Vector3.Distance(this.transform.position, x.transform.position))
             .Last();
 
-        if (Vector3.Distance(this.transform.position, player.transform.position) <= 5 && currE.stamina >= cost && !currE.isDisable)
-        {
             target = dashTarget.gameObject;
             currE.agent.isStopped = false;
             return true;
         }
         else
+        {
+            target = null;
             return false;
+        }
     }
 
     public override bool Perform(GameObject agent)
     {
         Enemy currEnemy = agent.GetComponent<Enemy>();
-        if (currEnemy.stamina >= (cost) && !isDashing && !currEnemy.isDisable)
+        if (currEnemy.stamina >= (cost) && !isDashing && !currEnemy.isDisable && Vector3.Distance(this.transform.position, player.transform.position) >= 10)
         {
             currEnemy.agent.speed *= dashSpeed;
             //target.GetComponent<TakeDamage>().TakeDamage();
@@ -86,6 +96,9 @@ public class HideAction : GOAPAction
             return true;
         }
         else
+        {
+            target = null;
             return false;
+        }
     }
 }

@@ -61,7 +61,7 @@ public class BasicRangeAction : GOAPAction
             currEnemy.anim.Play("Attack");
 
             float damage = currEnemy.config.dmg + currEnemy.BonusBuff();
-            var bullet = ObjectPooler.instance.GetPooledObject(bulletPrefab);
+            var bullet = ObjectPooler.instance.GetPooledObject(bulletPrefab, currEnemy.weapon.transform.position);
             bullet.SetActive(true);
             bullet.transform.position = currEnemy.weapon.transform.position;
             bullet.transform.forward = this.transform.forward;

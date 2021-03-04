@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     void StartSpawning()
     {
         currentSpawned = 0;
-        var obj = ObjectPooler.instance.GetPooledObject(objectToSpawn, amountToSpawn);
+        var obj = ObjectPooler.instance.GetPooledObject(objectToSpawn, amountToSpawn, this.transform.position);
         StartCoroutine(Spawn(obj));
     }
 
@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
             obj[currentSpawned].SetActive(true);
             currentSpawned++;            
             yield return new WaitForSeconds(0f);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
         }
         if (currentSpawned == amountToSpawn)
             StopAllCoroutines();

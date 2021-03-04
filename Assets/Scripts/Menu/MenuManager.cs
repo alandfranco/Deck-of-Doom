@@ -91,7 +91,7 @@ public class MenuManager : MonoBehaviour
         mainPanel.SetActive(false);
         creditsPanel.SetActive(false);
         optionsPanel.SetActive(false);
-        characterPanel.SetActive(true);
+       //characterPanel.SetActive(true);
         cardInventoryPanel.SetActive(false);
         necro.SetActive(true);
         sword.SetActive(false);

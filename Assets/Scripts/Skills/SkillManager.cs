@@ -75,7 +75,7 @@ public class SkillManager : MonoBehaviour
             ActivateWheel();
             //this.GetComponent<InputHandler>().enabled = false;
             //this.GetComponent<PlayerMovement>().enabled = false;
-            FindObjectOfType<Cinemachine.CinemachineFreeLook>().enabled = false;
+            FindObjectOfType<CameraMovement>().enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 
@@ -99,7 +99,7 @@ public class SkillManager : MonoBehaviour
             DeactivateWheel();
             //this.GetComponent<InputHandler>().enabled = true;
             Time.timeScale = 1;
-            FindObjectOfType<Cinemachine.CinemachineFreeLook>().enabled = true;
+            FindObjectOfType<CameraMovement>().enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }

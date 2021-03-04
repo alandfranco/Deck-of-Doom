@@ -14,7 +14,7 @@ public class ObjectPooler : MonoBehaviour
     void Awake()
     {
         instance = this;
-        for (int i = 0; i < pooledAmountToStart; i++)
+        /*for (int i = 0; i < pooledAmountToStart; i++)
         {
             foreach (var item in objectToPool)
             {
@@ -22,11 +22,12 @@ public class ObjectPooler : MonoBehaviour
                 obj.name = item.name;
                 obj.SetActive(false);
                 pooledObjects.Add(obj);
-            }            
-        }
+            }
+        }*/
     }
 
-    public List<GameObject> GetPooledObject(GameObject _obj, int amountRequired)
+
+    public List<GameObject> GetPooledObject(GameObject _obj, int amountRequired, Vector3 pos)
     {
         var _objetcToPool = pooledObjects.Where(x => x.name == _obj.name).ToList();
         List<GameObject> objectsToReturn = new List<GameObject>();
@@ -43,7 +44,7 @@ public class ObjectPooler : MonoBehaviour
             var amount = amountRequired - objectsToReturn.Count;            
             for (int i = 0; i < amount; i++)
             {
-                GameObject obj = Instantiate(_obj);
+                GameObject obj = Instantiate(_obj, pos, Quaternion.identity);
                 obj.name = _obj.name;
                 objectsToReturn.Add(obj);
             }                        
@@ -52,13 +53,13 @@ public class ObjectPooler : MonoBehaviour
         return objectsToReturn;
     }
 
-    public GameObject GetPooledObject(GameObject _obj)
+    public GameObject GetPooledObject(GameObject _obj, Vector3 pos)
     {
         var _objetcToPool = pooledObjects.Where(x => x.name == _obj.name && !x.activeInHierarchy).FirstOrDefault();
         
         if (_objetcToPool == null)
         {
-            GameObject obj = Instantiate(_obj);
+            GameObject obj = Instantiate(_obj, pos, Quaternion.identity);
             obj.name = _obj.name;
             _objetcToPool = obj;
             pooledObjects.Add(obj);

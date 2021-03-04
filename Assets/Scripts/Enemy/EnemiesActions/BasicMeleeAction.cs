@@ -10,6 +10,8 @@ public class BasicMeleeAction : GOAPAction
 
     Enemy currEnemy;
 
+    GameObject player;
+
     public BasicMeleeAction()
     {
         addEffect("damagePlayer", true);
@@ -19,6 +21,7 @@ public class BasicMeleeAction : GOAPAction
     private void Start()
     {
         currEnemy = this.GetComponent<Enemy>();
+        player = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
     public override void Reset()
@@ -39,8 +42,8 @@ public class BasicMeleeAction : GOAPAction
 
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
-        target = FindObjectOfType<PlayerMovement>().gameObject;
-        if (this.GetComponent<Enemy>().isDisable || GameManager.instance.enemiesAttacking > GameManager.instance.maxAmountAttacking)
+        target = player;
+        if (this.GetComponent<Enemy>().isDisable)
         {
             target = null;
             return false;
