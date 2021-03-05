@@ -27,10 +27,7 @@ ModelImporter:
     optimizeGameObjects: 1
     motionNodeName: <Root Transform>
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_foot_base'
-      : rotation error = 0.114015 deg\n\t'necroKnight_rightLeg_foot_base' : rotation
-      error = 0.072963 deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -43,8 +40,52 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths:
+    - necroKnight_pelvis
+    - necroKnight_pelvis/necroKnight_leftLeg_thigh
+    - necroKnight_pelvis/necroKnight_leftLeg_thigh/necroKnight_leftLeg_knee/necroKnight_leftLeg_calf
+    - necroKnight_pelvis/necroKnight_leftLeg_thigh/necroKnight_leftLeg_knee/necroKnight_leftLeg_calf/necroKnight_leftLeg_ankle/necroKnight_leftLeg_foot_base
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1/necroKnight_leftHair2
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1/necroKnight_leftHair2/necroKnight_leftHair3
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1/necroKnight_leftHair2/necroKnight_leftHair3/necroKnight_leftHair4
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1/necroKnight_leftHair2/necroKnight_leftHair3/necroKnight_leftHair4/necroKnight_leftHair5
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1/necroKnight_rightHair2
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1/necroKnight_rightHair2/necroKnight_rightHair3
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1/necroKnight_rightHair2/necroKnight_rightHair3/necroKnight_rightHair4
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1/necroKnight_rightHair2/necroKnight_rightHair3/necroKnight_rightHair4/necroKnight_rightHair5
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm
     - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_leftPauldron1
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightPauldron1
+    - necroKnight_pelvis/necroKnight_rightLeg_thigh
+    - necroKnight_pelvis/necroKnight_rightLeg_thigh/necroKnight_rightLeg_knee/necroKnight_rightLeg_calf
+    - necroKnight_pelvis/necroKnight_backCloth1
+    - necroKnight_pelvis/necroKnight_backCloth1/necroKnight_backCloth2
+    - necroKnight_pelvis/necroKnight_backCloth1/necroKnight_backCloth2/necroKnight_backCloth3
+    - necroKnight_pelvis/necroKnight_backCloth1/necroKnight_backCloth2/necroKnight_backCloth3/necroKnight_backCloth4
+    - necroKnight_pelvis/necroKnight_backCloth1/necroKnight_backCloth2/necroKnight_backCloth3/necroKnight_backCloth4/necroKnight_backCloth5
+    - necroKnight_pelvis/necroKnight_frontCloth1
+    - necroKnight_pelvis/necroKnight_frontCloth1/necroKnight_frontCloth2
+    - necroKnight_pelvis/necroKnight_frontCloth1/necroKnight_frontCloth2/necroKnight_frontCloth3
+    - necroKnight_pelvis/necroKnight_frontCloth1/necroKnight_frontCloth2/necroKnight_frontCloth3/necroKnight_frontCloth4
+    - necroKnight_pelvis/necroKnight_frontCloth1/necroKnight_frontCloth2/necroKnight_frontCloth3/necroKnight_frontCloth4/necroKnight_frontCloth5
+    - necroKnight_pelvis/necroKnight_leftTasset1
+    - necroKnight_pelvis/necroKnight_rightTasset1
+    - necroKnight_pelvis/necroKnight_rightLeg_thigh/necroKnight_rightLeg_knee/necroKnight_rightLeg_calf/necroKnight_rightLeg_ankle/necroKnight_rightLeg_foot_base
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3/necroKnight_hair4
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3/necroKnight_hair4/necroKnight_hair5
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3/necroKnight_hair4/necroKnight_hair5/necroKnight_hair6
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3/necroKnight_hair4/necroKnight_hair5/necroKnight_hair6/necroKnight_hair7
     - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm
+    - necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
@@ -121,431 +162,7 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human:
-    - boneName: necroKnight_pelvis
-      humanName: Hips
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_leftLeg_thigh
-      humanName: LeftUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightLeg_thigh
-      humanName: RightUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_leftLeg_calf
-      humanName: LeftLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightLeg_calf
-      humanName: RightLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_leftLeg_ankle
-      humanName: LeftFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightLeg_ankle
-      humanName: RightFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_spine1
-      humanName: Spine
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_spine2
-      humanName: Chest
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_neck
-      humanName: Neck
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_head
-      humanName: Head
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_upperarm
-      humanName: LeftUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_upperarm
-      humanName: RightUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_forearm
-      humanName: LeftLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_forearm
-      humanName: RightLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_palm
-      humanName: LeftHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_palm
-      humanName: RightHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_leftLeg_foot_toes
-      humanName: LeftToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightLeg_foot_toes
-      humanName: RightToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_leftHair1
-      humanName: LeftEye
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightHair1
-      humanName: RightEye
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_hair2
-      humanName: Jaw
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_thumb1
-      humanName: Left Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_thumb2
-      humanName: Left Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_thumb3
-      humanName: Left Thumb Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_index1
-      humanName: Left Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_index2
-      humanName: Left Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_index3
-      humanName: Left Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_middlefinger1
-      humanName: Left Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_middlefinger2
-      humanName: Left Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_middlefinger3
-      humanName: Left Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_ringfinger1
-      humanName: Left Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_ringfinger2
-      humanName: Left Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_ringfinger3
-      humanName: Left Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_pinky1
-      humanName: Left Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_pinky2
-      humanName: Left Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_lefArm_pinky3
-      humanName: Left Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_thumb1
-      humanName: Right Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_thumb2
-      humanName: Right Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_thumb3
-      humanName: Right Thumb Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_index1
-      humanName: Right Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_index2
-      humanName: Right Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_index3
-      humanName: Right Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_middlefinger1
-      humanName: Right Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_middlefinger2
-      humanName: Right Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_middlefinger3
-      humanName: Right Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_ringfinger1
-      humanName: Right Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_ringfinger2
-      humanName: Right Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_ringfinger3
-      humanName: Right Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_pinky1
-      humanName: Right Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_pinky2
-      humanName: Right Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_rightArm_pinky3
-      humanName: Right Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: necroKnight_spine3
-      humanName: UpperChest
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
+    human: []
     skeleton:
     - name: necroKnight_v1(Clone)
       parentName: 

@@ -1,11 +1,20 @@
 fileFormatVersion: 2
-guid: 37ef02fea6a76714982878ae8aa1885b
+guid: 623e0dd0d1cd1a74799754ec3682cbe2
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Falling
+    second: return 1
+  - first:
+      74: -9039450761986951743
+    second: return 2
+  - first:
+      74: 1409529556017802460
+    second: return 3
+  - first:
+      74: 434583099283258860
+    second: return 4
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -17,40 +26,45 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
-      rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_knee'
-      : rotation error = 16.187551 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
-      error = 0.100767 deg\n\t'necroKnight_ribcage' : rotation error = 6.439048 deg\n\t'necroKnight_lefArm_elbow'
-      : rotation error = 20.000065 deg\n\t'necroKnight_lefArm_wrist' : rotation error
-      = 49.999992 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000014
-      deg\n\t'necroKnight_rightLeg_knee' : rotation error = 29.326656 deg\n\t'necroKnight_rightLeg_foot_base'
-      : rotation error = 0.050600 deg\n"
+      rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_calf'
+      : rotation error = 48.047115 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
+      error = 0.100788 deg\n\t'necroKnight_ribcage' : rotation error = 5.453192 deg\n\t'necroKnight_lefArm_elbow'
+      : rotation error = 20.000055 deg\n\t'necroKnight_lefArm_wrist' : rotation error
+      = 49.999996 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 91.759346
+      deg\n\t'necroKnight_rightLeg_calf' : rotation error = 26.857895 deg\n\t'necroKnight_rightLeg_foot_base'
+      : rotation error = 0.055462 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'necroKnight_leftLeg_knee' is inbetween
+      to improve retargeting quality.\n\t'necroKnight_leftLeg_knee' has translation
+      animation that will be discarded.\n\t'necroKnight_leftLeg_calf' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_leftLeg_foot_base'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_ribcage'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_lefArm_thumb1'
-      has translation animation that will be discarded.\n\t'necroKnight_lefArm_index2'
-      has scale animation that will be discarded.\n\t'necroKnight_lefArm_index3'
-      has scale animation that will be discarded.\n\t'necroKnight_lefArm_middlefinger1'
-      has translation animation that will be discarded.\n\t'necroKnight_lefArm_ringfinger2'
-      has scale animation that will be discarded.\n\t'necroKnight_head' has translation
-      animation that will be discarded.\n\t'necroKnight_leftHair1' has translation
-      animation that will be discarded.\n\t'necroKnight_rightArm_wrist' has translation
-      animation that will be discarded.\n\t'necroKnight_rightArm_index1' has translation
-      animation that will be discarded.\n\t'necroKnight_rightArm_ringfinger1' has
-      translation animation that will be discarded.\n\t'necroKnight_rightLeg_knee'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_lefArm_collarbone'
+      has translation animation that will be discarded.\n\t'necroKnight_lefArm_upperarm'
+      has translation animation that will be discarded.\n\t'necroKnight_lefArm_index3'
+      has translation animation that will be discarded.\n\t'necroKnight_lefArm_middlefinger1'
+      has translation animation that will be discarded.\n\t'necroKnight_lefArm_middlefinger2'
+      has translation animation that will be discarded.\n\t'necroKnight_lefArm_ringfinger1'
+      has translation animation that will be discarded.\n\t'necroKnight_lefArm_ringfinger3'
+      has translation animation that will be discarded.\n\t'necroKnight_lefArm_pinky1'
+      has translation animation that will be discarded.\n\t'necroKnight_rightArm_elbow'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_rightArm_wrist'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_rightArm_palm'
+      has scale animation that will be discarded.\n\t'necroKnight_rightArm_thumb1'
+      has translation animation that will be discarded.\n\t'necroKnight_rightArm_middlefinger1'
+      has translation animation that will be discarded.\n\t'necroKnight_rightArm_pinky1'
+      has translation animation that will be discarded.\n\t'necroKnight_rightLeg_calf'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_rightLeg_foot_base'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -59,23 +73,110 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Falling
+      name: return 1
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: return 2
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 11
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: return 3
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 22
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: return 4
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 33
+      lastFrame: 43
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0

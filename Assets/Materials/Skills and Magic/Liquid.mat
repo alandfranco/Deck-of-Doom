@@ -23,8 +23,8 @@ Material:
     - _aux: 0.75
     - _fillAmount: 0.41
     - _offset: -0.2
-    - _wobbleX: -0.0011169133
-    - _wobbleZ: -0.0011169133
+    - _wobbleX: -2.1e-44
+    - _wobbleZ: -2.1e-44
     m_Colors:
     - _bottomColor: {r: 2, g: 0.07058824, b: 0.015686275, a: 0}
     - _foamColor: {r: 1, g: 0.90270567, b: 0, a: 0}

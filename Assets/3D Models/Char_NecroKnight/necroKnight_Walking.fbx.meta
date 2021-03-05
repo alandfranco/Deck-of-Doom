@@ -17,27 +17,27 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
-      rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_knee'
-      : rotation error = 5.434074 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
+      rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_calf'
+      : rotation error = 13.659457 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
       error = 0.093750 deg\n\t'necroKnight_ribcage' : rotation error = 1.920261 deg\n\t'necroKnight_lefArm_elbow'
-      : rotation error = 20.000053 deg\n\t'necroKnight_lefArm_wrist' : rotation error
-      = 49.999996 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000016
-      deg\n\t'necroKnight_rightLeg_knee' : rotation error = 8.161910 deg\n\t'necroKnight_rightLeg_foot_base'
+      : rotation error = 20.000055 deg\n\t'necroKnight_lefArm_wrist' : rotation error
+      = 49.999996 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000014
+      deg\n\t'necroKnight_rightLeg_calf' : rotation error = 20.612946 deg\n\t'necroKnight_rightLeg_foot_base'
       : rotation error = 0.072163 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
       to improve retargeting quality.\n\t'necroKnight_leftLeg_knee' has translation
-      animation that will be discarded.\n\t'necroKnight_leftLeg_knee' is inbetween
+      animation that will be discarded.\n\t'necroKnight_leftLeg_calf' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_leftLeg_foot_base'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_ribcage'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_lefArm_collarbone'
       has translation animation that will be discarded.\n\t'necroKnight_rightHair1'
       has translation animation that will be discarded.\n\t'necroKnight_rightArm_collarbone'
-      has translation animation that will be discarded.\n\t'necroKnight_rightLeg_knee'
+      has translation animation that will be discarded.\n\t'necroKnight_rightLeg_calf'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_rightLeg_foot_base'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
@@ -66,13 +66,13 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -151,7 +151,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: necroKnight_leftLeg_calf
+    - boneName: necroKnight_leftLeg_knee
       humanName: LeftLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -159,7 +159,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: necroKnight_rightLeg_calf
+    - boneName: necroKnight_rightLeg_knee
       humanName: RightLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
