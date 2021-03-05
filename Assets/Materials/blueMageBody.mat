@@ -65,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4966ffe389ba1b44197adcd823efdfa5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 77617d5a1a446934393cb17ff7c3e42f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -85,19 +85,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _detailTexture:
-        m_Texture: {fileID: 2800000, guid: 9fe52a69f17ed404590ed1160ee3d8ca, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7cf268fb256f3f74d95e3849a6905696, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _emissionMap:
-        m_Texture: {fileID: 2800000, guid: 315c3c5c72abd35468bbd2794bdacaa7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3831f10b172d7ab48a092f1fd547a9cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _metallicMap:
-        m_Texture: {fileID: 2800000, guid: 315c3c5c72abd35468bbd2794bdacaa7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3831f10b172d7ab48a092f1fd547a9cb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _normalMap:
-        m_Texture: {fileID: 2800000, guid: 8a195750371b53b4291a2eba53c8010d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 57a5f3e18bc11e0479a3ebe237b870fe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -132,13 +132,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _dabsRotation: 45
-    - _dabsSize: 0.16
+    - _dabsSize: 12.13
     - _emissionMultiplier: 9.98
     - _fresnelPower: 1.48
     - _maskIntensity: 0.153
     - _rimLight: 1
-    - _specularSize: 1
-    - _specularStrength: 0.94
+    - _specularSize: 0.73
+    - _specularStrength: 2
     - _useEmissionMap: 1
     - _useNormalMap: 0
     - _useSpecularDabs: 1
