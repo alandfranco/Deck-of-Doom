@@ -6,6 +6,7 @@ using System.Linq;
 public class PlayerAttacker : MonoBehaviour
 {
     AnimatorHandler animatorHandler;
+    public Animator anim;
     InputHandler inputHandler;
     public string lastAttack;
     int comboCounter = 0;
@@ -24,6 +25,7 @@ public class PlayerAttacker : MonoBehaviour
         animatorHandler = GetComponentInChildren<AnimatorHandler>();
         inputHandler = GetComponent<InputHandler>();
         cards = this.GetComponent<CardsContainer>();
+        //anim = GetComponentInChildren<Animator>();
     }
 
     public void HandleAttack(WeaponItem weapon, bool combo)
@@ -35,13 +37,17 @@ public class PlayerAttacker : MonoBehaviour
             {
                 comboCounter = 0;
             }
-            animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true, fadeAnim);
+            string animName = "combo_" + comboCounter;
+            anim.Play("combo_" + comboCounter);
+            //animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true, fadeAnim);
             lastAttack = weapon.attacks[comboCounter];
         }
         else
         {
-            comboCounter = 0;
-            animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true, 0);
+            comboCounter = 1;
+            string animName = "combo_" + comboCounter;
+            anim.Play(animName);
+            //animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true, 0);
             lastAttack = weapon.attacks[comboCounter];
         }
     }
