@@ -46,11 +46,11 @@ Material:
     - Vector1_88E85215: 0.75
     - Vector1_8DFEB1D2: 32
     - Vector1_FD47D2BE: 0.25
-    - _alphaClip: 1
+    - _alphaClip: 0
     - _glossiness: 32
-    - _rimAmount: 0.188
+    - _rimAmount: 0.258
     - _rimThreshold: 1
-    - _shadowIntensity: 0.178
+    - _shadowIntensity: 0.5
     - _windDensity: 0.5
     - _windStrength: 0.25
     m_Colors:
@@ -60,11 +60,11 @@ Material:
     - Color_DCC56F5C: {r: 2.670157, g: 2.670157, b: 2.670157, a: 0}
     - Vector2_2376D5E9: {r: 2, g: 2, b: 0, a: 0}
     - Vector2_6F9DDBFE: {r: 1, g: 1, b: 0, a: 0}
-    - _ambientColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
-    - _mainColor: {r: 0.62264144, g: 0.62264144, b: 0.62264144, a: 0}
+    - _ambientColor: {r: 0.9933474, g: 2.3101184, b: 11.083669, a: 0}
+    - _mainColor: {r: 0.6132076, g: 0.5524653, b: 0.5524653, a: 0}
     - _position: {r: 0, g: 0, b: 0, a: 0}
     - _rimColor: {r: 1, g: 1, b: 1, a: 0}
-    - _specularColor: {r: 4, g: 4, b: 4, a: 0}
+    - _specularColor: {r: 5.3403134, g: 0, b: 0, a: 0}
     - _textureTiling: {r: 1, g: 1, b: 0, a: 0}
     - _windMovement: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []

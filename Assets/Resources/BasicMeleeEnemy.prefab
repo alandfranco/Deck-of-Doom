@@ -106,6 +106,7 @@ MonoBehaviour:
   isStuned: 0
   isDisable: 0
   weapon: {fileID: 0}
+  experienceValue: 0
   canTeleport: 0
   teleportVFX: {fileID: 0}
   venomFX: {fileID: 0}
