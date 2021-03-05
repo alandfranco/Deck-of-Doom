@@ -14,7 +14,7 @@ public class DeflectingBodyCard : Card
 
     protected override void CardEffect(Enemy enemy)
     {
-        enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg, pl);
+        enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus), pl);
         enemy.GetPush();
     }
 

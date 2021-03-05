@@ -22,8 +22,9 @@ public class FireTongueCard : Card
 
     protected override void CardEffect(Enemy enemy)
     {
-        enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg, pl);
-        enemy.GetComponent<TakeDamage>().TakeDamageOvertime(cardSO.duration, cardSO.dmgOvertime, pl);
+        enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus), pl);
+        enemy.GetComponent<TakeDamage>().TakeDamageOvertime(cardSO.duration + (cardSO.duration * PlayerPassives.instance.skillAndCardBonus),
+            cardSO.dmgOvertime + (cardSO.dmgOvertime * PlayerPassives.instance.skillAndCardBonus), pl);
         //enemy.PlayFire();
     }
 

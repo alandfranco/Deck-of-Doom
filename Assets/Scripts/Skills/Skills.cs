@@ -13,7 +13,7 @@ public abstract class Skills : MonoBehaviour
     public Sprite icon;
     public float cooldownTime;
     public float currentCooldown;
-    private bool canUse = true;
+    protected bool canUse = true;
     public GameObject visual;
 
     protected PlayerManager pl;
@@ -28,14 +28,15 @@ public abstract class Skills : MonoBehaviour
         anim = pl.GetComponentInChildren<AnimatorHandler>();
     }
 
-    public void TriggerAbility()
+    public virtual void TriggerAbility()
     {
         if (canUse)
         {
             OnSkillUse.Invoke(cooldownTime);
             Skill();
             StartCooldown();
-            anim.PlayTargetAnimation(skillAnimation, true, 0.2f);
+            //anim.PlayTargetAnimation(skillAnimation, true, 0.2f);
+            pl.anim.Play(skillAnimation);
         }
     }
 
@@ -51,7 +52,7 @@ public abstract class Skills : MonoBehaviour
     }
 
     public abstract void Skill();
-    void StartCooldown()
+    protected virtual void StartCooldown()
     {
         currentCooldown = cooldownTime;
         StartCoroutine(Cooldown());

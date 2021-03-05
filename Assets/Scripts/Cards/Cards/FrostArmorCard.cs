@@ -14,8 +14,8 @@ public class FrostArmorCard : Card
 
     protected override void CardEffect(Enemy enemy)
     {
-        enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg, pl);
-        enemy.GetStuned(cardSO.duration);
+        enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus), pl);
+        enemy.GetStuned(cardSO.duration + (cardSO.duration * PlayerPassives.instance.skillAndCardBonus));
     }
 
     protected override void CardEffect()

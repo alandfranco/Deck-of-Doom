@@ -17,15 +17,15 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
-      rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_knee'
-      : rotation error = 5.414135 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
+      rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_calf'
+      : rotation error = 13.643533 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
       error = 0.144824 deg\n\t'necroKnight_ribcage' : rotation error = 0.934970 deg\n\t'necroKnight_lefArm_elbow'
-      : rotation error = 20.000055 deg\n\t'necroKnight_lefArm_wrist' : rotation error
-      = 50.000019 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000014
-      deg\n\t'necroKnight_rightLeg_knee' : rotation error = 1.383954 deg\n"
+      : rotation error = 20.000053 deg\n\t'necroKnight_lefArm_wrist' : rotation error
+      = 50.000008 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000016
+      deg\n\t'necroKnight_rightLeg_calf' : rotation error = 3.414936 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar

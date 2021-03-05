@@ -39,10 +39,18 @@ public class PlayerMovement : MonoBehaviour
     float fallingSpeed = 45f;
     [SerializeField]
     float ledgePush = 10f;
+    [SerializeField]
+    float jumpForce = 10f;
 
     [Header("Stamina Stats")]
     [SerializeField] float jumpStaminaCost;
     [SerializeField] float dashStaminaCost;
+
+
+    [Header("Dash")]
+    bool getPush;
+    float pushCont;
+    Vector3 finalPos;
 
     void Start()
     {
@@ -56,6 +64,20 @@ public class PlayerMovement : MonoBehaviour
 
         playerManager.isGrounded = true;
         ignoreForGroundCheck = ~(1 << 7 | 1 << 11); //We could just set the Layer directly
+    }
+
+    private void Update()
+    {
+        if (getPush)
+        {
+            pushCont += Time.deltaTime;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, finalPos, Vector3.Distance(finalPos, this.transform.position) * Time.deltaTime);
+            if (pushCont >= 1f)
+            {
+                pushCont = 0;
+                getPush = false;
+            }
+        }
     }
 
     #region Movement
@@ -93,6 +115,8 @@ public class PlayerMovement : MonoBehaviour
 
         //Disable the player control when the character is Interacting or doing certain things.
         if (playerManager.isInteracting)
+            return;
+        if (playerManager.isInAir)
             return;
 
         if (Input.GetKey(KeyCode.Tab))
@@ -154,18 +178,26 @@ public class PlayerMovement : MonoBehaviour
             if (inputHandler.moveAmount > 0)
             {
                 playerManager.ReduceStamina(dashStaminaCost);
-                animatorHandler.PlayTargetAnimation("Dash", true, 0.2f);
+                playerManager.anim.Play("Dash");
                 moveDirection.y = 0;
                 Quaternion rollRotation = Quaternion.LookRotation(moveDirection);
                 myTransform.rotation = rollRotation;
+                GetPush();
             }
             else
             {
-                Debug.Log("Backstep");
-                animatorHandler.PlayTargetAnimation("Backstep", true, 0.2f);
+                /*Debug.Log("Backstep");
+                animatorHandler.PlayTargetAnimation("Backstep", true, 0.2f);*/
             }
         }
     }
+
+    public virtual void GetPush()
+    {
+        finalPos = this.transform.position + this.transform.forward * 10;
+        getPush = true;
+    }
+
 
     public void HandleFalling(float delta, Vector3 moveDirection)
     {
@@ -204,12 +236,13 @@ public class PlayerMovement : MonoBehaviour
                 if (inAirTimer > 0.5f)
                 {
                     Debug.Log("you were in the air for " + inAirTimer);
-                    animatorHandler.PlayTargetAnimation("Land", true, 0.2f);
+                    //animatorHandler.PlayTargetAnimation("Land", true, 0.2f);
+                    //playerManager.anim.Play("Falling");
                     inAirTimer = 0;
                 }
                 else
                 {
-                    animatorHandler.PlayTargetAnimation("Movement", false, 0.2f);
+                    //animatorHandler.PlayTargetAnimation("Movement", false, 0.2f);
                     inAirTimer = 0;
                 }
 
@@ -274,13 +307,16 @@ public class PlayerMovement : MonoBehaviour
                 playerManager.ReduceStamina(jumpStaminaCost);
                 moveDirection = cameraObject.forward * inputHandler.vertical;
                 moveDirection += cameraObject.right * inputHandler.horizontal;
-                animatorHandler.PlayTargetAnimation("Jump", true, 0.2f);
+                playerManager.anim.Play("Jump");
 
                 //Y=0 because we are using the root motion of the jump animation
-                moveDirection.y = 0;
+                //moveDirection.y = 0;
 
                 Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
                 myTransform.rotation = jumpRotation;
+
+                finalPos = this.transform.position + this.transform.up * jumpForce;
+                getPush = true;
 
             }
         }

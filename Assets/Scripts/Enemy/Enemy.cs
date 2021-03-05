@@ -23,6 +23,7 @@ public abstract class Enemy : Entity, IGOAP
 
     public Dictionary<string, float> buffs = new Dictionary<string, float>();
 
+    public int experienceValue;
 
     [Header("Teleport")]
     public bool canTeleport;

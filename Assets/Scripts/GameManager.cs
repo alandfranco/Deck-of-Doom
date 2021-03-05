@@ -17,12 +17,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        QualitySettings.vSyncCount = 0;
+        //QualitySettings.vSyncCount = 0;
     }
 
     void Start()
     {
-        
+        GameStats.instance.expWon = 0;
     }
 
     void Update()
@@ -32,7 +32,11 @@ public class GameManager : MonoBehaviour
             load.gameObject.SetActive(true);
             load.LoadScene(load.sceneToLoad);
         }*/
+    }
 
+    public void WonGame()
+    {
+        GameStats.instance.justFinishedGame = true;
     }
 
     public void RestartScene()

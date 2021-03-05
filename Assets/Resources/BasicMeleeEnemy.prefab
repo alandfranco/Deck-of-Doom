@@ -411,6 +411,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1647875990098644559}
     m_Modifications:
+    - target: {fileID: -8929900462128269088, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36a47c9abef1a174e95341edf8e2e51b, type: 2}
     - target: {fileID: -8679921383154817045, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -467,10 +471,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.67
       objectReference: {fileID: 0}
+    - target: {fileID: -6862101276125795542, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc90b1871b965134b8f6f368deb9b458, type: 2}
+    - target: {fileID: -3556051303017912583, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36a47c9abef1a174e95341edf8e2e51b, type: 2}
     - target: {fileID: 919132149155446097, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
       propertyPath: m_Name
       value: mob_bushling_v1
       objectReference: {fileID: 0}
+    - target: {fileID: 2481291568522015115, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a70088b3042c0fa4ab945a652862cf6a, type: 2}
+    - target: {fileID: 7457927977864289136, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a70088b3042c0fa4ab945a652862cf6a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1623391f8dbb904dafe39cbf1001181, type: 3}
 --- !u!4 &4823555427287689467 stripped

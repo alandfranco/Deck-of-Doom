@@ -25,7 +25,7 @@ public class LightingWeaponCard : Card
 
     protected override void CardEffect(Enemy enemy)
     {
-        EnemyInFront().GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg, pl);
+        EnemyInFront().GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus), pl);
         //Lighting effect over enemy
     }
 

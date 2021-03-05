@@ -49,8 +49,8 @@ public class LifeSteal : Skills
         {
             if (item.GetComponent<Enemy>())
             {
-                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, pl.gameObject);
-                pl.GetComponent<TakeDamage>().Heal(damage / 2);
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage + (damage * PlayerPassives.instance.skillAndCardBonus), pl.gameObject);
+                pl.GetComponent<TakeDamage>().Heal(damage + (damage * PlayerPassives.instance.skillAndCardBonus) / 2);
             }
         }
         //this.gameObject.SetActive(false);

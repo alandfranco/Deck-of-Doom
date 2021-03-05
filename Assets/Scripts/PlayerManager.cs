@@ -33,6 +33,8 @@ public class PlayerManager : Entity
     bool startReducingStamina;
     float speedToReduce;
 
+    public GameObject shieldEffect;
+
     [Header("UI Health")]
     public Image healthBar;
     TakeDamage plHealth;
@@ -54,11 +56,15 @@ public class PlayerManager : Entity
 
         cam = Camera.main.transform;
 
+        maxStamina = maxStamina + (maxStamina * PlayerPassives.instance.staminaBonus);
+        stamina = maxStamina;
+
         staminaBar.fillAmount = 1;
         staminaBardelay.fillAmount = 1;
         healthBar.fillAmount = 1;
         OnWorldCanvas.gameObject.SetActive(false);
         potionUI.SetActive(false);
+        shieldEffect.SetActive(false);
     }
 
     void Update()
@@ -138,6 +144,17 @@ public class PlayerManager : Entity
             }
         }
         potion = null;
+    }
+
+    public void BuffStats()
+    {
+        /*foreach (var item in listaDePasivas.Key)
+        {
+            if(item == "damage")
+            {
+                this.GetComponent<PlayerAttacker>().damage += item;
+            }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)

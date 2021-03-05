@@ -502,6 +502,8 @@ MonoBehaviour:
   isStuned: 0
   isDisable: 0
   weapon: {fileID: 934177085}
+  canTeleport: 1
+  teleportVFX: {fileID: 183786, guid: 9344d1362b11548489ed6c8aa6e43b64, type: 3}
   venomFX: {fileID: 0}
 --- !u!114 &498309247759929499
 MonoBehaviour:
@@ -1153,6 +1155,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 498309247759929472}
     m_Modifications:
+    - target: {fileID: -8690499600918610086, guid: 00ef91b0a24c58e4894b3e71b7cdbe89, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91384fb336867b145b76f0fb86472c5b, type: 2}
     - target: {fileID: -8679921383154817045, guid: 00ef91b0a24c58e4894b3e71b7cdbe89, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1197,6 +1203,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -596910004848164120, guid: 00ef91b0a24c58e4894b3e71b7cdbe89, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31cb31117ca6f7948a3e8819b9903eaa, type: 2}
     - target: {fileID: 919132149155446097, guid: 00ef91b0a24c58e4894b3e71b7cdbe89, type: 3}
       propertyPath: m_Name
       value: myconMage_blue_v2

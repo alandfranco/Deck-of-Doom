@@ -17,26 +17,26 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
-      rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_knee'
-      : rotation error = 5.413836 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
+      rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_calf'
+      : rotation error = 13.645624 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
       error = 0.144509 deg\n\t'necroKnight_ribcage' : rotation error = 0.934970 deg\n\t'necroKnight_lefArm_elbow'
-      : rotation error = 20.000055 deg\n\t'necroKnight_lefArm_wrist' : rotation error
-      = 50.000019 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000014
-      deg\n\t'necroKnight_rightLeg_knee' : rotation error = 1.384346 deg\n\t'necroKnight_rightLeg_foot_base'
+      : rotation error = 20.000053 deg\n\t'necroKnight_lefArm_wrist' : rotation error
+      = 50.000008 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000016
+      deg\n\t'necroKnight_rightLeg_calf' : rotation error = 3.414467 deg\n\t'necroKnight_rightLeg_foot_base'
       : rotation error = 0.051131 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'necroKnight_leftLeg_knee' is inbetween
+      to improve retargeting quality.\n\t'necroKnight_leftLeg_calf' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_leftLeg_foot_base'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_ribcage'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_lefArm_collarbone'
       has translation animation that will be discarded.\n\t'necroKnight_lefArm_thumb1'
       has translation animation that will be discarded.\n\t'necroKnight_head' has
-      translation animation that will be discarded.\n\t'necroKnight_rightLeg_knee'
+      translation animation that will be discarded.\n\t'necroKnight_rightLeg_calf'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'necroKnight_rightLeg_foot_base'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 

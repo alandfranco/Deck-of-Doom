@@ -22,8 +22,8 @@ public class VenomWeaponCard : Card
 
     protected override void CardEffect(Enemy enemy)
     {
-        enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg, pl);
-        enemy.AddDebuff(cardSO.dmg, cardSO.duration);
+        enemy.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus), pl);
+        enemy.AddDebuff(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus), cardSO.duration + (cardSO.duration * PlayerPassives.instance.skillAndCardBonus));
         //enemy.PlayVenom();
     }
 

@@ -47,6 +47,11 @@ public class SkillManager : MonoBehaviour
         currentSkill = skills[0];
         baseColor = skillsImg[0].color;
         anim = GetComponentInChildren<AnimatorHandler>();
+
+        foreach (var item in skills)
+        {
+            item.cooldownTime = item.cooldownTime - (item.cooldownTime * PlayerPassives.instance.cooldownBonus);
+        }
     }
 
     public void Select(Image img)

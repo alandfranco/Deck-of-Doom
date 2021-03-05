@@ -21,12 +21,12 @@ public class NecroFear : Skills
     public override void Skill()
     {
         Initialize();
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range);
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range + (range * PlayerPassives.instance.skillAndCardBonus));
         foreach (var item in hitColliders)
         {
             if (item.TryGetComponent<Enemy>(out var enemies))
             {
-                enemies.GetScared(duration);
+                enemies.GetScared(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
             }
         }
         StartCoroutine(Disable());
@@ -34,7 +34,7 @@ public class NecroFear : Skills
 
     IEnumerator Disable()
     {
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
         Deactivate();
         yield break;
     }

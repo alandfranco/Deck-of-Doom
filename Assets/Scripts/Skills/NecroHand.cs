@@ -23,6 +23,10 @@ public class NecroHand : Skills
 
     float duration;
 
+    public Transform myEffectPos;
+
+    public GameObject explotion;
+
     protected override void Awake()
     {
         base.Awake();
@@ -47,23 +51,30 @@ public class NecroHand : Skills
             .AppendCallback(() => Explode());
     }
 
+    protected override void Activate()
+    {
+        base.Activate();
+        this.transform.position = myEffectPos.position;
+    }
+
     void Explode()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 5f);
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 5f + (5 * PlayerPassives.instance.skillAndCardBonus));
         foreach (var item in hitColliders)
         {            
             if(item.GetComponent<Enemy>())
             {
-                item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion, plM);
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion + (dmgInExplotion * PlayerPassives.instance.skillAndCardBonus), plM);                
             }            
         }
+        ObjectPooler.instance.GetPooledObject(explotion, this.transform.position);
         Deactivate();
     }
 
     private void OnTriggerEnter(Collider c)
     {
         if (c.GetComponent<Enemy>())
-            c.GetComponent<TakeDamage>().TakeDamageToHealth(dmg, plM);
+            c.GetComponent<TakeDamage>().TakeDamageToHealth(dmg + (dmg * PlayerPassives.instance.skillAndCardBonus), plM);
     }
 
     private void OnDrawGizmos()

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using System.Linq;
 
 public class NecroUltimate : Skills
 {
@@ -17,6 +19,8 @@ public class NecroUltimate : Skills
     public float damage;
 
     public float duration;
+
+    public GameObject bonePrefab;
 
     protected override void Awake()
     {
@@ -39,15 +43,33 @@ public class NecroUltimate : Skills
 
     void Explode()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 5f);
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 10 + (10 * PlayerPassives.instance.skillAndCardBonus)).Where(x => x.GetComponent<Enemy>()).ToArray();
         foreach (var item in hitColliders)
         {
             if (item.TryGetComponent<Enemy>(out var enemy))
             {
-                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, plM);
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage + (damage * PlayerPassives.instance.skillAndCardBonus), plM);
+                var bone = ObjectPooler.instance.GetPooledObject(bonePrefab, item.transform.position);
+                bone.transform.parent = visual.transform;
+                //bone.GetComponent<Animator>().Play("UnderGround");
+                bone.transform.eulerAngles = new Vector3(-90, Random.Range(0, 360), 0);
+                item.transform.parent = bone.GetComponentInChildren<Transform>();
                 //HACER APARECER LOS HUESOS
-                enemy.GetStuned(duration);
+                enemy.GetStuned(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
             }
+
+        }
+        if(hitColliders.Length <= 0)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Vector2 pos = Random.insideUnitCircle * 10;
+                var bone = ObjectPooler.instance.GetPooledObject(bonePrefab, 
+                    new Vector3(this.transform.position.x + pos.x, this.transform.position.y, this.transform.position.z + pos.y));
+                bone.transform.parent = visual.transform;
+                //bone.GetComponent<Animator>().Play("UnderGround");
+                bone.transform.eulerAngles = new Vector3(-90, Random.Range(0, 360), 0);
+            }            
         }
         StartCoroutine(DeactivateFX());
         //this.gameObject.SetActive(false);
@@ -55,7 +77,11 @@ public class NecroUltimate : Skills
 
     IEnumerator DeactivateFX()
     {
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
+        foreach (var item in GetComponentsInChildren<Enemy>())
+        {
+            item.transform.parent = null;
+        }
         Deactivate();
         yield break;
     }
@@ -69,6 +95,6 @@ public class NecroUltimate : Skills
         Gizmos.color = Color.red;
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, 5f);
+        Gizmos.DrawWireSphere(transform.position, 10f);
     }
 }

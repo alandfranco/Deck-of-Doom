@@ -147,7 +147,12 @@ public class AnimatorHandler : MonoBehaviour
 
         foreach (var item in _enemiesInFront)
         {
-            item.GetComponent<TakeDamage>().TakeDamageToHealth(pl.damage * dmgMultiplier, pl.gameObject);
+            if(PlayerPassives.instance.damageBonus > 0)
+            {
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(pl.damage + (pl.damage * PlayerPassives.instance.damageBonus) * dmgMultiplier, pl.gameObject);
+            }
+            else
+                item.GetComponent<TakeDamage>().TakeDamageToHealth(pl.damage * dmgMultiplier, pl.gameObject);
             if (pl.cards.weaponSlot != null && item != null)
                 pl.cards.weaponSlot.TriggerCard(item);
         }

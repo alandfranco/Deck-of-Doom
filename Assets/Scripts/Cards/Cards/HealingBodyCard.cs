@@ -29,7 +29,7 @@ public class HealingBodyCard : Card
                 count2 += Time.deltaTime;
                 if (count2 >= 1)
                 {
-                    pl.GetComponent<TakeDamage>().Heal(cardSO.dmg);
+                    pl.GetComponent<TakeDamage>().Heal(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus));
                     count2 = 0;
                 }
             }

@@ -164,15 +164,14 @@ public class InputHandler : MonoBehaviour
             playerManager.anim.Play("BlockStart");
         if (block_Input)
         {
-            playerManager.anim.Play("BlockLoop");
-            //isAlreadyBlocking = true;
+            playerManager.shieldEffect.SetActive(true);
+            playerManager.anim.Play("BlockLoop");            
             playerManager.anim.SetBool("isBlocking", true);
             this.GetComponent<TakeDamage>().isBlocking = true;
         }
         else
-        {
-            //isAlreadyBlocking = false;
-            //playerManager.anim.Play("Empty");
+        {            
+            playerManager.shieldEffect.SetActive(false);
             playerManager.anim.SetBool("isBlocking", false);
 
             this.GetComponent<TakeDamage>().isBlocking = false;
@@ -184,7 +183,7 @@ public class InputHandler : MonoBehaviour
 
     private void HandleJumpInput()
     {
-        inputActions.Player.Jump.performed += i => jump_Input = true;
+        //inputActions.Player.Jump.performed += i => jump_Input = true;
     }
 
     private void SetCursorState(bool isVisible, bool isLocked)

@@ -15,7 +15,8 @@ public class TakeDamage : MonoBehaviour
     
     CardsContainer card;
 
-    AnimatorHandler anim;
+    //AnimatorHandler anim;
+    Animator anim;
 
     public ParticleSystem hitFX;
 
@@ -23,7 +24,6 @@ public class TakeDamage : MonoBehaviour
     {
         if (me is Enemy)
             maxHealth = this.GetComponent<Enemy>().config.maxHealth;
-        health = maxHealth;
         if (this.GetComponent<PlayerMovement>())
         {
             imPlayer = true;
@@ -33,8 +33,10 @@ public class TakeDamage : MonoBehaviour
 
         if(me is PlayerManager)
         {
-            anim = GetComponentInChildren<AnimatorHandler>();
+            anim = GetComponentInChildren<Animator>();
+            //maxHealth = maxHealth + (maxHealth * PlayerPassives.instance.healthBonus); 
         }
+        health = maxHealth;
     }
 
     public void Heal(float amount)
@@ -65,7 +67,7 @@ public class TakeDamage : MonoBehaviour
             damage -= me.stamina;
             if(imPlayer)
             {
-                anim.PlayTargetAnimation("BlockHit", true, 0.2f);
+                anim.Play("BlockHit");
             }
             if (damage <= 0)
             {
@@ -109,7 +111,7 @@ public class TakeDamage : MonoBehaviour
     {
         if(imPlayer)
         {
-            anim.PlayTargetAnimation("TakeDamage", true, 0.2f);
+            anim.Play("TakeDamage");
         }
     }
 
