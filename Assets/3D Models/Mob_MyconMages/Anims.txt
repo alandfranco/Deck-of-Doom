@@ -1,0 +1,20 @@
+Mycon Mages
+
+Attack
+-warm up	0-12
+-hit		12-15
+-return		15-30
+
+Casting
+-warm up	0-14
+-loop		14-44
+-cast		44-52
+-return		52-60
+
+Stagger
+-impact		0-5
+-recovery	5-25
+
+Death
+-impact		0-5
+-fall		5-25
