@@ -33,7 +33,7 @@ public class InputHandler : MonoBehaviour
     PlayerInventory playerInventory;
     PlayerManager playerManager;
     SkillManager skillManager;
-
+    AnimatorHandler animHandler;
     Vector2 _movementInput;
     Vector2 _cameraInput;
 
@@ -44,6 +44,7 @@ public class InputHandler : MonoBehaviour
         playerInventory = GetComponent<PlayerInventory>();
         playerManager = GetComponent<PlayerManager>();
         skillManager = GetComponent<SkillManager>();
+        animHandler = GetComponentInChildren<AnimatorHandler>();
 
         if (inputActions == null)
         {
@@ -128,6 +129,7 @@ public class InputHandler : MonoBehaviour
         //Right Handed
         if (lightAttack_Input)
         {
+            
             if (playerManager.canDoCombo)
             {
                 comboFlag = true;
@@ -158,12 +160,21 @@ public class InputHandler : MonoBehaviour
     {
         block_Input = (inputActions.Player.Block.phase == UnityEngine.InputSystem.InputActionPhase.Performed);
 
+        if (Input.GetMouseButtonDown(1))
+            playerManager.anim.Play("BlockStart");
         if (block_Input)
         {
+            playerManager.anim.Play("BlockLoop");
+            //isAlreadyBlocking = true;
+            playerManager.anim.SetBool("isBlocking", true);
             this.GetComponent<TakeDamage>().isBlocking = true;
         }
         else
         {
+            //isAlreadyBlocking = false;
+            //playerManager.anim.Play("Empty");
+            playerManager.anim.SetBool("isBlocking", false);
+
             this.GetComponent<TakeDamage>().isBlocking = false;
         }
     }

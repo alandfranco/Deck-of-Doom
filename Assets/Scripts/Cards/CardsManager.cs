@@ -61,6 +61,7 @@ public class CardsManager : MonoBehaviour, ISaveable
     {
         foreach (var item in allCardsInGame)
         {
+            item.isOwned = false;
             if (ownCardsID.Contains(item.Id))
             {
                 ownedCards.Add(item);
@@ -83,12 +84,21 @@ public class CardsManager : MonoBehaviour, ISaveable
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            ownCardsID = new string[2];
-            for (int i = 0; i < 2; i++)
-            {
-                ownCardsID[i] = allCardsInGame[i].Id;
-            }
+            AddCardsToOwnList();
         }
+    }
+
+    public void AddCardsToOwnList()
+    {
+        var newCard = allCardsInGame.Where(x => !x.isOwned).OrderBy(x => UnityEngine.Random.value).ToArray();
+        string[] newOwnCardsList = new string[ownCardsID.Length + 1];
+        newOwnCardsList = ownCardsID;
+        
+        newOwnCardsList[newOwnCardsList.Length - 1] = newCard[0].Id;
+        ownCardsID = newOwnCardsList;
+
+        ownedCards.Add(newCard[0]);
+        newCard[0].isOwned = true;        
     }
 
     public IEnumerable<CardSO> ShowCards(CardSO.CardType cardType)

@@ -26,6 +26,8 @@ public class MenuManager : MonoBehaviour
     public GameObject sword;
     public GameObject necro;
 
+    public Animator anim;
+
     private void Awake()
     {
         instance = this;
@@ -39,8 +41,6 @@ public class MenuManager : MonoBehaviour
         optionsPanel.SetActive(false);
         LoadingScreenCanvas.SetActive(false);
         cardInventoryPanel.SetActive(false);
-        necro.SetActive(false);
-        sword.SetActive(true);
 
         ResolutionAvailables();
     }
@@ -87,14 +87,13 @@ public class MenuManager : MonoBehaviour
     #region MenuButtonsAndFunctions
     public void PlayButton()
     {
-        playPanel.SetActive(true);
+        //playPanel.SetActive(true);
+        anim.SetBool("pressedStart", true);
         mainPanel.SetActive(false);
         creditsPanel.SetActive(false);
         optionsPanel.SetActive(false);
        //characterPanel.SetActive(true);
-        cardInventoryPanel.SetActive(false);
-        necro.SetActive(true);
-        sword.SetActive(false);
+        cardInventoryPanel.SetActive(true);
     }
 
     public void CreditsButton()
@@ -122,11 +121,10 @@ public class MenuManager : MonoBehaviour
     public void BackButtonPlay()
     {
         playPanel.SetActive(false);
-        mainPanel.SetActive(true);
+        anim.SetBool("pressedStart", false);
+        anim.SetBool("isSelectingCards", false);
+        //mainPanel.SetActive(true); */       
         creditsPanel.SetActive(false);
-
-        necro.SetActive(false);
-        sword.SetActive(true);
 
         foreach (var item in cardInventoryLayout.GetComponentsInChildren<RectTransform>())
         {
@@ -173,9 +171,9 @@ public class MenuManager : MonoBehaviour
     
     public void ShuffleCards(int cardType)
     {
-        cardInventoryPanel.SetActive(true);
-        characterPanel.SetActive(false);
-
+        //cardInventoryPanel.SetActive(true);
+        //characterPanel.SetActive(false);
+        anim.SetBool("isSelectingCards", true);
         foreach (var item in cardInventoryLayout.GetComponentsInChildren<RectTransform>())
         {
             if (item.gameObject != cardInventoryLayout.gameObject)
@@ -209,8 +207,7 @@ public class MenuManager : MonoBehaviour
             spCardSelected = true;
         }
 
-        cardInventoryPanel.SetActive(false);
-        characterPanel.SetActive(true);
+        anim.SetBool("isSelectingCards", false);
     }
     #endregion
 

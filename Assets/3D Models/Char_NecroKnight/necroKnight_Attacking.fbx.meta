@@ -35,8 +35,8 @@ ModelImporter:
       rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_knee'
       : rotation error = 5.414031 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
       error = 0.100782 deg\n\t'necroKnight_ribcage' : rotation error = 0.934970 deg\n\t'necroKnight_lefArm_elbow'
-      : rotation error = 20.000055 deg\n\t'necroKnight_lefArm_wrist' : rotation error
-      = 50.000019 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000014
+      : rotation error = 20.000053 deg\n\t'necroKnight_lefArm_wrist' : rotation error
+      = 50.000008 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000016
       deg\n\t'necroKnight_rightLeg_knee' : rotation error = 1.382784 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
@@ -66,8 +66,23 @@ ModelImporter:
       has translation animation that will be discarded.\n\t'necroKnight_rightLeg_foot_base'
       has translation animation that will be discarded.\n\t'necroKnight_rightLeg_foot_base'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
-    animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'Take 001':\n\tLeftLowerLeg
+      average position error 3.9 mm and maximum position error 5.5 mm at time 1:
+      0 (30.0%) Frame 30\n\tLeftFoot average position error 3.1 mm and maximum position
+      error 8.7 mm at time 1: 0 (30.0%) Frame 30\n\tRightLowerLeg average position
+      error 3.9 mm and maximum position error 5.5 mm at time 2:10 (70.0%) Frame 70\n\tRightFoot
+      average position error 3.1 mm and maximum position error 8.4 mm at time 2:10
+      (70.0%) Frame 70\n\tLeftUpperArm average position error 10.4 mm and maximum
+      position error 21.9 mm at time 1:25 (55.0%) Frame 55\n\tLeftLowerArm average
+      position error 5.6 mm and maximum position error 11.8 mm at time 0:25 (25.0%)
+      Frame 25\n\tLeftHand average position error 2.1 mm and maximum position error
+      6.5 mm at time 0:25 (25.0%) Frame 25\n\tRightUpperArm average position error
+      10.5 mm and maximum position error 21.2 mm at time 1:25 (55.0%) Frame 55\n\tRightLowerArm
+      average position error 8.0 mm and maximum position error 19.7 mm at time 2:
+      5 (65.0%) Frame 65\n\tRightHand average position error 6.1 mm and maximum position
+      error 19.5 mm at time 1:25 (55.0%) Frame 55\n\tHead average position error
+      1.7 mm and maximum position error 3.5 mm at time 1:25 (55.0%) Frame 55\n"
+    animationDoRetargetingWarnings: 1
     importAnimatedCustomProperties: 0
     importConstraints: 0
     animationCompression: 3
@@ -96,11 +111,11 @@ ModelImporter:
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
-      keepOriginalPositionY: 0
+      keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
-      heightFromFeet: 1
+      heightFromFeet: 0
       mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      bodyMask: 00000000000000000000000000000000000000000100000001000000010000000100000000000000000000000000000001000000
       curves: []
       events:
       - time: 0.5362133
@@ -117,9 +132,241 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ch_hair
+        weight: 1
+      - path: ch_body
+        weight: 1
+      - path: ch_waistCloth
+        weight: 1
+      - path: ch_helm
+        weight: 1
+      - path: ch_chestplate
+        weight: 1
+      - path: ch_leftShoulder_01
+        weight: 1
+      - path: ch_rightLegPad_01
+        weight: 1
+      - path: ch_leftShoulder_02
+        weight: 1
+      - path: ch_rightShoulder_02
+        weight: 1
+      - path: ch_rightShoulder_01
+        weight: 1
+      - path: ch_leftLegPad_02
+        weight: 1
+      - path: ch_leftLegPad_01
+        weight: 1
+      - path: ch_rightLegPad_02
+        weight: 1
+      - path: ch_leftBracer
+        weight: 1
+      - path: ch_rightBracer
+        weight: 1
+      - path: ch_leftKneePad
+        weight: 1
+      - path: ch_rightKneePad
+        weight: 1
+      - path: necroKnight
+        weight: 1
+      - path: necroKnight_pelvis
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_leftLeg_thigh
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_leftLeg_thigh/necroKnight_leftLeg_knee
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_leftLeg_thigh/necroKnight_leftLeg_knee/necroKnight_leftLeg_calf
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_leftLeg_thigh/necroKnight_leftLeg_knee/necroKnight_leftLeg_calf/necroKnight_leftLeg_ankle
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_leftLeg_thigh/necroKnight_leftLeg_knee/necroKnight_leftLeg_calf/necroKnight_leftLeg_ankle/necroKnight_leftLeg_foot_base
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_leftLeg_thigh/necroKnight_leftLeg_knee/necroKnight_leftLeg_calf/necroKnight_leftLeg_ankle/necroKnight_leftLeg_foot_base/necroKnight_leftLeg_foot_toes
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_thumb1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_thumb1/necroKnight_lefArm_thumb2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_thumb1/necroKnight_lefArm_thumb2/necroKnight_lefArm_thumb3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_index1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_index1/necroKnight_lefArm_index2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_index1/necroKnight_lefArm_index2/necroKnight_lefArm_index3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_middlefinger1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_middlefinger1/necroKnight_lefArm_middlefinger2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_middlefinger1/necroKnight_lefArm_middlefinger2/necroKnight_lefArm_middlefinger3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_ringfinger1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_ringfinger1/necroKnight_lefArm_ringfinger2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_ringfinger1/necroKnight_lefArm_ringfinger2/necroKnight_lefArm_ringfinger3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_pinky1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_pinky1/necroKnight_lefArm_pinky2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_lefArm_collarbone/necroKnight_lefArm_upperarm/necroKnight_lefArm_elbow/necroKnight_lefArm_forearm/necroKnight_lefArm_wrist/necroKnight_lefArm_palm/necroKnight_lefArm_pinky1/necroKnight_lefArm_pinky2/necroKnight_lefArm_pinky3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1/necroKnight_leftHair2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1/necroKnight_leftHair2/necroKnight_leftHair3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1/necroKnight_leftHair2/necroKnight_leftHair3/necroKnight_leftHair4
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_leftHair1/necroKnight_leftHair2/necroKnight_leftHair3/necroKnight_leftHair4/necroKnight_leftHair5
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1/necroKnight_rightHair2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1/necroKnight_rightHair2/necroKnight_rightHair3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1/necroKnight_rightHair2/necroKnight_rightHair3/necroKnight_rightHair4
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_rightHair1/necroKnight_rightHair2/necroKnight_rightHair3/necroKnight_rightHair4/necroKnight_rightHair5
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3/necroKnight_hair4
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3/necroKnight_hair4/necroKnight_hair5
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3/necroKnight_hair4/necroKnight_hair5/necroKnight_hair6
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_neck/necroKnight_head/necroKnight_hair1/necroKnight_hair2/necroKnight_hair3/necroKnight_hair4/necroKnight_hair5/necroKnight_hair6/necroKnight_hair7
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_thumb1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_thumb1/necroKnight_rightArm_thumb2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_thumb1/necroKnight_rightArm_thumb2/necroKnight_rightArm_thumb3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_index1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_index1/necroKnight_rightArm_index2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_index1/necroKnight_rightArm_index2/necroKnight_rightArm_index3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_middlefinger1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_middlefinger1/necroKnight_rightArm_middlefinger2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_middlefinger1/necroKnight_rightArm_middlefinger2/necroKnight_rightArm_middlefinger3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_ringfinger1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_ringfinger1/necroKnight_rightArm_ringfinger2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_ringfinger1/necroKnight_rightArm_ringfinger2/necroKnight_rightArm_ringfinger3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_pinky1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_pinky1/necroKnight_rightArm_pinky2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightArm_collarbone/necroKnight_rightArm_upperarm/necroKnight_rightArm_elbow/necroKnight_rightArm_forearm/necroKnight_rightArm_wrist/necroKnight_rightArm_palm/necroKnight_rightArm_pinky1/necroKnight_rightArm_pinky2/necroKnight_rightArm_pinky3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_leftPauldron1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_spine1/necroKnight_spine2/necroKnight_spine3/necroKnight_ribcage/necroKnight_rightPauldron1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_rightLeg_thigh
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_rightLeg_thigh/necroKnight_rightLeg_knee
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_rightLeg_thigh/necroKnight_rightLeg_knee/necroKnight_rightLeg_calf
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_rightLeg_thigh/necroKnight_rightLeg_knee/necroKnight_rightLeg_calf/necroKnight_rightLeg_ankle
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_rightLeg_thigh/necroKnight_rightLeg_knee/necroKnight_rightLeg_calf/necroKnight_rightLeg_ankle/necroKnight_rightLeg_foot_base
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_rightLeg_thigh/necroKnight_rightLeg_knee/necroKnight_rightLeg_calf/necroKnight_rightLeg_ankle/necroKnight_rightLeg_foot_base/necroKnight_rightLeg_foot_toes
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_backCloth1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_backCloth1/necroKnight_backCloth2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_backCloth1/necroKnight_backCloth2/necroKnight_backCloth3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_backCloth1/necroKnight_backCloth2/necroKnight_backCloth3/necroKnight_backCloth4
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_backCloth1/necroKnight_backCloth2/necroKnight_backCloth3/necroKnight_backCloth4/necroKnight_backCloth5
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_frontCloth1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_frontCloth1/necroKnight_frontCloth2
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_frontCloth1/necroKnight_frontCloth2/necroKnight_frontCloth3
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_frontCloth1/necroKnight_frontCloth2/necroKnight_frontCloth3/necroKnight_frontCloth4
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_frontCloth1/necroKnight_frontCloth2/necroKnight_frontCloth3/necroKnight_frontCloth4/necroKnight_frontCloth5
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_leftTasset1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_rightTasset1
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_leftLegUpVectorNode
+        weight: 1
+      - path: necroKnight_pelvis/necroKnight_rightLegUpVectorNode
+        weight: 1
+      - path: necroKnight_leftLegPlatform
+        weight: 1
+      - path: necroKnight_rightLegPlatform
+        weight: 1
+      - path: sword
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 8e056dfdfca78714b9ef6feee85e5bf7, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Attack2

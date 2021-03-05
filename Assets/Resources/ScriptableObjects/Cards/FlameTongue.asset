@@ -21,6 +21,7 @@ MonoBehaviour:
   dmgOvertime: 0
   cooldown: 0
   isOwned: 1
+  isUsedOnUpdate: 0
   cardType: 0
   myCard: {fileID: 5548982796287200823, guid: ba9761b8bd4fb1d4586e1fc7e71f659b, type: 3}
   id: e71f432b-4b3f-471c-9720-ae22b2625f84

@@ -23,8 +23,8 @@ ModelImporter:
       rotation in copied configuration does not match rotation in animation file:\n\t'necroKnight_leftLeg_knee'
       : rotation error = 5.434074 deg\n\t'necroKnight_leftLeg_foot_base' : rotation
       error = 0.093750 deg\n\t'necroKnight_ribcage' : rotation error = 1.920261 deg\n\t'necroKnight_lefArm_elbow'
-      : rotation error = 20.000055 deg\n\t'necroKnight_lefArm_wrist' : rotation error
-      = 49.999996 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000014
+      : rotation error = 20.000053 deg\n\t'necroKnight_lefArm_wrist' : rotation error
+      = 49.999996 deg\n\t'necroKnight_rightArm_elbow' : rotation error = 15.000016
       deg\n\t'necroKnight_rightLeg_knee' : rotation error = 8.161910 deg\n\t'necroKnight_rightLeg_foot_base'
       : rotation error = 0.072163 deg\n"
     animationImportErrors: 
