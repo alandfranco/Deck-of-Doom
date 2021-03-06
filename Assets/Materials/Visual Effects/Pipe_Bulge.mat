@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pipe_Bulge
+  m_Shader: {fileID: -6465566751694194690, guid: e4ef5ed67f8ecf74e91d1c7b6c737790, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: fd6bb2db408aa4a42a6edaf78f62f89a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _mainTexture:
+        m_Texture: {fileID: 2800000, guid: fd6bb2db408aa4a42a6edaf78f62f89a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1857634B: 5
+    - Vector1_826AB8B0: 0.82
+    - Vector1_CA52AFA2: 1
+    - Vector1_DC0B88DE: 1.92
+    - _alpha: 1
+    - _bulgePower: 9.03
+    - _bulgeWidth: 0.76
+    - _fresnelPower: 1.37
+    - _lineSpeed: 5
+    - _metallic: 0
+    - _occlusion: 0.397
+    - _panner: 0.62
+    - _smoothness: 0.43
+    - _speed: 4598498
+    m_Colors:
+    - Color_9CDD4E3E: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 0}
+    - _color: {r: 0, g: 0.07461397, b: 1.4339623, a: 0}
+    - _fresnelColor: {r: 1.5215687, g: 0, b: 2, a: 0}
+  m_BuildTextureStacks: []

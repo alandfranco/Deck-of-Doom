@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Toon_Grass
+  m_Shader: {fileID: -6465566751694194690, guid: 83ba1f4f7842b524387716436d753282, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_C3A81EAB:
+        m_Texture: {fileID: 2800000, guid: 7fafe9821b34ea542998b5ac470bcf2b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 7fafe9821b34ea542998b5ac470bcf2b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_E6C4C5CF_Out_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texture:
+        m_Texture: {fileID: 2800000, guid: 7fafe9821b34ea542998b5ac470bcf2b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_18831B7C: 0.12
+    - Vector1_211650DE: 1
+    - Vector1_3896BD41: 0
+    - Vector1_3DB50A46: 0.05
+    - Vector1_62E69F8E: 0.25
+    - Vector1_73031847: 1.57
+    - Vector1_741CEEC9: 0.2
+    - Vector1_88E85215: 0.75
+    - Vector1_8DFEB1D2: 32
+    - Vector1_FD47D2BE: 0.25
+    - _alphaClip: 0
+    - _glossiness: 32
+    - _rimAmount: 0.258
+    - _rimThreshold: 1
+    - _shadowIntensity: 0.5
+    - _windDensity: 0.5
+    - _windStrength: 0.25
+    m_Colors:
+    - Color_185C17BC: {r: 1.6627451, g: 1.6627451, b: 1.6627451, a: 0}
+    - Color_5EB167B6: {r: 1.6862745, g: 1.6862745, b: 1.6862745, a: 0}
+    - Color_A10C94A8: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0}
+    - Color_DCC56F5C: {r: 2.670157, g: 2.670157, b: 2.670157, a: 0}
+    - Vector2_2376D5E9: {r: 2, g: 2, b: 0, a: 0}
+    - Vector2_6F9DDBFE: {r: 1, g: 1, b: 0, a: 0}
+    - _ambientColor: {r: 0.9933474, g: 2.3101184, b: 11.083669, a: 0}
+    - _mainColor: {r: 0.6132076, g: 0.5524653, b: 0.5524653, a: 0}
+    - _position: {r: 0, g: 0, b: 0, a: 0}
+    - _rimColor: {r: 1, g: 1, b: 1, a: 0}
+    - _specularColor: {r: 5.3403134, g: 0, b: 0, a: 0}
+    - _textureTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _windMovement: {r: 0.5, g: 0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Glass
+  m_Shader: {fileID: -6465566751694194690, guid: 7eb4dc3b531712b4e990da5ec7d0a858, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _cloudTexture:
+        m_Texture: {fileID: 2800000, guid: 778aa35b72c54f14b95ffb7b666f0b9d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _distortionTexture:
+        m_Texture: {fileID: 2800000, guid: 4f8db14409e78bc4690ee5a689190e77, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _alpha: 0.45
+    - _cloudBrightness: 1.5
+    - _cloudPower: 3
+    - _distortionSpeed: 0
+    m_Colors:
+    - _Color: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 0}
+    - _cloudDirection: {r: 0, g: 0, b: 0, a: 0}
+    - _cloudTiling: {r: 3, g: 3, b: 0, a: 0}
+    - _distortionDirection: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - _distortionTiling: {r: 0.2, g: 0.2, b: 0, a: 0}
+  m_BuildTextureStacks: []
