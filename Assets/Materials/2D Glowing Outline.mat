@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Liquid
-  m_Shader: {fileID: -6465566751694194690, guid: 66c3078ca286630449f1d6a46c643f36, type: 3}
-  m_ShaderKeywords: 
+  m_Name: 2D Glowing Outline
+  m_Shader: {fileID: -6465566751694194690, guid: edb9bd9970fb1a24c8bd9e239f45e6d3, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -18,15 +18,13 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _mainTex:
+        m_Texture: {fileID: 2800000, guid: bd6fe6537db56044a944bd8fb5f207f9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _aux: 0.75
-    - _fillAmount: 0.41
-    - _offset: -0.2
-    - _wobbleX: -0.0011483666
-    - _wobbleZ: -0.0011483666
+    - Vector1_906966C6: 0.99
     m_Colors:
-    - _bottomColor: {r: 2, g: 0.07058824, b: 0.015686275, a: 0}
-    - _foamColor: {r: 1, g: 0.90270567, b: 0, a: 0}
-    - _topColor: {r: 16, g: 1.1179266, b: 0, a: 0}
+    - _outlineColor: {r: 5.3403134, g: 2.2245347, b: 0, a: 0}
   m_BuildTextureStacks: []
