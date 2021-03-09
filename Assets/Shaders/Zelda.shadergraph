@@ -383,15 +383,15 @@
         {
             "m_GuidSerialized": "411af791-7c0f-4060-8a57-41a447f1a354",
             "m_Title": "TO DO LIST:",
-            "m_Content": "https://www.youtube.com/watch?v=RC91uxRTId8\n\nAgregar Additional Lights al calculo de luz",
+            "m_Content": "https://www.youtube.com/watch?v=RC91uxRTId8\n\nAgregar Additional Lights al calculo de luz\n\nTodo material que use este shader tiene que tener lo siguiente:\nMAIN_LIGHT_CALCULATE_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT\n\ndesde el inspector en debug mode",
             "m_TextSize": 0,
             "m_Theme": 0,
             "m_Position": {
                 "serializedVersion": "2",
-                "x": 3747.0,
-                "y": 534.0,
+                "x": 3745.0,
+                "y": 528.0,
                 "width": 200.0,
-                "height": 212.0
+                "height": 253.19091796875
             },
             "m_GroupGuidSerialized": "00000000-0000-0000-0000-000000000000"
         }
