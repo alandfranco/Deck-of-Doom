@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: FlameTongue
   m_EditorClassIdentifier: 
   name: Flame Tongue
-  description: This card turns your weapon into fire
+  description: Melee attacks apply Damage Over Time
   image: {fileID: 21300000, guid: a2f1a0c3f6a6f0e40b0be72a325065bd, type: 3}
   chance: 25
   duration: 0
-  dmg: 0
-  dmgOvertime: 0
+  dmg: 5
+  dmgOvertime: 2
   cooldown: 0
   isOwned: 1
   isUsedOnUpdate: 0

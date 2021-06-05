@@ -16,6 +16,9 @@ public class MenuManager : MonoBehaviour
     public GameObject playPanel;
     public GameObject creditsPanel;
     public GameObject optionsPanel;
+    public GameObject gameStatsPanel;
+    [Header("CharacterSelector")]
+    public GameObject passiveSkills;
 
     public GameObject LoadingScreenCanvas;
 
@@ -41,8 +44,16 @@ public class MenuManager : MonoBehaviour
         optionsPanel.SetActive(false);
         LoadingScreenCanvas.SetActive(false);
         cardInventoryPanel.SetActive(false);
-
+        passiveSkills.SetActive(false);
+        gameStatsPanel.SetActive(false);
         ResolutionAvailables();
+
+        if (FindObjectOfType<GameStats>())
+        {
+            gameStatsPanel.SetActive(true);
+            GameStats.instance.ShowGameStats();
+            mainPanel.SetActive(false);
+        }
     }
         
     void Update()
@@ -146,6 +157,12 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void CloseGameStats()
+    {
+        mainPanel.SetActive(true);
+        gameStatsPanel.SetActive(false);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -213,6 +230,21 @@ public class MenuManager : MonoBehaviour
 
     #region CharacterSelector
     public GameObject characterPanel;
+
+    public void PassiveSkillsPanelOpen()
+    {
+        passiveSkills.SetActive(true);
+        foreach (var item in PlayerProfile.instance.skills)
+        {
+            item.CheckIfAvailable();
+        }
+    }
+
+    public void PassiveSkillsPanelClosed()
+    {
+        passiveSkills.SetActive(false);
+    }
+
     #endregion
 
     #region Options

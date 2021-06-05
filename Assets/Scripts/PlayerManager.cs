@@ -143,7 +143,7 @@ public class PlayerManager : Entity
                 pot.potFill = potionDurationFill;
             }
         }
-        potion = null;
+        //potion = null;
     }
 
     public void BuffStats()

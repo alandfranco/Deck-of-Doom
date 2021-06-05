@@ -9,6 +9,9 @@ public abstract class Card : MonoBehaviour
     protected GameObject pl;
 
     protected bool canUse;
+
+    public bool activateToUse;
+    protected bool isActivated;
     
     protected virtual void Awake()
     {
@@ -26,8 +29,16 @@ public abstract class Card : MonoBehaviour
         
     }
 
+    public virtual void CanUseCard()
+    {
+        if (activateToUse)
+        {
+            isActivated = true;
+        }
+    }
+
     public virtual void TriggerCard(Enemy enemy)
-    {       
+    {
         float random = Random.Range(0.0f, 1.0f);
         if (random <= cardSO.chance / 100 && canUse)
         {
@@ -37,7 +48,7 @@ public abstract class Card : MonoBehaviour
 
     public virtual void TriggerCard()
     {
-        CardEffect();
+        CardEffect();        
     }
 
     protected abstract void CardEffect(Enemy enemy);

@@ -27,11 +27,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        /*if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
+            WonGame();
             load.gameObject.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             load.LoadScene(load.sceneToLoad);
-        }*/
+        }
     }
 
     public void WonGame()

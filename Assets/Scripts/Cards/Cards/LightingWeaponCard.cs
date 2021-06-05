@@ -25,17 +25,21 @@ public class LightingWeaponCard : Card
 
     protected override void CardEffect(Enemy enemy)
     {
-        EnemyInFront().GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus), pl);
-        //Lighting effect over enemy
+        foreach (var item in EnemiesInFront(enemy))
+        {
+            if (!item.GetComponent<Enemy>())
+                continue;
+            item.GetComponent<TakeDamage>().TakeDamageToHealth(cardSO.dmg + (cardSO.dmg * PlayerPassives.instance.skillAndCardBonus), pl);
+            
+            //Lighting effect over enemy
+        }
     }
 
-    Enemy EnemyInFront()
-    {
-        var enemiesInFront = FindObjectsOfType<Enemy>();
+    Collider[] EnemiesInFront(Enemy enemy)
+    {        
+        var enemiesInFront = Physics.OverlapSphere(enemy.transform.position, 3);
 
-        var _enemiesInFront = enemiesInFront.Where(x => Mathf.Abs(Vector3.Angle(cam.forward, x.transform.position - cam.position))
-        <= 90 && !x.GetComponent<PlayerMovement>() && x.GetComponent<Enemy>()).OrderBy(x => Random.value).Select(x => x.GetComponent<Enemy>()).First();
-        return _enemiesInFront;
+        return enemiesInFront;
     }
 
     protected override void CardEffect()

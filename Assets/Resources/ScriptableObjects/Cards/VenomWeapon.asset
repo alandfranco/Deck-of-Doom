@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: VenomWeapon
   m_EditorClassIdentifier: 
   name: Venom Weapon
-  description: Your weapon is infuse with posion
+  description: Melee attacks slow down enemies and lowers their attack speed and
+    damage.
   image: {fileID: 21300000, guid: 802c20541f9860e49bdec710c1fbef3d, type: 3}
   chance: 25
   duration: 5

@@ -34,7 +34,7 @@ public class TakeDamage : MonoBehaviour
         if(me is PlayerManager)
         {
             anim = GetComponentInChildren<Animator>();
-            //maxHealth = maxHealth + (maxHealth * PlayerPassives.instance.healthBonus); 
+            maxHealth = maxHealth + (maxHealth * PlayerPassives.instance.healthBonus); 
         }
         health = maxHealth;
     }
@@ -142,7 +142,17 @@ public class TakeDamage : MonoBehaviour
         }
         else
         {
+            var enemy = me as Enemy;
+            GameStats.instance.AddExp(enemy.experienceValue);
+            if(enemy.canTeleport)
+            {
+                GameStats.instance.specialEnemiesKilled++;
+            }
+            else
+                GameStats.instance.simpleEnemiesKilled++;
             me.anim.Play("Die");
+
+            FindObjectOfType<PlayerManager>().potion.GetComponent<Potion>().FillPotion();
             StartCoroutine(DieCourutine());
         }
     }

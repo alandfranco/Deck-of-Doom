@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: LightingWeapon
   m_EditorClassIdentifier: 
   name: Lighting Weapon
-  description: For every enemy you hit your weapon gets charged
+  description: Melee attacks generate stacks of lightning. When fully charged your
+    heavy attacks calls forth a lightning bolt.
   image: {fileID: 21300000, guid: aa700730bd0964f46ba73e700c2fb713, type: 3}
   chance: 0
   duration: 0

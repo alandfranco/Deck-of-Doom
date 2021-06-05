@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
+using Pathfinding;
 
 public abstract class Enemy : Entity, IGOAP
 {
@@ -12,7 +13,8 @@ public abstract class Enemy : Entity, IGOAP
     public float health;
 
     [HideInInspector]
-    public NavMeshAgent agent;
+    public AIPath agent;
+    public Seeker seeker;
       
     public bool isScared;
     public bool isStuned;
@@ -58,8 +60,8 @@ public abstract class Enemy : Entity, IGOAP
 
         stamina = config.maxStamina;
 
-        agent = this.GetComponent<NavMeshAgent>();
-        agent.speed = config.speed;
+        agent = this.GetComponent<AIPath>();
+        agent.maxSpeed = config.speed;
 
         anim = GetComponentInChildren<Animator>();
         anim.Play("Idle");
@@ -164,17 +166,18 @@ public abstract class Enemy : Entity, IGOAP
 
     IEnumerator Debuffer(float debuff, float duration)
     {
-        agent.speed /= debuff;
-        agent.angularSpeed /= debuff;
+        agent.maxSpeed /= debuff;
+        agent.rotationSpeed /= debuff;
         config.dmg /= debuff;
+        config.attackRate /= debuff;
 
         yield return new WaitForSeconds(0);
         yield return new WaitForSeconds(duration);
 
-        agent.speed *= debuff;
-        agent.angularSpeed *= debuff;
+        agent.maxSpeed *= debuff;
+        agent.rotationSpeed *= debuff;
         config.dmg *= debuff;
-
+        config.attackRate *= debuff;
         yield break;
     }
 
@@ -229,8 +232,7 @@ public abstract class Enemy : Entity, IGOAP
             ObjectPooler.instance.GetPooledObject(teleportVFX, this.transform.position);
             var teleportTo = teleportSpots.OrderByDescending(x => Vector3.Distance(this.transform.position, x.transform.position)).First();
             agent.isStopped = true;
-            this.transform.position = teleportTo.transform.position;
-            agent.ResetPath();
+            this.transform.position = teleportTo.transform.position;            
             agent.isStopped = false;
             ObjectPooler.instance.GetPooledObject(teleportVFX, this.transform.position);
             

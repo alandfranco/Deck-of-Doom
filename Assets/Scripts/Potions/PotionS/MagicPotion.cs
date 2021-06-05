@@ -8,7 +8,7 @@ public class MagicPotion : Potion
     
     public override void PotionEffect()
     {
-        visual.SetActive(false);
+        //visual.SetActive(false);
         StartCoroutine(CooldownCourutine());
     }
 
@@ -31,8 +31,7 @@ public class MagicPotion : Potion
         {
             pl.GetComponent<SkillManager>().skills[i].cooldownTime = originalCD[i];
         }
-        pl.DeactivatePotionUI();
-        Destroy(this.gameObject);
+        //pl.DeactivatePotionUI();        
         yield break;
     }
 

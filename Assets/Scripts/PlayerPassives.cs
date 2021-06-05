@@ -29,7 +29,14 @@ public class PlayerPassives : MonoBehaviour
 
     public void AddPasive(PlayerSkill skill)
     {
-        plSkills.Add(skill);
+        if (!plSkills.Contains(skill))
+        {
+            plSkills.Add(skill);
+            ResetBonus();
+            CalculateBonus();
+            PlayerProfile.instance.skillPoints--;
+            PlayerProfile.instance.pointsText.text = "Points Available: " + PlayerProfile.instance.skillPoints;
+        }            
     }
 
     public void CalculateBonus()
@@ -40,25 +47,34 @@ public class PlayerPassives : MonoBehaviour
             {
                 if (item.typeBonus.Contains(PlayerSkill.TypeBonus.health))
                 {
-                    healthBonus += item.multiplier;
+                    healthBonus += item.multiplier / 100f;
                 }
                 if (item.typeBonus.Contains(PlayerSkill.TypeBonus.damage))
                 {
-                    damageBonus += item.multiplier;
+                    damageBonus += item.multiplier / 100f;
                 }
                 if (item.typeBonus.Contains(PlayerSkill.TypeBonus.skill))
                 {
-                    skillAndCardBonus += item.multiplier;
+                    skillAndCardBonus += item.multiplier / 100f;
                 }
                 if (item.typeBonus.Contains(PlayerSkill.TypeBonus.stamina))
                 {
-                    staminaBonus += item.multiplier;
+                    staminaBonus += item.multiplier / 100f;
                 }
                 if (item.typeBonus.Contains(PlayerSkill.TypeBonus.cooldown))
                 {
-                    cooldownBonus += item.multiplier;
+                    cooldownBonus += item.multiplier / 100f;
                 }
             }            
         }
+    }
+
+    void ResetBonus()
+    {
+        healthBonus = 0;
+        damageBonus = 0;
+        skillAndCardBonus = 0;
+        staminaBonus = 0;
+        cooldownBonus = 0;
     }
 }

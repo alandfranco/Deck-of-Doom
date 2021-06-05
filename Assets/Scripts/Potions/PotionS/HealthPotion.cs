@@ -10,6 +10,6 @@ public class HealthPotion : Potion
     {
         pl.TryGetComponent<TakeDamage>(out var x);
         x.Heal(x.maxHealth * healingAmountOnPorcentage / 100);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 }

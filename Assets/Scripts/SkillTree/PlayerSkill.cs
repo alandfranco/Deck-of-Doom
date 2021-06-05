@@ -35,7 +35,14 @@ public class PlayerSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         myButton = this.GetComponent<Button>();
         if(icon != null)
             this.GetComponent<Image>().sprite = icon;
-        if (PlayerProfile.instance.level >= levelToUnlock)
+
+        CheckIfAvailable();
+    }
+
+    public void CheckIfAvailable()
+    {
+        myButton = this.GetComponent<Button>();        
+        if(PlayerProfile.instance.level >= levelToUnlock && CheckConditionToAvailable() && PlayerProfile.instance.skillPoints > 0)
         {
             isAvailable = true;
             myButton.interactable = true;
@@ -44,6 +51,18 @@ public class PlayerSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             myButton.interactable = false;
     }
 
+    bool CheckConditionToAvailable()
+    {
+        int cond = 0;
+        foreach (var item in skillsToUnlockThis)
+        {
+            if (item.isOwned)
+                cond++;
+        }
+        if (cond == skillsToUnlockThis.Count)
+            return true;
+        else return false;
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         ((IPointerEnterHandler)myButton).OnPointerEnter(eventData);
@@ -59,7 +78,8 @@ public class PlayerSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         else
             descriptionText.text = description + "\n" + "Level To Unlock " + levelToUnlock;
-
+        if(isOwned)
+            descriptionText.text = description + "\n" + "Owned";
     }
 
     public void OnPointerExit(PointerEventData eventData)

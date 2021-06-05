@@ -1987,6 +1987,7 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 8
   duration: 5
+  bonePrefab: {fileID: 0}
 --- !u!4 &246143457
 Transform:
   m_ObjectHideFlags: 0
@@ -3419,6 +3420,7 @@ MonoBehaviour:
   rotationSpeed: 10
   fallingSpeed: 100
   ledgePush: 4.5
+  jumpForce: 10
   jumpStaminaCost: 0
   dashStaminaCost: 0
 --- !u!54 &430457390
@@ -3475,6 +3477,7 @@ MonoBehaviour:
   OnWorldCanvas: {fileID: 2081786920}
   staminaBardelay: {fileID: 343186486}
   staminaBar: {fileID: 876203369}
+  shieldEffect: {fileID: 0}
   healthBar: {fileID: 619402552}
   potionDurationFill: {fileID: 430211607}
   potionImage: {fileID: 130145616}
@@ -3539,6 +3542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9991c3f11983de42adaf8a0708dfff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   lastAttack: 
   cards: {fileID: 0}
   DrawGizmos: 1
@@ -3688,7 +3692,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489876279}
-  m_LocalRotation: {x: 0.14866702, y: 0.000000024788905, z: -0.000000007978013, w: 0.98888737}
+  m_LocalRotation: {x: 0.14866702, y: 0.000000024788902, z: -0.000000007978012, w: 0.98888737}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4426,6 +4430,7 @@ MonoBehaviour:
   shieldDistance: 0
   speedShieldTransition: 0
   isShieldCam: 0
+  shakeAmount: 0
 --- !u!114 &608015721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4711,7 +4716,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4023063374828041373, guid: c30669ad70b8f1746a094ba56dcfc6e0, type: 3}
       propertyPath: m_Name
-      value: item_potion_01
+      value: MagicPotion
       objectReference: {fileID: 0}
     - target: {fileID: 4368239299006705191, guid: c30669ad70b8f1746a094ba56dcfc6e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4756,18 +4761,6 @@ PrefabInstance:
     - target: {fileID: 4368239299006705191, guid: c30669ad70b8f1746a094ba56dcfc6e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368239299006705191, guid: c30669ad70b8f1746a094ba56dcfc6e0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368239299006705191, guid: c30669ad70b8f1746a094ba56dcfc6e0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368239299006705191, guid: c30669ad70b8f1746a094ba56dcfc6e0, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c30669ad70b8f1746a094ba56dcfc6e0, type: 3}
@@ -4942,7 +4935,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4716485752917981549, guid: 8883e27156982334b97ffda245195d2c, type: 3}
       propertyPath: m_Name
-      value: item_potion_04
+      value: HealthPotion
       objectReference: {fileID: 0}
     - target: {fileID: 5350138236409586647, guid: 8883e27156982334b97ffda245195d2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4987,18 +4980,6 @@ PrefabInstance:
     - target: {fileID: 5350138236409586647, guid: 8883e27156982334b97ffda245195d2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350138236409586647, guid: 8883e27156982334b97ffda245195d2c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350138236409586647, guid: 8883e27156982334b97ffda245195d2c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5350138236409586647, guid: 8883e27156982334b97ffda245195d2c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8883e27156982334b97ffda245195d2c, type: 3}
@@ -9423,6 +9404,8 @@ MonoBehaviour:
   dmg: 5
   dmgInExplotion: 10
   speed: 5
+  myEffectPos: {fileID: 0}
+  explotion: {fileID: 0}
 --- !u!4 &1472344497
 Transform:
   m_ObjectHideFlags: 0

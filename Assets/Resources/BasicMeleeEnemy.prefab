@@ -41,13 +41,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1647875990098644559}
   - component: {fileID: 1647875990098644592}
+  - component: {fileID: 3789791239655054622}
+  - component: {fileID: 5914917384085536332}
+  - component: {fileID: 3034664864039996656}
   - component: {fileID: 1647875990098644593}
   - component: {fileID: 1647875990098644594}
   - component: {fileID: 1452931739448380188}
   - component: {fileID: 4745680773282991126}
   - component: {fileID: 8558474312473872637}
-  - component: {fileID: 1647875990098644595}
   - component: {fileID: 5201885681553013652}
+  - component: {fileID: -892088219097884257}
   m_Layer: 10
   m_Name: BasicMeleeEnemy
   m_TagString: Untagged
@@ -83,6 +86,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2dc213ba99fc043ae3eee6ad41f205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3789791239655054622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647875990098644596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radius: 0.5
+  height: 1.09
+  repathRate: 0.5
+  canSearch: 1
+  canMove: 1
+  maxSpeed: 3.5
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  orientation: 0
+  enableRotation: 1
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 360
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 2
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
+--- !u!114 &5914917384085536332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647875990098644596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &3034664864039996656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647875990098644596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  unwrap: 1
+  splitAtEveryPortal: 0
 --- !u!114 &1647875990098644593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,11 +184,12 @@ MonoBehaviour:
   config: {fileID: 0}
   health: 0
   agent: {fileID: 0}
+  seeker: {fileID: 0}
   isScared: 0
   isStuned: 0
   isDisable: 0
   weapon: {fileID: 0}
-  experienceValue: 0
+  experienceValue: 10
   canTeleport: 0
   teleportVFX: {fileID: 0}
   venomFX: {fileID: 0}
@@ -174,28 +257,6 @@ MonoBehaviour:
   maxHealth: 10
   isBlocking: 0
   hitFX: {fileID: 7009118161976232783}
---- !u!195 &1647875990098644595
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647875990098644596}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.45
-  m_Speed: 2
-  m_Acceleration: 10
-  avoidancePriority: 70
-  m_AngularSpeed: 200
-  m_StoppingDistance: 1.2
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.09
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
 --- !u!136 &5201885681553013652
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -210,6 +271,33 @@ CapsuleCollider:
   m_Height: 1.22
   m_Direction: 1
   m_Center: {x: 0, y: 0.54, z: 0}
+--- !u!114 &-892088219097884257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647875990098644596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560112f876f5746c780eca0d404e7139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radiusBackingField: 0.5
+  heightBackingField: 2
+  centerBackingField: 1
+  locked: 0
+  lockWhenNotMoving: 0
+  agentTimeHorizon: 2
+  obstacleTimeHorizon: 2
+  maxNeighbours: 10
+  layer: 1
+  collidesWith: -1
+  wallAvoidForce: 1
+  wallAvoidFalloff: 1
+  priority: 0.5
+  debug: 0
 --- !u!1 &1799481251953993073
 GameObject:
   m_ObjectHideFlags: 0

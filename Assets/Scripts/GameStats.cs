@@ -28,11 +28,13 @@ public class GameStats : MonoBehaviour
 
     public void ShowGameStats()
     {
-        //PlayerProfile.instance.ShowGameStats();
+        PlayerProfile.instance.ShowGameStats();
     }
 
     public void AddExp(int exp)
     {
         expWon += exp;
+
+        totalEnemiesKilled = simpleEnemiesKilled + specialEnemiesKilled;
     }
 }

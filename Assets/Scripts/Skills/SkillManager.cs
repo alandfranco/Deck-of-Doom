@@ -31,6 +31,8 @@ public class SkillManager : MonoBehaviour
 
     AnimatorHandler anim;
 
+    CardsContainer cards;
+
     [SerializeField] Image[] skillsImg = new Image[4];
 
     [Header("UI")]
@@ -47,7 +49,7 @@ public class SkillManager : MonoBehaviour
         currentSkill = skills[0];
         baseColor = skillsImg[0].color;
         anim = GetComponentInChildren<AnimatorHandler>();
-
+        cards = FindObjectOfType<CardsContainer>();
         foreach (var item in skills)
         {
             item.cooldownTime = item.cooldownTime - (item.cooldownTime * PlayerPassives.instance.cooldownBonus);
@@ -169,7 +171,9 @@ public class SkillManager : MonoBehaviour
         currentSkill.transform.position = this.transform.position;
         currentSkill.TriggerAbility();
         skillsImg[skills.IndexOf(currentSkill)].color = hoverColor;
-        OnSelectSkill();        
+        OnSelectSkill();
+        if(cards.weaponSlot != null && cards.weaponSlot.activateToUse)
+            cards.weaponSlot.CanUseCard();
     }
     /*
     public void PerformSkilOne()

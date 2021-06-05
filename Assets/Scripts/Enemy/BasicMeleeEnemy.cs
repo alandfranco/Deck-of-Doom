@@ -98,7 +98,7 @@ public class BasicMeleeEnemy : Enemy
             return false;
         }
     }
-
+    /*
     public bool IsReachable(Vector3 pos)
     {
         NavMeshPath navMeshPath = new NavMeshPath();
@@ -107,5 +107,5 @@ public class BasicMeleeEnemy : Enemy
             return false;
         else
             return true;
-    }
+    }*/
 }
