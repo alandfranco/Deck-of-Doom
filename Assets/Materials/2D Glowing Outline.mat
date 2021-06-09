@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 2D Glowing Outline
+  m_Shader: {fileID: -6465566751694194690, guid: edb9bd9970fb1a24c8bd9e239f45e6d3, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _mainTex:
+        m_Texture: {fileID: 2800000, guid: bd6fe6537db56044a944bd8fb5f207f9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_906966C6: 0.99
+    m_Colors:
+    - _outlineColor: {r: 5.3403134, g: 2.2245347, b: 0, a: 0}
+  m_BuildTextureStacks: []
