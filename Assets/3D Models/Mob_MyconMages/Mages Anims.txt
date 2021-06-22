@@ -1,0 +1,16 @@
+-Attacking
+
+-Casting00
+	Start		0-15
+	Loop		15-45
+	Release		45-75
+
+-Casting01
+
+-Death
+
+-Idle
+
+-Moving
+
+-TakingDmg
