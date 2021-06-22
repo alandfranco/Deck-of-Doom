@@ -79,7 +79,7 @@ public class HideAction : GOAPAction
         Enemy currEnemy = agent.GetComponent<Enemy>();
         if (currEnemy.stamina >= (cost) && !isDashing && !currEnemy.isDisable && Vector3.Distance(this.transform.position, player.transform.position) >= 10)
         {
-            currEnemy.agent.speed *= dashSpeed;
+            currEnemy.agent.maxSpeed *= dashSpeed;
             //target.GetComponent<TakeDamage>().TakeDamage();
             
             currEnemy.stamina -= cost;

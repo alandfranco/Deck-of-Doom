@@ -43,19 +43,30 @@ public class NecroUltimate : Skills
 
     void Explode()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 10 + (10 * PlayerPassives.instance.skillAndCardBonus)).Where(x => x.GetComponent<Enemy>()).ToArray();
+
+        Collider[] hitColliders = new Collider[1];
+        if (FindObjectOfType<PlayerPassives>() != null)
+            hitColliders = Physics.OverlapSphere(this.transform.position, 10 + (10 * PlayerPassives.instance.skillAndCardBonus)).Where(x => x.GetComponent<Enemy>()).ToArray();
+        else
+            hitColliders = Physics.OverlapSphere(this.transform.position, 10).Where(x => x.GetComponent<Enemy>()).ToArray();
         foreach (var item in hitColliders)
         {
             if (item.TryGetComponent<Enemy>(out var enemy))
             {
-                item.GetComponent<TakeDamage>().TakeDamageToHealth(damage + (damage * PlayerPassives.instance.skillAndCardBonus), plM);
+                if (FindObjectOfType<PlayerPassives>() != null)
+                    item.GetComponent<TakeDamage>().TakeDamageToHealth(damage + (damage * PlayerPassives.instance.skillAndCardBonus), plM);
+                else
+                    item.GetComponent<TakeDamage>().TakeDamageToHealth(damage, plM);
                 var bone = ObjectPooler.instance.GetPooledObject(bonePrefab, item.transform.position);
                 bone.transform.parent = visual.transform;
                 //bone.GetComponent<Animator>().Play("UnderGround");
                 bone.transform.eulerAngles = new Vector3(-90, Random.Range(0, 360), 0);
                 item.transform.parent = bone.GetComponentInChildren<Transform>();
                 //HACER APARECER LOS HUESOS
-                enemy.GetStuned(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
+                if (FindObjectOfType<PlayerPassives>() != null)
+                    enemy.GetStuned(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
+                else
+                    enemy.GetStuned(duration);
             }
 
         }
@@ -77,7 +88,10 @@ public class NecroUltimate : Skills
 
     IEnumerator DeactivateFX()
     {
-        yield return new WaitForSeconds(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
+        if (FindObjectOfType<PlayerPassives>() != null)
+            yield return new WaitForSeconds(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
+        else
+            yield return new WaitForSeconds(duration);
         foreach (var item in GetComponentsInChildren<Enemy>())
         {
             item.transform.parent = null;

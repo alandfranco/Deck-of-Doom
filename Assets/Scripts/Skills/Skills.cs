@@ -35,7 +35,7 @@ public abstract class Skills : MonoBehaviour
             OnSkillUse.Invoke(cooldownTime);
             Skill();
             StartCooldown();
-            //anim.PlayTargetAnimation(skillAnimation, true, 0.2f);
+            anim.PlayTargetAnimation(skillAnimation, true, 0.2f);
             pl.anim.Play(skillAnimation);
         }
     }

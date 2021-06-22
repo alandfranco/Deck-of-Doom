@@ -56,7 +56,11 @@ public class PlayerManager : Entity
 
         cam = Camera.main.transform;
 
-        maxStamina = maxStamina + (maxStamina * PlayerPassives.instance.staminaBonus);
+        if (FindObjectOfType<PlayerPassives>() != null)
+        {
+            maxStamina = maxStamina + (maxStamina * PlayerPassives.instance.staminaBonus);
+        }
+        
         stamina = maxStamina;
 
         staminaBar.fillAmount = 1;

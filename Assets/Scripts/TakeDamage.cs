@@ -34,7 +34,8 @@ public class TakeDamage : MonoBehaviour
         if(me is PlayerManager)
         {
             anim = GetComponentInChildren<Animator>();
-            maxHealth = maxHealth + (maxHealth * PlayerPassives.instance.healthBonus); 
+            if (FindObjectOfType<PlayerPassives>() != null)
+                maxHealth = maxHealth + (maxHealth * PlayerPassives.instance.healthBonus); 
         }
         health = maxHealth;
     }

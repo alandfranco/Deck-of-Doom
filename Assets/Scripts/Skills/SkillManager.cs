@@ -50,9 +50,12 @@ public class SkillManager : MonoBehaviour
         baseColor = skillsImg[0].color;
         anim = GetComponentInChildren<AnimatorHandler>();
         cards = FindObjectOfType<CardsContainer>();
-        foreach (var item in skills)
+        if(FindObjectOfType< PlayerPassives>() != null)
         {
-            item.cooldownTime = item.cooldownTime - (item.cooldownTime * PlayerPassives.instance.cooldownBonus);
+            foreach (var item in skills)
+            {
+                item.cooldownTime = item.cooldownTime - (item.cooldownTime * PlayerPassives.instance.cooldownBonus);
+            }
         }
     }
 

@@ -21,12 +21,19 @@ public class NecroFear : Skills
     public override void Skill()
     {
         Initialize();
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range + (range * PlayerPassives.instance.skillAndCardBonus));
+        Collider[] hitColliders = new Collider[1];
+        if (FindObjectOfType<PlayerPassives>() != null)
+            hitColliders = Physics.OverlapSphere(this.transform.position, range + (range * PlayerPassives.instance.skillAndCardBonus));
+        else
+            hitColliders = Physics.OverlapSphere(this.transform.position, range);
         foreach (var item in hitColliders)
         {
             if (item.TryGetComponent<Enemy>(out var enemies))
             {
-                enemies.GetScared(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
+                if (FindObjectOfType<PlayerPassives>() != null)
+                    enemies.GetScared(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
+                else
+                    enemies.GetScared(duration + (duration * PlayerPassives.instance.skillAndCardBonus));
             }
         }
         StartCoroutine(Disable());
