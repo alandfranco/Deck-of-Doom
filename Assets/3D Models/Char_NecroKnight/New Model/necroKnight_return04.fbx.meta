@@ -18,11 +18,22 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid copied Avatar Rig Configuration:\n\tNo human bone found.
-      Ensure both rig type match\n"
-    rigImportWarnings: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
+      rotation in copied configuration does not match rotation in animation file:\n\t'shin.L'
+      : rotation error = 33.642162 deg\n\t'heelAux.L' : rotation error = 26.580879
+      deg\n\t'shin.R' : rotation error = 22.647150 deg\n\t'heelAux.R' : rotation
+      error = 35.200275 deg\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Scene' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'forearm.L' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\t'forearm.R' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'shin.L' is
+      inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'heelAux.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'shin.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'heelAux.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -59,7 +70,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.22026433
+        functionName: DisableCombo
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
