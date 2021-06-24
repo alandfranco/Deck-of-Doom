@@ -18,11 +18,22 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid copied Avatar Rig Configuration:\n\tNo human bone found.
-      Ensure both rig type match\n"
-    rigImportWarnings: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
+      rotation in copied configuration does not match rotation in animation file:\n\t'shin.L'
+      : rotation error = 26.263203 deg\n\t'heelAux.L' : rotation error = 47.449726
+      deg\n\t'shin.R' : rotation error = 40.566551 deg\n\t'heelAux.R' : rotation
+      error = 27.084944 deg\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Scene' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'forearm.L' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\t'forearm.R' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'shin.L' is
+      inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'heelAux.L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'shin.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'heelAux.R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -49,12 +60,12 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000

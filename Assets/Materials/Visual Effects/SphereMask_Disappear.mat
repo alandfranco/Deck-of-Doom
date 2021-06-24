@@ -100,5 +100,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _edgeColor: {r: 16, g: 0.9411765, b: 0, a: 0}
-    - _sphereMaskCenter: {r: 1.0377691, g: -11.135332, b: 11.3083515, a: 0}
+    - _sphereMaskCenter: {r: -45.751392, g: -14.483917, b: 23.400188, a: 0}
   m_BuildTextureStacks: []

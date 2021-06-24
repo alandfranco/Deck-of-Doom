@@ -22,7 +22,7 @@ ModelImporter:
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
       rotation in copied configuration does not match rotation in animation file:\n\t'shin.L'
       : rotation error = 31.344418 deg\n\t'heelAux.L' : rotation error = 40.356350
-      deg\n\t'shin.R' : rotation error = 29.295652 deg\n\t'heelAux.R' : rotation
+      deg\n\t'shin.R' : rotation error = 29.295654 deg\n\t'heelAux.R' : rotation
       error = 13.312574 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Scene' has import animation warnings that might
@@ -60,12 +60,12 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
