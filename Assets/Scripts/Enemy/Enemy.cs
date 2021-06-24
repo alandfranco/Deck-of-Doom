@@ -64,6 +64,10 @@ public abstract class Enemy : Entity, IGOAP
         agent.maxSpeed = config.speed;
 
         anim = GetComponentInChildren<Animator>();
+        if(anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
         anim.Play("Idle");
     }
 
@@ -262,7 +266,7 @@ public abstract class Enemy : Entity, IGOAP
         float dist = Vector3.Distance(this.transform.position, nextAction.target.transform.position);
         if (nextAction.requiesVision)
         {
-            if (dist < config.aggroDist)
+            if (dist < config.aggroDist && dist >= config.attackDistance)
             {
                 var teleporTo = BestPlaceToTeleport(nextAction.transform.transform.position);
                 if (teleporTo != null)
@@ -271,11 +275,12 @@ public abstract class Enemy : Entity, IGOAP
                 }
 
                 anim.Play("Move");
-                anim.SetBool("isWalking", true);
+                //anim.SetBool("isWalking", true);
                 agent.destination = nextAction.target.transform.position;
                 agent.isStopped = false;
+                return false;
             }                            
-            if (dist <= config.attackDistance)
+            else if (dist <= config.attackDistance)
             {
                 agent.isStopped = true;
                 nextAction.setInRange(true);

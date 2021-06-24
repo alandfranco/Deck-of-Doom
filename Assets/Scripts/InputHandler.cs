@@ -141,10 +141,10 @@ public class InputHandler : MonoBehaviour
                 if (playerManager.isInteracting)
                 {
                     playerManager.anim.SetBool("canDoCombo", false);
+                    comboFlag = false;
                     return;
                 }
-                if (playerManager.canDoCombo)
-                    return;
+                comboFlag = false;
                 playerAttacker.HandleAttack(playerInventory.rightWeapon, false);
             }
         }
@@ -159,18 +159,20 @@ public class InputHandler : MonoBehaviour
     private void HandleBlockInput()
     {
         block_Input = (inputActions.Player.Block.phase == UnityEngine.InputSystem.InputActionPhase.Performed);
-
-        if (Input.GetMouseButtonDown(1))
+        //inputActions.Player.Block.performed += i => block_Input = true;
+        if (block_Input && !this.GetComponent<TakeDamage>().isBlocking)
+        {
             playerManager.anim.Play("BlockStart");
-        if (block_Input)
+            this.GetComponent<TakeDamage>().isBlocking = true;                        
+        }
+        else if (block_Input && this.GetComponent<TakeDamage>().isBlocking)
         {
             playerManager.shieldEffect.SetActive(true);
-            playerManager.anim.Play("BlockLoop");            
+            //playerManager.anim.Play("BlockLoop");
             playerManager.anim.SetBool("isBlocking", true);
-            this.GetComponent<TakeDamage>().isBlocking = true;
         }
         else
-        {            
+        {
             playerManager.shieldEffect.SetActive(false);
             playerManager.anim.SetBool("isBlocking", false);
 

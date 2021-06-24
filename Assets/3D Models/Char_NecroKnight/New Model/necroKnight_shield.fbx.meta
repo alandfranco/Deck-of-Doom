@@ -32,7 +32,7 @@ ModelImporter:
       rotation in copied configuration does not match rotation in animation file:\n\t'shin.L'
       : rotation error = 16.116428 deg\n\t'heelAux.L' : rotation error = 8.655892
       deg\n\t'shin.R' : rotation error = 23.058884 deg\n\t'heelAux.R' : rotation
-      error = 45.978802 deg\n"
+      error = 45.978806 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Scene' has import animation warnings that might
       lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
@@ -128,7 +128,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1

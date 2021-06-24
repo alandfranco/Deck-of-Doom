@@ -25,6 +25,7 @@ public class PlayerAttacker : MonoBehaviour
         animatorHandler = GetComponentInChildren<AnimatorHandler>();
         inputHandler = GetComponent<InputHandler>();
         cards = this.GetComponent<CardsContainer>();
+        //Time.timeScale = 0.2f;
         //anim = GetComponentInChildren<Animator>();
     }
 
@@ -33,14 +34,14 @@ public class PlayerAttacker : MonoBehaviour
         if(combo)
         {
             comboCounter++;
-            if (comboCounter > weapon.attacks.Count - 1)
+            if (comboCounter > weapon.attacks.Count)
             {
-                comboCounter = 0;
+                comboCounter = 1;
             }
             string animName = "combo_" + comboCounter;
-            anim.Play("combo_" + comboCounter);
-            //animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true, fadeAnim);
-            lastAttack = weapon.attacks[comboCounter];
+            anim.Play(animName);
+            //animatorHandler.PlayTargetAnimation(weapon.attacks[comboCounter], true, fadeAnim);            
+            lastAttack = weapon.attacks[comboCounter-1];
         }
         else
         {

@@ -147,7 +147,7 @@ public class AnimatorHandler : MonoBehaviour
 
         foreach (var item in _enemiesInFront)
         {
-            if(PlayerPassives.instance.damageBonus > 0)
+            if(FindObjectOfType<PlayerPassives>() && PlayerPassives.instance.damageBonus > 0)
             {
                 item.GetComponent<TakeDamage>().TakeDamageToHealth(pl.damage + (pl.damage * PlayerPassives.instance.damageBonus) * dmgMultiplier, pl.gameObject);
             }
