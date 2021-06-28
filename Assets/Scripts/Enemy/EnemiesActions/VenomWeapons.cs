@@ -91,7 +91,7 @@ public class VenomWeapons : GOAPAction
             this.transform.rotation = Quaternion.LookRotation(newDirection);
 
             currEnemy.agent.isStopped = true;
-            currEnemy.anim.Play("Attack");            
+            currEnemy.anim.Play("Cast1");            
             foreach (var item in buffEnemies)
             {
                 if(!item.buffs.ContainsKey("Venom"))

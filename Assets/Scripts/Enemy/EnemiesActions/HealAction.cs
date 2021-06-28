@@ -53,7 +53,7 @@ public class HealAction : GOAPAction
         if (currEnemy.stamina >= (cost) && !currEnemy.isDisable)
         {
             currEnemy.agent.isStopped = true;
-            //currEnemy.anim.Play("Attack");
+            currEnemy.anim.Play("Cast");
             float damage = currEnemy.config.dmg;
             var _tar = target.GetComponent<TakeDamage>();
             _tar.Heal(_tar.maxHealth / damage);

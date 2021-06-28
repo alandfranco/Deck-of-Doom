@@ -298,6 +298,7 @@ public abstract class Enemy : Entity, IGOAP
             if (teleporTo != null)
             {
                 this.transform.position = teleporTo.position;
+                anim.Play("Cast");
             }
 
             agent.destination = nextAction.target.transform.position;

@@ -59,16 +59,33 @@ public class NecroHand : Skills
 
     void Explode()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 5f + (5 * PlayerPassives.instance.skillAndCardBonus));
-        foreach (var item in hitColliders)
-        {            
-            if(item.GetComponent<Enemy>())
+        if(FindObjectOfType<PlayerPassives>() != null)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 5f + (5 * PlayerPassives.instance.skillAndCardBonus));
+            foreach (var item in hitColliders)
             {
-                item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion + (dmgInExplotion * PlayerPassives.instance.skillAndCardBonus), plM);                
-            }            
+                if (item.GetComponent<Enemy>())
+                {
+                    item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion + (dmgInExplotion * PlayerPassives.instance.skillAndCardBonus), plM);
+                }
+            }
+            ObjectPooler.instance.GetPooledObject(explotion, this.transform.position);
+            Deactivate();
         }
-        ObjectPooler.instance.GetPooledObject(explotion, this.transform.position);
-        Deactivate();
+        else
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 5f);
+            foreach (var item in hitColliders)
+            {
+                if (item.GetComponent<Enemy>())
+                {
+                    item.GetComponent<TakeDamage>().TakeDamageToHealth(dmgInExplotion, plM);
+                }
+            }
+            ObjectPooler.instance.GetPooledObject(explotion, this.transform.position);
+            Deactivate();
+        }
+       
     }
 
     private void OnTriggerEnter(Collider c)
