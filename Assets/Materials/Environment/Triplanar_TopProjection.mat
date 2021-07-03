@@ -44,11 +44,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _topDiffuse:
-        m_Texture: {fileID: 2800000, guid: 46c45d40a6398674b8b55b1ea0dfbcb0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1028a9ab963ee014eb604a527e73c29b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _topNormal:
-        m_Texture: {fileID: 2800000, guid: dfd85fdc22807c84faa4fba6bdf78636, type: 3}
+        m_Texture: {fileID: 2800000, guid: 047414cbd2e318e41a7d1557a27d36c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -60,6 +60,6 @@ Material:
     - _topStochastic: 1
     - _verticalOffset: 1
     m_Colors:
-    - _albedoTint: {r: 0, g: 0.088574216, b: 0.7735849, a: 0}
-    - _diffuseTint: {r: 0.3167542, g: 0.2713154, b: 0.8584906, a: 0}
+    - _albedoTint: {r: 1, g: 1, b: 1, a: 0}
+    - _diffuseTint: {r: 0.4695781, g: 0.4716981, b: 0.3671235, a: 0}
   m_BuildTextureStacks: []
