@@ -15,6 +15,9 @@ public class AnimatorHandler : MonoBehaviour
 
     PlayerAttacker pl;
 
+    public bool spamedClick;
+    public int clicksCount;
+
     public void Initialize()
     {
         playerManager = GetComponentInParent<PlayerManager>();
@@ -88,6 +91,13 @@ public class AnimatorHandler : MonoBehaviour
 
         anim.SetFloat(vertical, v, 0.1f, Time.deltaTime);
         anim.SetFloat(horizontal, h, 0.1f, Time.deltaTime);
+
+        if(!anim.GetBool("canDoCombo") && Input.GetMouseButtonDown(0))
+        {
+            clicksCount++;
+            if (clicksCount > 2)
+                spamedClick = true;
+        }
     }
 
     public void PlayTargetAnimation(string targetAnim, bool isInteracting, float fade)
@@ -111,13 +121,27 @@ public class AnimatorHandler : MonoBehaviour
     public void EnableCombo()
     {
         //anim.SetBool("isInteracting", false);
-        anim.SetBool("canDoCombo", true);
+        if(!spamedClick)
+            anim.SetBool("canDoCombo", true);
     }
 
     public void DisableCombo()
     {
-        //anim.SetBool("isInteracting", false);
+        //anim.SetBool("isInteracting", false);        
         anim.SetBool("canDoCombo", false);
+    }
+
+    public void ResetThings()
+    {
+        anim.SetBool("canDoCombo", false);
+        clicksCount = 0;
+        spamedClick = false;
+    }
+
+    public void SetReturning(int i)
+    {
+        if (i == 0) anim.SetBool("isReturning", false);
+        if (i == 1) anim.SetBool("isReturning", true);
     }
 
     private void OnAnimatorMove()

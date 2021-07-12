@@ -21,9 +21,9 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
       rotation in copied configuration does not match rotation in animation file:\n\t'shin.L'
-      : rotation error = 24.380257 deg\n\t'heelAux.L' : rotation error = 23.515757
+      : rotation error = 24.380259 deg\n\t'heelAux.L' : rotation error = 23.515757
       deg\n\t'shin.R' : rotation error = 24.887207 deg\n\t'heelAux.R' : rotation
-      error = 41.658104 deg\n"
+      error = 41.658112 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Scene' has import animation warnings that might
       lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
@@ -73,6 +73,27 @@ ModelImporter:
       events:
       - time: 0.29955947
         functionName: DisableCombo
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.88297874
+        functionName: ResetThings
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: SetReturning
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.9811321
+        functionName: SetReturning
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

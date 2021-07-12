@@ -129,7 +129,8 @@ public class InputHandler : MonoBehaviour
         //Right Handed
         if (lightAttack_Input)
         {
-            
+            if (animHandler.anim.GetBool("isReturning") && !playerManager.canDoCombo)
+                return;
             if (playerManager.canDoCombo)
             {
                 comboFlag = true;

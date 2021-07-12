@@ -69,9 +69,12 @@ public class PlayerManager : Entity
         OnWorldCanvas.gameObject.SetActive(false);
         //potionUI.SetActive(false);
         shieldEffect.SetActive(false);
-        string path = "Potion/" + PlayerPassives.instance.potion.title;
-        potion = Instantiate(Resources.Load<GameObject>(path), potionPos);
-        potion.transform.position = potionPos.position;
+        if(FindObjectOfType<PlayerPassives>())
+        {
+            string path = "Potion/" + PlayerPassives.instance.potion.title;
+            potion = Instantiate(Resources.Load<GameObject>(path), potionPos);
+            potion.transform.position = potionPos.position;
+        }
     }
 
     void Update()
