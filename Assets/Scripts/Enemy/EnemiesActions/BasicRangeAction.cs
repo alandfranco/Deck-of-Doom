@@ -65,7 +65,7 @@ public class BasicRangeAction : GOAPAction
             var bullet = ObjectPooler.instance.GetPooledObject(bulletPrefab, currEnemy.weapon.transform.position);
             bullet.SetActive(true);
             bullet.transform.position = currEnemy.weapon.transform.position;
-            bullet.transform.LookAt(target.transform);
+            bullet.transform.LookAt(target.transform.position + new Vector3(0, 1.5f, 0));
 
             bullet.GetComponent<EnemyBullet>().speed = bulletSpeed;
             bullet.GetComponent<EnemyBullet>().damage = damage;

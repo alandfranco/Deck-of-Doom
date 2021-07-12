@@ -42,5 +42,5 @@ Material:
     m_Colors:
     - _edgeColor: {r: 0, g: 2.9490197, b: 8, a: 0}
     - _objectPosition: {r: 1, g: 1, b: 1, a: 1}
-    - _sphereMaskCenter: {r: -46.561226, g: 1.0971789, b: -8.613923, a: 0}
+    - _sphereMaskCenter: {r: -54.215897, g: 1.0956897, b: -5.872564, a: 0}
   m_BuildTextureStacks: []
