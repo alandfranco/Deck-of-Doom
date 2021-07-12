@@ -13,6 +13,8 @@ public class PlayerPassives : MonoBehaviour
     public float staminaBonus;
     public float skillAndCardBonus;
     public float cooldownBonus;
+
+    public Potion potion;
     
     private void Awake()
     {

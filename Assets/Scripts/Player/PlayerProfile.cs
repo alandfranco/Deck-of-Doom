@@ -23,7 +23,7 @@ public class PlayerProfile : MonoBehaviour, ISaveable
     public Text pointsText;
 
     [SerializeField] public List<int> passivesSkills = new List<int>();
-    public List<PlayerSkill> skills = new List<PlayerSkill>(); 
+    public List<PlayerSkill> skills = new List<PlayerSkill>();
 
     private void Awake()
     {

@@ -37,6 +37,7 @@ public class NecroHand : Skills
     {   
         Activate();
         target = targetPoint.transform.position;
+        this.gameObject.transform.position = pl.transform.position;
     }
 
     public override void Skill()

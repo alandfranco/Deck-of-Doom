@@ -67,8 +67,11 @@ public class PlayerManager : Entity
         staminaBardelay.fillAmount = 1;
         healthBar.fillAmount = 1;
         OnWorldCanvas.gameObject.SetActive(false);
-        potionUI.SetActive(false);
+        //potionUI.SetActive(false);
         shieldEffect.SetActive(false);
+        string path = "Potion/" + PlayerPassives.instance.potion.title;
+        potion = Instantiate(Resources.Load<GameObject>(path), potionPos);
+        potion.transform.position = potionPos.position;
     }
 
     void Update()
@@ -137,7 +140,7 @@ public class PlayerManager : Entity
     public void UsePotion()
     {
         if(potion != null)
-        {
+        {            
             potion.TryGetComponent<Potion>(out var pot);
             pot.TriggerPotion();
             if (pot.duration > 0)

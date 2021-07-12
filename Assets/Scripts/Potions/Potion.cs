@@ -10,12 +10,13 @@ public abstract class Potion : MonoBehaviour
     public MyFloatEvent OnPotionUse = new MyFloatEvent();
     [Header("Potion Info")]
     public string title;
+    [TextArea(3, 10)] public string description;
     public Sprite icon;
 
     public Image potIcon;
     public Image potFill;
 
-    private bool canUse = false;
+    private bool canUse = true;
 
     public GameObject visual;
 
@@ -51,8 +52,10 @@ public abstract class Potion : MonoBehaviour
 
     public void TriggerPotion()
     {
+        Debug.Log("Entre pocion");
         if (canUse)
         {
+            Debug.Log("Use pocion");
             //OnPotionUse.Invoke(cooldownTime);
             currentDuration = duration;
             PotionEffect();
@@ -74,7 +77,7 @@ public abstract class Potion : MonoBehaviour
         {
             potIcon.sprite = icon;
             potFill.fillAmount = 0;
-        }        
+        }
     }
 
     protected virtual void LateUpdate()
