@@ -32,11 +32,7 @@ public sealed class GOAPAgent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {        
-		stateMachine.Update (this.gameObject);
-        foreach (var item in availableActions)
-        {
-           // Debug.Log(item);
-        }
+		stateMachine.Update (this.gameObject);        
 	}
 
 	public void addAction(GOAPAction action){

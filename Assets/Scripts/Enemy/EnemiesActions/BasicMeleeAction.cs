@@ -42,7 +42,7 @@ public class BasicMeleeAction : GOAPAction
 
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
-        target = player;
+        target = EnemiesManager.instance.GetTarget();
         if (this.GetComponent<Enemy>().isDisable)
         {
             target = null;
