@@ -42,5 +42,5 @@ Material:
     - _radiusNoiseOffset: 0.001
     m_Colors:
     - _edgeColor: {r: 0, g: 8, b: 1.8196079, a: 0}
-    - _sphereMaskCenter: {r: 11.099971, g: 1.0959752, b: -37.186592, a: 0}
+    - _sphereMaskCenter: {r: -24.660685, g: 1.0965354, b: -5.1023498, a: 0}
   m_BuildTextureStacks: []
